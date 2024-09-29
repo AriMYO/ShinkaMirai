@@ -37,6 +37,7 @@ body {
   margin: 10px;
   margin-bottom: 20px;
   transition: background-color 0.3s ease-in-out;
+  max-width: 400p;
 }
 
 .button span {
@@ -52,8 +53,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 0px 20px rgba(8, 2, 1, 0.7),
-    -20px 0px 40px rgba(8, 2, 1, 0.7);
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.4),
+    -10px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .contact {
