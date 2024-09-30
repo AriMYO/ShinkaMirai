@@ -1,16 +1,18 @@
+function verificarRespuesta(button) {
+    // Obtener todas las opciones
+    const botones = document.querySelectorAll("button[name='q1']");
+    
+    // Limpiar todos los botones antes de aplicar estilos
+    botones.forEach(btn => {
+        btn.classList.remove('correcto', 'incorrecto');
+    });
 
-        function calcularResultado() {
-            let correctas = 0;
-
-            // Verificar las respuestas correctas
-            if (document.querySelector('button[name="q1"]:checked').value === "correcto") {
-                correctas++;
-            }
-           
-
-            // Mostrar el resultado
-            let resultadoDiv = document.getElementById("resultado");
-            resultadoDiv.style.display = "block";
-            resultadoDiv.innerHTML = "Respuestas correctas: " + correctas + " de 3";
-        }
-  
+    // Verificar si la respuesta es correcta o incorrecta
+    if (button.value === "correcto") {
+        button.classList.add('correcto');
+        document.getElementById('mensaje1').textContent = "¡Es correcto!";
+    } else {
+        button.classList.add('incorrecto');
+        document.getElementById('mensaje1').textContent = "Respuesta incorrecta.";
+    }
+} 
