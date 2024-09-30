@@ -88,18 +88,34 @@ body {
 }
 
 .correcto {
-  background-color: rgb(5, 105, 5);
+  background-color: green;
   color: black;
 }
 
 .incorrecto {
-  background-color: rgb(222, 51, 51);
+  background-color: red;
   color: white;
 }
 
 .mensaje {
   font-weight: bold;
   margin-top: 10px;
-  color: rgb(9, 9, 9);
+  color: black;
+  display: inline-block;
+  width: 100%;
+}
+#continuar {
+  display: none;
+  float: right;
+  margin-left: 10px;
+  background-color: #151340;
+  color: white;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 12px;
+  max-width: 400px;
 }
 
