@@ -1,0 +1,107 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #09173c;
+    color: white;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121d47;
+    padding: 15px 30px;
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #f7941d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .buttons .login {
+    background-color: transparent;
+    border: 2px solid #f7941d;
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #121d47;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+  }
+  
+  .hero h1 span {
+    color: #f7941d;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  
+  .start-learning {
+    padding: 15px 30px;
+    background-color: #17c77f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  /* Features Section */
+  .features {
+    text-align: center;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #0d244a;
+  }
+
+  
+  /* Game Section */
+  .game {
+    text-align: center;
+    padding: 50px;
+    background-color: #91d7f2;
+    color: black;
+  }
+  
+  .play-game {
+    padding: 15px 30px;
+    background-color: #121d47;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  
