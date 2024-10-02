@@ -14,10 +14,9 @@
     <h1>Preguntas JavaScript:</h1>
 
     <div class="question">
-      <h2>
-        1. ¿Cuál es la forma correcta de mostrar algo en la consola en
-        JavaScript?
-      </h2>
+      <h2>10. ¿Cómo se llama una función anónima en JavaScript?
+
+    </h2>
       <button
         class="button"
         type="button"
@@ -25,16 +24,7 @@
         value="incorrecto"
         onclick="verificarRespuesta(this)"
       >
-        <span>A. log.console("Hola Mundo") </span>
-      </button>
-      <button
-        class="button"
-        type="button"
-        name="q1"
-        value="incorrecto"
-        onclick="verificarRespuesta(this)"
-      >
-        <span>B. console.log("Hola Mundo")</span>
+        <span>A. ( )</span>
       </button>
       <button
         class="button"
@@ -43,18 +33,31 @@
         value="correcto"
         onclick="verificarRespuesta(this)"
       >
-        <span>C. print("Hola Mundo")</span>
+        <span>B. function ( )</span>
+      </button>
+      <button
+        class="button"
+        type="button"
+        name="q1"
+        value="incorrecto"
+        onclick="verificarRespuesta(this)"
+      >
+        <span>C. { } function</span>
       </button>
 
       <div id="mensaje1" class="mensaje">
         <span id="texto-mensaje"></span>
-        <button id="continuar" class="continuar" style="display: none" onclick="location.href= 'js_questions2.html'">
+        <button
+          id="continuar"
+          class="continuar"
+          style="display: none"
+          onclick="location.href= '/Client/pages/Home/congratulations.html'"
+        >
           Continuar
         </button>
       </div>
     </div>
 
     <img src="/Client/Images/G_Aprende.png" />
-   
   </body>
 </html>
