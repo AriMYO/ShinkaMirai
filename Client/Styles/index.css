@@ -1,0 +1,151 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #151340;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #151340;
+  padding: 0.5rem;
+  height: 3rem;
+  border-bottom-color: white;
+  border: 1px solid whitesmoke;
+}
+
+.navbar .logo {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.navbar nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.buttons button {
+  padding: 0.2rem 0.5rem;
+  background-color: #f7941d;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.buttons .login {
+  background-color: transparent;
+  border: 2px solid #f7941d;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background-color: #151340;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.hero h1 span {
+  color: #f7941d;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.image-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.start-learning {
+  padding: 0.5rem 1rem;
+  background-color: #17c77f;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 20px;
+}
+
+.hero img {
+  animation: bounce 1s infinite;
+  height: 250px;
+  width: 250px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Features Section */
+.features {
+  text-align: center;
+  padding: 2rem;
+  background-color: #151340;
+}
+
+/* Game Section */
+.game {
+  text-align: center;
+  padding: 2rem;
+  background-color: #80ddf2;
+  color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.game img {
+  object-fit: cover;
+  padding-left: 2rem;
+}
+
+.play-game {
+  padding: 0.5rem 1rem;
+  background-color: #151340;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: auto;
+}
