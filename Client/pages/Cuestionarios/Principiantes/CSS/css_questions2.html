@@ -12,27 +12,18 @@
   </head>
 
   <body>
-    <h1>Preguntas HTML:</h1>
+    <h1>Preguntas CSS:</h1>
 
     <div class="question">
-      <h2>1. ¿Qué significa HTML?</h2>
-
+      <h2>2. ¿Qué propiedad CSS se utiliza para cambiar el color de fondo de un elemento?</h2>
       <button
         class="button"
         type="button"
         name="q1"
         value="incorrecto"
-        onclick="verificarRespuesta(this)">
-        <span>A. Hightext Markup Language</span>
-      </button>
-
-      <button
-        class="button"
-        type="button"
-        name="q1"
-        value="incorrecto"
-        onclick="verificarRespuesta(this)">
-        <span>B. Hypertext Markup Link</span>
+        onclick="verificarRespuesta(this)"
+      >
+        <span>A. color</span>
       </button>
 
       <button
@@ -41,16 +32,24 @@
         name="q1"
         value="correcto"
         onclick="verificarRespuesta(this)">
-        <span>C. Hypertext Markup Language</span>
+        <span>B. background-color</span>
+      </button>
+
+      <button
+        class="button"
+        type="button"
+        name="q1"
+        value="incorrecto"
+        onclick="verificarRespuesta(this)">
+        <span>C. background</span>
       </button>
 
       <div id="mensaje1" class="mensaje">
         <span id="texto-mensaje"></span>
-        <button 
-        id="continuar" 
+        <button id="continuar" 
         class="continuar" 
         style="display: none"
-        onclick="location.href= 'html_questions2.html'">
+        onclick="location.href= 'css_questions3.html'">
           Continuar
         </button>
       </div>
