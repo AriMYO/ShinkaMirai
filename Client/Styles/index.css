@@ -1,35 +1,64 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #151340;
-  color: white;
+  font-family: "Open Sans", sans-serif; /* Cambiado a una fuente más moderna */
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    black,
+    #0e1b0e
+  ); /* Degradado futurista */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Navbar */
+/* seccion de la barra de navegacion */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #151340;
-  padding: 0.5rem;
+  background-color: transparent;
+  padding: 1rem;
+}
+
+.navbar .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo-container img {
   height: 3rem;
-  border-bottom-color: white;
-  border: 1px solid whitesmoke;
+  width: auto;
+  margin-right: 0.5rem;
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px); /* Ajustado para un movimiento más sutil */
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .navbar .logo {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-right: 1rem;
+  color: whitesmoke;
+}
+
+.navbar img {
+  height: 2.5rem;
+  width: auto;
 }
 
 .navbar nav ul {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
@@ -37,7 +66,8 @@ body {
 .navbar nav ul li a {
   color: white;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
 .buttons {
@@ -46,106 +76,238 @@ body {
 }
 
 .buttons button {
-  padding: 0.2rem 0.5rem;
-  background-color: #f7941d;
-  color: white;
+  padding: 0.5rem 1rem;
+  background-color: whitesmoke;
+  color: black;
+  font-weight: bold;
   border: none;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: grey;
 }
 
 .buttons .login {
-  background-color: transparent;
-  border: 2px solid #f7941d;
+  background-color: whitesmoke;
+  color: black;
 }
 
-/* Hero Section */
+.buttons .login:hover {
+  background-color: grey;
+  color: black;
+}
+
+/* seccion de aprenndisaje*/
 .hero {
   text-align: center;
-  padding: 2rem;
-  background-color: #151340;
+  padding: 3rem;
+  background-color: transparent;
+  color: whitesmoke;
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .hero h1 span {
-  color: #f7941d;
+  color: #00ff00;
 }
 
 .hero p {
-  font-size: 1rem;
-  margin: 1rem 0;
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #c4c8ce;
 }
 
-.image-button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+.hero h2 {
+  color: #c4c8ce;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  font-weight: bold;
+}
+.hero input {
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-size: 1rem;
 }
 
 .start-learning {
-  padding: 0.5rem 1rem;
-  background-color: #17c77f;
-  color: white;
-  border: none;
+  padding: 0.7rem 1.5rem;
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+  border: 1px solid black;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-left: 20px;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
 }
 
-.hero img {
-  animation: bounce 1s infinite;
-  height: 250px;
-  width: 250px;
+.start-learning:hover {
+  background-color: gray;
 }
 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* Features Section */
-.features {
+/* seccion de las areas de aprendizaje */
+.learning-areas {
   text-align: center;
-  padding: 2rem;
-  background-color: #151340;
+  max-width: max-content;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 90px;
 }
 
-/* Game Section */
-.game {
+.learning-areas h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2rem;  
+  font-family: Play, sans-serif;
   text-align: center;
-  padding: 2rem;
-  background-color: #80ddf2;
-  color: black;
+}
+
+.area-cards {
+  display: grid; /* Cambiado a grid para un diseño más controlado */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.area-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+.area-card:hover {
+  transform: translateY(-3px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+}
+
+.area-card span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.area-card h3 {
+  font-size: 18px;
+  margin: 0;
+  color: white;
+  font-weight: normal;
+  text-align: center;
+  font-family: Play, sans-serif;
+}
+
+/* seccion de las ventajas de aprender con nosotros */
+.authority-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3rem;
+  color: white;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 900px; /* Limitar el ancho del texto */
+}
+
+.text-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white; /* Color del título */
+}
+
+.text-content ul {
+  list-style-type: none; /* Sin viñetas */
+  padding: 0;
+}
+
+.text-content li {
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 1.2rem;
+  padding-left: 40px; /* Espacio para el icono */
+  color: #c4c8ce;
+  margin: 1rem;
+}
+
+.text-content li::before {
+  content: "✅"; /* Icono de verificación */
+  position: absolute;
+  left: 0;
+}
+
+.image-content {
+  flex: 1;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.game img {
-  object-fit: cover;
-  padding-left: 2rem;
 }
 
-.play-game {
-  padding: 0.5rem 1rem;
-  background-color: #151340;
+.image-content img {
+  max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+  height: 100%; /* Mantiene la proporción de la imagen */
+}
+
+/* seccion de los planes de pago */
+.pricing-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #2a2a2a;
   color: white;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
+}
+
+.pricing-section h2 {
+  margin-bottom: 30px;
+  color: white;
+}
+.plan-card ul li {
+  text-align: left;
   font-size: 1rem;
-  padding: auto;
+  margin-top: 10px;
+}
+
+.plan-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.plan-card {
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  border: 1px solid whitesmoke;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.subscribe-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: greenyellow;
+  color: black;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
 }
