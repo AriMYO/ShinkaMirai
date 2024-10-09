@@ -1,7 +1,7 @@
 function verificarRespuesta(button) {
   // Obtener todas las opciones
   const botones = document.querySelectorAll("button[name='q1']");
-  
+
   // Limpiar todos los botones antes de aplicar estilos
   botones.forEach(btn => {
     btn.classList.remove('correcto', 'incorrecto');
@@ -19,9 +19,9 @@ function verificarRespuesta(button) {
   }
 }
 const paises = [
-  {codigo: "AR", nombre: "Argentina"},
-  {codigo: "BO", nombre: "Bolivia"},
-  {codigo: "CL", nombre: "Perú"},
+  { codigo: "AR", nombre: "Argentina" },
+  { codigo: "BO", nombre: "Bolivia" },
+  { codigo: "CL", nombre: "Perú" },
   // añadimos el resto de los países aquí
 ];
 
@@ -33,3 +33,16 @@ paises.forEach(pais => {
   option.textContent = pais.nombre;
   selectPais.appendChild(option);
 });
+
+function formatCardNumber(input) {
+  input.value = input.value
+    .replace(/\D/g, "")
+    .replace(/(\d{4})(?=\d)/g, "$1 ")
+    .trim();
+}
+
+function formatDate(input) {
+  input.value = input.value
+    .replace(/\D/g, "")
+    .replace(/(\d{2})(\d)/, "$1/$2");
+}
