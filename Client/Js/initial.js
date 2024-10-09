@@ -18,3 +18,18 @@ function verificarRespuesta(button) {
     document.getElementById('continuar').style.display = 'none';
   }
 }
+const paises = [
+  {codigo: "AR", nombre: "Argentina"},
+  {codigo: "BO", nombre: "Bolivia"},
+  {codigo: "CL", nombre: "Perú"},
+  // añadimos el resto de los países aquí
+];
+
+const selectPais = document.getElementById('pais');
+
+paises.forEach(pais => {
+  const option = document.createElement('option');
+  option.value = pais.codigo;
+  option.textContent = pais.nombre;
+  selectPais.appendChild(option);
+});

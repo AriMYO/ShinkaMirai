@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+    <link rel="stylesheet" href="/Client/Styles/pago.css">
+    
+</head>
+<body>
+    <div class="payment-form">
+        <div class="payment-icons">
+            <img src="ruta/a/visa.png" alt="Visa">
+            <img src="ruta/a/mastercard.png" alt="MasterCard">
+            <img src="ruta/a/amex.png" alt="American Express">
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Ejemplo: Guimarbotcito">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" placeholder="Ej.: Guimarbotcito@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="Ejemplo: +51 987 654 321">
+            </div>
+            <div class="form-group">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" id="ciudad" placeholder="Ejemplo: Lima">
+            </div>
+            <div class="form-group">
+                <label for="pais">País</label>
+                <select id="pais">
+                    <option value="">Seleccionar país</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tarjeta">Tarjeta de crédito o débito</label>
+                <div class="card-input">
+                    <input type="text" id="tarjeta" placeholder="Número de tarjeta">
+                    <input type="text" placeholder="MM / AA">
+                    <input type="text" placeholder="CVC">
+                </div>
+            </div>
+            <button type="submit" class="submit-button">Realizar pago</button>
+        </form>
+    </div>
+    <script src="/Client/Js/initial.js"></script>
+</body>
+</html>
