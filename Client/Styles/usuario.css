@@ -7,111 +7,140 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f5;
-  }
-  
-  .login-container {
+    background-color: #e0e0e5; /* Fondo más claro para mayor contraste */
+}
+
+.login-container {
     display: flex;
-    width: 80%;
-    max-width: 1200px;
-    height: 70vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 950px; /* Ancho fijo para el contenedor */
+    height: auto; /* Permitir que la altura se ajuste automáticamente */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para que no se salgan los bordes */
     background-color: white;
-  }
-  
-  /* Estilos de la sección izquierda */
-  .image-section {
+}
+
+/* Estilos de la sección izquierda */
+.image-section {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #151340;
+    background-color: #151340; /* Color oscuro para contraste */
     color: white;
-  }
-  
-  .profile-image {
-    width: 60%;
+    padding: 20px; /* Espaciado interno */
+}
+
+.profile-image {
+    width: 50%; /* Reducir el tamaño de la imagen */
     border-radius: 50%;
     margin-bottom: 20px;
-  }
-  
-  /* Estilos de la sección derecha */
-  .login-section {
+    border: 4px solid #ffffff; /* Borde blanco alrededor de la imagen */
+}
+
+/* Estilos de la sección derecha */
+.login-section {
     flex: 1;
-    padding: 40px;
+    padding: 20px; /* Reducir el padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  form {
+    background-color: #f9f9f9; /* Fondo claro para la sección de login */
+}
+
+h1 {
+    margin-bottom: 15px; /* Reducir el margen inferior */
+    color: #151340; /* Color del título */
+    text-align: center; /* Centrar el título */
+}
+
+form {
     display: flex;
     flex-direction: column;
-  }
-  
-  label {
+}
+
+label {
     margin-top: 10px;
     font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"] {
-    padding: 10px;
+    color: #333; /* Color del texto de las etiquetas */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"], /* Añadido para el nuevo campo de contraseña */
+select {
+    padding: 10px; /* Aumentar el padding para mayor comodidad */
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-  }
-  
-  .forgot-password {
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus, /* Añadido para el nuevo campo de contraseña */
+select:focus {
+    border-color: #151340; /* Color del borde al enfocar */
+    outline: none; /* Sin contorno */
+}
+
+.forgot-password {
     color: #007bff;
     text-decoration: none;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reducir el margen inferior */
     font-size: 14px;
-  }
-  
-  .btn-login {
-    padding: 10px;
+    text-align: center; /* Centrar el enlace */
+    display: flex;
+}
+
+.btn-login {
+    padding: 10px; /* Aumentar el padding para mayor comodidad */
     background-color: #151340;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos de los botones de redes sociales */
-  .social-login {
+    margin-bottom: 15px; /* Reducir el margen inferior */
+    transition: background-color 0.3s; /* Transición suave para el botón */
+}
+
+.btn-login:hover {
+    background-color: #0e0e2c; /* Color más oscuro al pasar el ratón */
+}
+
+/* Estilos de los botones de redes sociales */
+.social-login {
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-  
-  .social-login button {
-    padding: 10px;
+}
+
+.social-login button {
+    padding: 10px; /* Aumentar el padding para mayor comodidad */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-  }
-  
-  .btn-google {
+    transition: transform 0.2s; /* Transición suave para el botón */
+}
+
+.social-login button:hover {
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el ratón */
+}
+
+.btn-google {
     background-color: #db4437;
     color: white;
-  }
-  
-  .btn-facebook {
+}
+
+.btn-facebook {
     background-color: #3b5998;
     color: white;
-  }
-  
-  .btn-apple {
+}
+
+.btn-apple {
     background-color: #000000;
     color: white;
-  }
-  
+}
