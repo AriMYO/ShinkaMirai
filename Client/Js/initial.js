@@ -24,7 +24,15 @@ const paises = [
   { codigo: "CL", nombre: "Perú" },
   // añadimos el resto de los países aquí
 ];
+//selector para la edad
+document.getElementById('edad').addEventListener('input', function (e) {
+  let value = e.target.value.replace(/\D/g, ''); // Eliminar caracteres no numéricos
+  if (value.length > 2) value = value.slice(0, 2) + '/' + value.slice(2);
+  if (value.length > 5) value = value.slice(0, 5) + '/' + value.slice(5);
+  e.target.value = value;
+});
 
+ // seleccionar para la tarjeta de credito
 const selectPais = document.getElementById('pais');
 
 paises.forEach(pais => {

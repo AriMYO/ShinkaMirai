@@ -1,146 +1,152 @@
-/* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e0e0e5; /* Fondo más claro para mayor contraste */
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/Client/Images/fondo.jpeg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 .login-container {
-    display: flex;
-    width: 950px; /* Ancho fijo para el contenedor */
-    height: auto; /* Permitir que la altura se ajuste automáticamente */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Para que no se salgan los bordes */
-    background-color: white;
+  display: flex;
+  width: 900px; /* Ancho del contenedor */
+  height: auto; /* Permitir que la altura se ajuste automáticamente */
+  border-radius: 20px; /* Bordes redondeados */
+  background: rgba(30, 30, 30, 0.9); /* Fondo oscuro con transparencia */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5),
+    /* Sombra inferior */ 0 0 20px rgba(0, 255, 255, 0.5); /* Sombra cian para el efecto 3D */
+  border: none;
+  position: relative; /* Para el efecto de pseudo-elemento */
 }
 
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* Ajustar según sea necesario */
+  left: -2px; /* Ajustar según sea necesario */
+  right: -2px; /* Ajustar según sea necesario */
+  bottom: -2px; /* Ajustar según sea necesario */
+  border-radius: 20px; /* Bordes redondeados */
+  border: none;
+  z-index: -1; /* Colocar detrás del contenedor */
+}
 /* Estilos de la sección izquierda */
 .image-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #151340; /* Color oscuro para contraste */
-    color: white;
-    padding: 20px; /* Espaciado interno */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px; /* Espaciado interno */
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+  border-radius: 10px; /* Bordes redondeados */
+  border-right: 1px solid #00ffff;
+
 }
 
 .profile-image {
-    width: 50%; /* Reducir el tamaño de la imagen */
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 4px solid #ffffff; /* Borde blanco alrededor de la imagen */
+  width: 50%; /* Reducir el tamaño de la imagen */
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid #00ffff; /* Borde cian alrededor de la imagen */
 }
 
 /* Estilos de la sección derecha */
 .login-section {
-    flex: 1;
-    padding: 20px; /* Reducir el padding */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #f9f9f9; /* Fondo claro para la sección de login */
+  flex: 1;
+  padding: 20px; /* Reducir el padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Fondo oscuro con un poco de transparencia */
+  border: none;
 }
 
+p {
+  color: white;
+}
+
+a {
+  margin-top: 10px;
+  font-size: 14px;
+}
 h1 {
-    margin-bottom: 15px; /* Reducir el margen inferior */
-    color: #151340; /* Color del título */
-    text-align: center; /* Centrar el título */
+  margin-bottom: 15px; /* Reducir el margen inferior */
+  color: white;
+  text-align: center; /* Centrar el título */
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333; /* Color del texto de las etiquetas */
+  margin-top: 10px;
+  font-weight: bold;
+  color: white; /* Color del texto de las etiquetas */
 }
 
 input[type="text"],
 input[type="email"],
-input[type="password"], /* Añadido para el nuevo campo de contraseña */
+input[type="password"],
 select {
-    padding: 10px; /* Aumentar el padding para mayor comodidad */
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s; /* Transición suave para el borde */
+  padding: 10px; /* Aumentar el padding para mayor comodidad */
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(0, 255, 255, 0.1); /* Fondo claro con transparencia */
+  color: #fff; /* Texto blanco */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus, /* Añadido para el nuevo campo de contraseña */
+input[type="password"]:focus,
 select:focus {
-    border-color: #151340; /* Color del borde al enfocar */
-    outline: none; /* Sin contorno */
-}
-
-.forgot-password {
-    color: #007bff;
-    text-decoration: none;
-    margin-top: 10px;
-    margin-bottom: 15px; /* Reducir el margen inferior */
-    font-size: 14px;
-    text-align: center; /* Centrar el enlace */
-    display: flex;
+  border-color: transparent; /* Color del borde al enfocar */
+  outline: none; /* Sin contorno */
 }
 
 .btn-login {
-    padding: 10px; /* Aumentar el padding para mayor comodidad */
-    background-color: #151340;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px; /* Reducir el margen inferior */
-    transition: background-color 0.3s; /* Transición suave para el botón */
+  padding: 10px; /* Aumentar el padding para mayor comodidad */
+  background-color: #00ffff; /* Fondo cian */
+  color: black; /* Texto negro */
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 25px; /* Espaciado superior */
+  border-radius: 20px;
+  transition: background-color 0.3s; /* Transición suave para el botón */
 }
 
 .btn-login:hover {
-    background-color: #0e0e2c; /* Color más oscuro al pasar el ratón */
+  background-color: #00cccc; /* Color más oscuro al pasar el ratón */
+  box-shadow: 0 0 10px #00ffff; /* Sombra al pasar el ratón */
 }
 
 /* Estilos de los botones de redes sociales */
 .social-login {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .social-login button {
-    padding: 10px; /* Aumentar el padding para mayor comodidad */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: transform 0.2s; /* Transición suave para el botón */
-}
-
-.social-login button:hover {
-    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el ratón */
-}
-
-.btn-google {
-    background-color: #db4437;
-    color: white;
-}
-
-.btn-facebook {
-    background-color: #3b5998;
-    color: white;
-}
-
-.btn-apple {
-    background-color: #000000;
-    color: white;
+  padding: 10px; /* Aumentar el padding para mayor comodidad */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: transform 0.2s; /* Transición suave para el botón */
+  background-color: rgb(173, 162, 162); /* Fondo verde neón */
+  color: black; /* Texto negro para contraste */
 }
