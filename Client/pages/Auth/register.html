@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/Client/Styles/usuario.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Iniciar Sesión</title>
   </head>
   <body>
@@ -21,7 +21,7 @@
 
       <!-- Parte derecha: Formulario de inicio de sesión -->
       <div class="login-section">
-        <h1>Iniciar Sesión</h1>
+        <h1>Registrarse</h1>
         <form method="post">
           <!-- Elimina el atributo action -->
           <label for="nombre">Nombre</label>
@@ -52,27 +52,35 @@
           />
 
           <label for="edad">Edad</label>
-          <select id="edad" name="edad" required>
-            <option value="" disabled selected>
-              Selecciona su edad por favor
-            </option>
-            <option value="6">6 a 12 años</option>
-            <option value="13">13 a 17 años</option>
-            <option value="18">18 años o más</option>
-          </select>
-
-          <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-
-          <button type="submit" class="btn-login">Iniciar Sesión</button>
+          <input
+            type="text"
+            id="edad"
+            name="edad"
+            placeholder="Ingresa tu edad"
+            required
+            maxlength="10"
+          />
+          <button type="submit" class="btn-login">Registrarse</button>
+          <button
+            type="submit"
+            class="btn-login"
+            style="background-color: cadetblue;"
+            
+            ,
+            onclick="location.href='/Client/pages/Auth/login.html'"
+          >
+            Ya tengo una cuenta
+          </button>
         </form>
 
-        <p>O inicia sesión con:</p>
+        <p>O Registrate con:</p>
 
         <div class="social-login">
-          <button class="btn-google">Iniciar con Google</button>
+          <button class="btn-google">Google</button>
         </div>
       </div>
     </div>
     <script src="/Client/Js/server_login.js"></script>
+    <script src="/Client/Js/initial.js"></script>
   </body>
 </html>

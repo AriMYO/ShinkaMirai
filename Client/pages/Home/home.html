@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platzi Clone</title>
+    <link rel="stylesheet" href="/Client/Styles/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <h1>ShinkaMirai</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#">Mis Rutas</a></li>
+            <li><a href="#">Mi progreso</a></li>
+            <li><a href="#">Chat ADA</a></li>
+            <li><a href="#">Notificaciones</a></li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <img
+            src="/Client/Images/Hollow Knight.png"
+            alt="Hollow Knight Logo"
+            class="logo-img"
+          />
+        </div>
+      </aside>
+      <main>
+        <header>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+          </div>
+        </header>
+     
+        <section class="subscription-cta">
+          <div>
+            <p>
+              Suscríbete a un plan y conéctate con nuestra comunidad de
+              profesionales.
+            </p>
+          </div>
+          <button class="sub-btn hollow-btn" onclick="location.href='/index.html'">Ver planes</button>
+        </section>
+        <section class="schools-section">
+          <h2>Descubre las escuelas</h2>
+          <div class="schools-grid">
+            <div class="school-item">
+              <div class="school-icon">🏫</div>
+              <p>Todo</p>
+            </div>
+            <div class="school-item">
+              <div class="school-icon">💻</div>
+              <p>Desarrollo Web</p>
+            </div>
+            <div class="school-item">
+              <div class="school-icon">💼</div>
+              <p>Negocios</p>
+            </div>
+            <div class="school-item">
+              <div class="school-icon">📊</div>
+              <p>Data Science</p>
+            </div>
+            <div class="school-item">
+              <div class="school-icon">🚀</div>
+              <p>Transformación Digital</p>
+            </div>
+            <div class="school-item">
+              <div class="school-icon">🌎</div>
+              <p>English Academy</p>
+            </div>
+          </div>
+        </section>
+        <section class="courses-section">
+          <h2>Cursos recomendados para ti</h2>
+          <div class="courses-grid">
+            <div class="course-card">
+              <img
+                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/placeholder-course.jpg"
+                alt="Curso 1"
+              />
+              <h3>Curso de ejemplo 1</h3>
+              <p>Descripción breve del curso...</p>
+            </div>
+            <div class="course-card">
+              <img
+                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/placeholder-course.jpg"
+                alt="Curso 2"
+              />
+              <h3>Curso de ejemplo 2</h3>
+              <p>Descripción breve del curso...</p>
+            </div>
+            <div class="course-card">
+              <img
+                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/placeholder-course.jpg"
+                alt="Curso 3"
+              />
+              <h3>Curso de ejemplo 3</h3>
+              <p>Descripción breve del curso...</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="/Client/Js/home.js"></script>
+  </body>
+</html>
