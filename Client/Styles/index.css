@@ -1,18 +1,20 @@
 /* General Styles */
 body {
-  font-family: "Open Sans", sans-serif; /* Cambiado a una fuente más moderna */
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    black,
-    #0e1b0e
-  ); /* Degradado futurista */
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* seccion de la barra de navegacion */
+.container-initial {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), /* Ajustado a 0.2 para menos opacidad */
+    url("https://wallpapercave.com/wp/wp7886739.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -169,7 +171,7 @@ body {
 .learning-areas h2 {
   color: white;
   font-size: 2rem;
-  margin-bottom: 2rem;  
+  margin-bottom: 2rem;
   font-family: Play, sans-serif;
   text-align: center;
 }
@@ -213,6 +215,15 @@ body {
 }
 
 /* seccion de las ventajas de aprender con nosotros */
+.container {
+  background-image: url("/Client/Images/fondo_hollow\ knight.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+
 .authority-section {
   display: flex;
   align-items: center;
@@ -252,29 +263,15 @@ body {
   left: 0;
 }
 
-.image-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.image-content img {
-  max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
-  height: 100%; /* Mantiene la proporción de la imagen */
-}
-
 /* seccion de los planes de pago */
-.pricing-section {
-  padding: 50px 20px;
+
+.container-payment {
+  background: linear-gradient(135deg, #1c3541, black, #050505);
   text-align: center;
-  background-color: #2a2a2a;
-  color: white;
+  color: #ffffff;
+  padding: 50px 20px;
 }
 
-.pricing-section h2 {
-  margin-bottom: 30px;
-  color: white;
-}
 .plan-card ul li {
   text-align: left;
   font-size: 1rem;
@@ -306,8 +303,7 @@ body {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: greenyellow;
-  color: black;
   border: none;
-  border-radius: 5px; 
+  border-radius: 5px;
   cursor: pointer;
 }
