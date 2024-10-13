@@ -1,71 +1,87 @@
 /* General Styles */
-body {
-  font-family: "Open Sans", sans-serif;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* seccion de la barra de navegacion */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Container Styles */
+.container-initial, .container, .container-payment {
+  padding: 2rem;
+}
+
 .container-initial {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), /* Ajustado a 0.2 para menos opacidad */
-    url("https://wallpapercave.com/wp/wp7886739.jpg");
+  padding: 0;
+  background-image: linear-gradient(rgba(0,0 , 0, 0.7), rgba(0, 0, 0, 0.5)),
+      url("https://wallpapercave.com/wp/wp7886739.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+.container {
+  background-image: url("/Client/Images/fondo_hollow\ knight.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
+  justify-content: initial;
 }
 
+.container-payment {
+  background: linear-gradient(135deg, #1c3541, black, #050505);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Navbar Styles */
 .navbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
   padding: 1rem;
 }
 
-.navbar .logo-container {
+.logo-container {
   display: flex;
   align-items: center;
 }
 
-.navbar .logo-container img {
+.logo-container img {
   height: 3rem;
   width: auto;
   margin-right: 0.5rem;
   animation: bounce 1.5s infinite;
 }
+
 @keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px); /* Ajustado para un movimiento más sutil */
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: whitesmoke;
 }
 
-.navbar img {
-  height: 2.5rem;
-  width: auto;
-}
-
-.navbar nav ul {
+nav ul {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   gap: 1.5rem;
-  margin: 0;
-  padding: 0;
 }
 
-.navbar nav ul li a {
+nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
@@ -93,26 +109,14 @@ body {
   background-color: grey;
 }
 
-.buttons .login {
-  background-color: whitesmoke;
-  color: black;
-}
-
-.buttons .login:hover {
-  background-color: grey;
-  color: black;
-}
-
-/* seccion de aprenndisaje*/
+/* Hero Section Styles */
 .hero {
   text-align: center;
-  padding: 3rem;
-  background-color: transparent;
-  color: whitesmoke;
+  padding: 2rem 1rem;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
 .hero h1 span {
@@ -120,25 +124,17 @@ body {
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin: 1.5rem 0;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin: 1.5rem auto;
   max-width: 700px;
-  margin: 0 auto;
   color: #c4c8ce;
 }
 
 .hero h2 {
   color: #c4c8ce;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   margin: 1.5rem 0;
   font-weight: bold;
-}
-.hero input {
-  width: 100%;
-  border: none;
-  border-radius: 0.5rem;
-  margin: 1rem 0;
-  font-size: 1rem;
 }
 
 .start-learning {
@@ -150,51 +146,45 @@ body {
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 1.1rem;
-  margin-left: 20px;
   transition: background-color 0.3s;
-  margin-top: 1rem;
 }
 
 .start-learning:hover {
   background-color: gray;
 }
 
-/* seccion de las areas de aprendizaje */
+/* Learning Areas Styles */
 .learning-areas {
   text-align: center;
-  max-width: max-content;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 90px;
+  padding: 2rem 1rem;
 }
 
 .learning-areas h2 {
   color: white;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
   font-family: Play, sans-serif;
-  text-align: center;
 }
 
 .area-cards {
-  display: grid; /* Cambiado a grid para un diseño más controlado */
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-  gap: 20px; /* Espacio entre las tarjetas */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .area-card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 20px;
-  position: relative;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .area-card:hover {
-  transform: translateY(-3px); /* Efecto de elevación al pasar el mouse */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .area-card span {
@@ -207,75 +197,56 @@ body {
 
 .area-card h3 {
   font-size: 18px;
-  margin: 0;
   color: white;
   font-weight: normal;
-  text-align: center;
   font-family: Play, sans-serif;
 }
 
-/* seccion de las ventajas de aprender con nosotros */
-.container {
-  background-image: url("/Client/Images/fondo_hollow\ knight.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 20px;
-}
-
+/* Authority Section Styles */
 .authority-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 3rem;
-  color: white;
+  justify-content: flex-start ;
+  padding: 2rem 1rem;
 }
 
 .text-content {
-  flex: 1;
-  max-width: 900px; /* Limitar el ancho del texto */
+  max-width: 800px;
 }
 
 .text-content h2 {
-  font-size: 24px;
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
   margin-bottom: 20px;
-  color: white; /* Color del título */
+  color: white;
 }
 
 .text-content ul {
-  list-style-type: none; /* Sin viñetas */
-  padding: 0;
+  list-style-type: none;
 }
 
 .text-content li {
   margin-bottom: 10px;
   position: relative;
-  font-size: 1.2rem;
-  padding-left: 40px; /* Espacio para el icono */
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  padding-left: 40px;
   color: #c4c8ce;
-  margin: 1rem;
 }
 
 .text-content li::before {
-  content: "✅"; /* Icono de verificación */
+  content: "✅";
   position: absolute;
   left: 0;
 }
 
-/* seccion de los planes de pago */
-
-.container-payment {
-  background: linear-gradient(135deg, #1c3541, black, #050505);
-  text-align: center;
-  color: #ffffff;
-  padding: 50px 20px;
+/* Pricing Section Styles */
+.pricing-section {
+  padding: 2rem 1rem;
 }
 
-.plan-card ul li {
-  text-align: left;
-  font-size: 1rem;
-  margin-top: 10px;
+.pricing-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .plan-options {
@@ -286,17 +257,36 @@ body {
 }
 
 .plan-card {
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 20px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border: 1px solid whitesmoke;
-  line-height: 1.5;
+}
+
+.plan-card h3 {
+  font-size:  1.5rem;
+  margin-bottom: 1rem;
 }
 
 .price {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
+  margin: 1rem 0;
+}
+
+.plan-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.plan-card ul li {
+  text-align: left;
+  font-size: 1rem;
+  margin-top: 10px;
 }
 
 .subscribe-button {
@@ -306,4 +296,34 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.subscribe-button:hover {
+  background-color: #7cfc00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar, .buttons {
+      justify-content: center;
+  }
+
+  nav ul {
+      margin-top: 1rem;
+      justify-content: center;
+  }
+
+  .hero, .learning-areas, .authority-section, .pricing-section {
+      padding: 1rem;
+  }
+
+  .area-cards {
+      grid-template-columns: 1fr;
+  }
+
+  .plan-card {
+      max-width: 100%;
+  }
 }

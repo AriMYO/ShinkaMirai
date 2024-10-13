@@ -7,18 +7,14 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
     <link rel="stylesheet" href="/Client/Styles/index.css" />
-    <script src="/Client/Js/initial.js"></script>
-
     <title>ShinkaMirai - Learning and Fun</title>
   </head>
-
   <body>
-    <!-- Seccion para la barra de navegacion -->
     <div class="container-initial">
       <header>
         <div class="navbar">
           <div class="logo-container">
-            <img src="/Client/Images/Guimarbot.png" />
+            <img src="/Client/Images/Guimarbot.png" alt="" />
             <span class="logo">ShinkaMirai</span>
           </div>
           <nav>
@@ -30,17 +26,12 @@
             </ul>
           </nav>
           <div class="buttons">
-            <button onclick="location.href='Client/pages/Auth/login.html'">
-              Login
-            </button>
-            <button onclick="location.href='Client/pages/Auth/register.html'">
-              Registrarse
-            </button>
+            <button onclick="window.location.href='/Client/pages/Auth/login.html'">Login</button>
+            <button onclick="window.location.href='/Client/pages/Auth/register.html'">Registrarse</button>
           </div>
         </div>
       </header>
 
-      <!-- Seccion para la introduccion -->
       <section class="hero">
         <h1>Guimarbot <br /><span>Impulsa tus conocimientos!</span></h1>
         <p>
@@ -50,15 +41,9 @@
           aprendizaje sea accesible y divertido para todos.
         </p>
         <h2>¿Quieres aprender jugando?</h2>
-        <button
-          class="start-learning"
-          onclick="location.href='Client/pages/Home/introduction.html'"
-        >
-          COMENZAR A APRENDER
-        </button>
+        <button class="start-learning">COMENZAR A APRENDER</button>
       </section>
 
-      <!-- Seccion para las areas de aprendizaje -->
       <section class="learning-areas">
         <h2>Áreas de Aprendizaje</h2>
         <div class="area-cards">
@@ -74,19 +59,22 @@
             <span>APRENDE SOBRE</span>
             <h3>Desarrollo Móvil</h3>
           </button>
-          <button
-            class="area-card"
-            onclick="location.href='/Client/pages/Learning/web/curso_web.html'"
-          >
+          <button class="area-card" onclick="window.location.href='/Client/pages/Courses/Web_development/curso_web.html'">
             <span>DESARROLLATE EN</span>
             <h3>Desarrollo Web</h3>
           </button>
-
+          <button class="area-card" onclick="window.location.href='/Client/pages/Courses/Web_development/curso_web.html'">
+            <span>DESARROLLATE EN</span>
+            <h3>Desarrollo Web</h3>
+          </button>
+          <button class="area-card" onclick="window.location.href='/Client/pages/Courses/Web_development/curso_web.html'">
+            <span>DESARROLLATE EN</span>
+            <h3>Desarrollo Web</h3>
+          </button>
           <button class="area-card">
             <span>APRENDE SOBRE</span>
             <h3>Ingenieria de Software</h3>
           </button>
-
           <button class="area-card">
             <span>APRENDIZAJE EN</span>
             <h3>Programacion Orientada a backend</h3>
@@ -95,13 +83,12 @@
       </section>
     </div>
 
-    <!-- Seccion para las ventajas de aprender con nosotros -->
     <div class="container">
       <section class="authority-section">
         <div class="text-content">
           <h2>
-            Tu y Guimarbotcito pueden tener un plan de <br />
-            aprendizaje personalizado como:
+            Tu y Guimarbotcito pueden tener un plan de aprendizaje personalizado
+            como:
           </h2>
           <ul>
             <li>Aprende algo nuevo cada 5 minutos</li>
@@ -115,8 +102,6 @@
         </div>
       </section>
     </div>
-
-    <!-- Seccion para los planes de aprendizaje -->
 
     <div class="container-payment">
       <section class="pricing-section">
@@ -139,12 +124,7 @@
               Paga a 4 cuotas sin intereses de S/200 con tarjeta débito o
               crédito.
             </p>
-            <button
-              class="subscribe-button"
-              onclick="location.href='/Client/Pagos/tarjeta/pago_tarjeta.html'"
-            >
-              Suscríbirse
-            </button>
+            <button class="subscribe-button" onclick="window.location.href='/Client/Pages/Payment.html'">Suscríbirse</button>
           </div>
           <div class="plan-card">
             <h3>Expert</h3>
@@ -163,12 +143,7 @@
               Paga a 4 cuotas sin intereses de S/200 con tarjeta débito o
               crédito.
             </p>
-            <button
-              class="subscribe-button"
-              onclick="location.href='/Client/Pagos/tarjeta/pago_tarjeta.html'"
-            >
-              Suscríbirse
-            </button>
+            <button class="subscribe-button" onclick="window.location.href='/Client/Pages/Payment.html'">Suscríbirse</button>
           </div>
           <div class="plan-card">
             <h3>Duo</h3>
@@ -187,12 +162,7 @@
               Paga a 4 cuotas sin intereses de S/200 con tarjeta débito o
               crédito.
             </p>
-            <button
-              class="subscribe-button"
-              onclick="location.href='/Client/Pagos/tarjeta/pago_tarjeta.html'"
-            >
-              Suscríbirse
-            </button>
+            <button class="subscribe-button" onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscríbirse</button>
           </div>
         </div>
       </section>
