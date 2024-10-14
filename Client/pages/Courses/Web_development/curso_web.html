@@ -1,79 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Desarrollo web</title>
-    <link rel="stylesheet" href="/Client/Styles/areas.css">
-</head>
-<body>
-    <div class="container">
-        <div class="content">
-            <h1>Curso de Desarrollo web</h1>
-            <div class="rating">★★★★★ </div>
-            <span class="tag">BÁSICO</span>
-            <p class="description">
-                Optimiza tu eficiencia profesional y y laboral utilizando erramientas basicas de desarrollo web.  
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de Python - Platzi</title>
+    <link rel="stylesheet" href="/Client/Styles/courses_development.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai" />
+          ShinkaToMirai
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="¿Qué quieres aprender?" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Cursos</a></li>
+          <li><a href="#">Planes</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+        <div class="user-menu">
+          <img src="/Client/Images/pikachu.png" alt="Hollow Knight" />
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <section class="course-header">
+            <div class="course-info">
+              <img
+                src="https://w7.pngwing.com/pngs/428/279/png-transparent-computer-icons-web-page-identity-angle-text-logo-thumbnail.png"
+                alt="Desarrollo Web"
+                class="course-logo"
+              />
+              <div class="course-description">
+                <h1>Desarrollo Web</h1>
+                <p>
+                  ¡Bienvenido al emocionante mundo del desarrollo web! En este curso,
+                  aprenderás los fundamentos de la web, como HTML, CSS y JavaScript,
+                  para crear sitios web dinámicos y atractivos, descubrirás cómo
+                  diseñar páginas web que no solo se vean bien, sino que también
+                  funcionen perfectamente en cualquier dispositivo. Además,
+                  exploraremos conceptos clave como diseño responsivo, optimización
+                  para motores de búsqueda (SEO) y el desarrollo de aplicaciones web
+                  modernas. ¡Prepárate para convertirte en un creador de experiencias
+                  en línea!
+                </p>
+              </div>
+            </div>
+            <div class="instructor-image">
+              <img src="https://i.pinimg.com/564x/d2/bd/2f/d2bd2fc7c604b0384f06f3c0d594b087.jpg" alt="Teacher" />
+            </div>
+          </section>
+
+      <section class="course-content">
+        <h2>Temario y recursos del Curso de Python</h2>
+        <div class="course-resources">
+          <div class="resource-item">
+            <img
+              src="https://static.platzi.com/media/achievements/badges-curso-frontend-developer-825407d1-49b1-4c9b-90c4-eee793720ede.png"
+              alt="Content Icon"
+            />
+            <p>6 Horas de contenido</p>
+          </div>
+          <div class="resource-item">
+            <img
+              src="https://static.platzi.com/media/achievements/badges-fundamentos-de-programacion-6594dead-fb0a-48a7-a71d-e8e61d1081f4.png"
+              alt="Practice Icon"
+            />
+            <p>14 Horas de práctica</p>
+          </div>
+        </div>
+        <div class="course-requirements">
+          <h3>Conocimientos previos</h3>
+          <ul>
+            <li>Programación Básica</li>
+          </ul>
+          <h3>Software para este curso</h3>
+          <ul>
+            <li>Editor de código</li>
+            <li>Python 3</li>
+          </ul>
+        </div>
+        <div class="course-modules">
+          <h3>Fundamentos de Programación y Python</h3>
+          <ul>
+            <li>¿Por qué aprender Python?</li>
+            <li>Introducción a Python</li>
+            <li>Conceptos Básicos de Programación</li>
+          </ul>
+          <div class="course-cta">
+            <p>
+              Acelera tu carrera profesional con más de 36 Clases del Curso de
+              Python
             </p>
-            <a href="#" class="button">EMPIEZA YA</a>
+            <button>COMIENZA AHORA</button>
+          </div>
+          <ul class="locked-modules">
+            <li>
+              Práctica: Te doy la bienvenida a los ejercicios interactivos
+            </li>
+            <li>Manipulación de Cadenas de Texto en Python</li>
+          </ul>
         </div>
-        <div class="image">
-            <img src="/Client/Images/Guimarbot.png" alt="Curso de Desarrollo web">
-            <p>Guimarbot<br>Profesor web</p>
-        </div>
-    </div>
-    <div class="episodes">
-        <h2>Clases</h2>
-        <div class="course-list">
-            <div class="course-item">
-                <div class="course-image">
-                    <img src="/Client/Images/G_Aprende.png" alt="Curso de HTML">
-                </div>
-                <div class="course-info">
-                    <h3>
-                        <span class="course-icon">📄</span>
-                        Curso de HTML
-                    </h3>
-                    <p>Aprende HTML desde cero, sin conocimientos previos. Conoce todo sobre etiquetas HTML.</p>
-                    <p class="instructor">Profe : Guimarbot</p>
-                </div>
-                <div class="course-action">
-                    <button class="course-button" onclick="location.href='/Client/pages/Auth/web/web_videosHTML.html'">Ver curso</button>
-                </div>
-            </div>
-            <div class="course-item">
-                <div class="course-image">
-                    <img src="/Client/Images/G_Aprende.png" alt="Curso de CSS">
-                </div>
-                <div class="course-info">
-                    <h3>
-                        <span class="course-icon">🎯</span>
-                        Curso de CSS
-                    </h3>
-                    <p>Aprende Css desde cero, a dar estilos y mucho más</p>
-                    <p class="instructor">Profe : Guimarbot</p>
-                </div>
-                <div class="course-action">
-                    <button class="course-button" onclick="location.href='/Client/pages/Auth/web/web_videosCSS.html'">Ver curso</button>
-                </div>
-            </div>
-            <div class="course-item">
-                <div class="course-image">
-                    <img src="/Client/Images/G_Aprende.png" alt="Curso Práctico Javascript">
-                </div>
-                <div class="course-info">
-                    <h3>
-                        <span class="course-icon">📄</span>
-                        Curso Práctico de Javascript
-                    </h3>
-                    <p>Apredne a dar comando con Javascript</p>
-                    <p class="instructor">Profe: Guimarbot</p>
-                </div>
-                <div class="course-action">
-                    <button class="course-button" onclick="location.href='/Client/pages/Auth/web/web_videosJS.html'">Ver curso</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+      </section>
+    </main>
+
+    <script src="/Client/Js/courses_development.js"></script>
+  </body>
 </html>
