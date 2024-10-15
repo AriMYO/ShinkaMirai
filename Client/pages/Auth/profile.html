@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/Client/Styles/profile.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+          <span>ShinkaToMirai</span>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="¿Qué quieres aprender?" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Cursos</a></li>
+          <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+          <li><a href="">Contáctanos</a></li>
+        </ul>
+        <div class="user-menu">
+          <img src="/Client/Images/pikachu.png" alt="Usuario" />
+          <div class="dropdown-menu">
+            <p>Hola, <span>Usuario</span></p>
+
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Courses/Courses.html'"
+              >Ver todos mis cursos</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Auth/profile.html'"
+              >Ver mi perfil</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Plans/plans.html'"
+              >Mis planes</a
+            >
+            <a href="#">Mi Suscripción</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Configuración</a>
+            <a href="#" class="logout">Cerrar sesión</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <header class="profile-header">
+        <img src="/Client/Images/pikachu.png" alt="Avatar" class="avatar" />
+        <div class="profile-info">
+          <h1>Usuario</h1>
+          <button class="btn-profile">Completa tu perfil</button>
+        </div>
+        <div class="profile-stats">
+          <div class="stat">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Cursos Completados</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="main-content">
+          <section class="user-courses">
+            <h2>Tus cursos</h2>
+            <ul>
+              <li>
+                <div class="course-icon">
+                  <img
+                    src="https://w7.pngwing.com/pngs/428/279/png-transparent-computer-icons-web-page-identity-angle-text-logo-thumbnail.png"
+                    alt="Icono Desarrollo Web"
+                  />
+                </div>
+                <div class="course-info">
+                  <h3>Desarrollo Web</h3>
+                </div>
+                <button class="exam-button">Ir al curso</button>
+              </li>
+              <li>
+                <div class="course-icon">
+                  <img
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
+                    alt="Icono flutter"
+                  />
+                </div>
+                <div class="course-info">
+                  <h3>Desarrollo Movil</h3>
+                </div>
+                <button class="exam-button">Ir al curso</button>
+              </li>
+              <li>
+                <div class="course-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/9887/9887848.png"
+                    alt="Icono IA"
+                  />
+                </div>
+                <div class="course-info">
+                  <h3>Inteligencia Artificial</h3>
+                </div>
+                <button class="exam-button">Ir al curso</button>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <aside class="sidebar">
+          <section class="tutorials">
+            <h2>Tutoriales</h2>
+            <p>Aún no has creado tutoriales</p>
+            <p>
+              Comparte tus conocimientos. Tus tutoriales pueden ser parte de los
+              cursos y llegar a muchas personas.
+            </p>
+          </section>
+
+          <section class="questions">
+            <h2>Tus preguntas</h2>
+            <p>Aún no has hecho preguntas</p>
+            <p>
+              La comunidad de profesores y estudiantes responderá a todas tus
+              dudas
+            </p>
+          </section>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
