@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Usuario - Plataforma de Aprendizaje</title>
+    <link rel="stylesheet" href="/Client/Styles/courses.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+          <span>ShinkaToMirai</span>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="¿Qué quieres aprender?" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Cursos</a></li>
+          <li><a href="#">Planes</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+
+        <div class="cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count">0</span>
+        </div>
+        <div class="user-menu">
+          <img src="/Client/Images/pikachu.png" alt="Usuario" />
+          <div class="dropdown-menu">
+            <p>Hola, <span>Usuario</span></p>
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Courses/Courses.html'"
+              >Ver todos mis cursos</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Auth/profile.html'"
+              >Ver mi perfil</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Plans/plans.html'"
+              >Mis planes</a
+            >
+            <a href="#">Mi Suscripción</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Configuración</a>
+            <a href="#" class="logout">Cerrar sesión</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Cursos de Desarrollo</h1>
+      <div class="course-grid" id="courseGrid"></div>
+    </main>
+
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <h2>Carrito de Compras</h2>
+        <ul id="cartItems"></ul>
+        <p>Total: $<span id="cartTotal">0.00</span></p>
+        <button id="closeCart">Cerrar</button>
+      </div>
+    </div>
+
+    <script src="/Client/Js/courses.js"></script>
+  </body>
+</html>
