@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Platzi Clone</title>
+    <title>ShinkaMirai</title>
     <link rel="stylesheet" href="/Client/Styles/home.css" />
   </head>
   <body>
@@ -14,11 +14,16 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#" class="active">Inicio</a></li>
-            <li><a href="#">Mis Rutas</a></li>
-            <li><a href="#">Mi progreso</a></li>
-            <li><a href="#">Chat ADA</a></li>
-            <li><a href="#">Notificaciones</a></li>
+            <li>
+              <a href="#" class="nav-link active" data-view="inicio">Inicio</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-view="rutas">Mis Rutas</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-view="progreso">Mi progreso</a>
+            </li>
+            <li><a href="#" class="nav-link" data-view="chat">Chat ADA</a></li>
           </ul>
         </nav>
         <div class="sidebar-footer">
@@ -31,78 +36,271 @@
       </aside>
       <main>
         <header>
-          <div class="search-bar">
-            <input type="text" placeholder="¿Qué quieres aprender?" />
-          </div>
+          <nav class="home-nav">
+            <div class="home-search-bar">
+              <input type="text" placeholder="¿Qué quieres aprender?" />
+            </div>
+            <ul class="home-nav-links">
+              <li><a href="#">Cursos</a></li>
+              <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+              <li><a href="">Contáctanos</a></li>
+              <li class="streak-container">
+                <img
+                  src="https://i.pinimg.com/originals/c3/00/82/c300823a2fae8c38ea95b5124466ed85.png"
+                  alt="Racha"
+                  class="streak-logo"
+                  id="streakLogo"
+                />
+                <div class="streak-info" id="streakInfo" style="display: none">
+                  <p>Días de racha: <span id="streakDays">0</span></p>
+                  <p id="streakFire">🔥</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="home-user-menu">
+              <img src="/Client/Images/pikachu.png" alt="Usuario" />
+              <div class="home-dropdown-menu">
+                <p>Hola, <span>Usuario</span></p>
+                <a href="/Client/pages/Courses/Courses.html"
+                  >Ver todos mis cursos</a
+                >
+                <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
+                <a href="/Client/pages/Plans/plans.html">Mis planes</a>
+                <a href="#">Mi Suscripción</a>
+                <a href="#">Contáctanos</a>
+                <a href="#">Configuración</a>
+                <a href="#" class="home-logout">Cerrar sesión</a>
+              </div>
+            </div>
+          </nav>
         </header>
-     
-        <section class="subscription-cta">
-          <div>
-            <p>
-              Suscríbete a un plan y conéctate con nuestra comunidad de
-              profesionales.
-            </p>
+
+        <div id="inicio" class="view active">
+          <section class="schools-section">
+            <h2>Descubre las escuelas</h2>
+            <div class="schools-grid">
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://img.icons8.com/?size=512&id=9OGIyU8hrxW5&format=png"
+                    alt="Visual Studio Code"
+                  />
+                </div>
+                <p>Visual Studio Code</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/9887/9887848.png"
+                    alt="Icono IA"
+                  />
+                </div>
+                <p>Inteligencia Artificial</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
+                    alt="Icono flutter"
+                  />
+                </div>
+                <p>Desarrollo Móvil</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
+                    alt="Icono flutter"
+                  />
+                </div>
+                <p>Desarrollo Móvil</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
+                    alt="Icono flutter"
+                  />
+                </div>
+                <p>Desarrollo Móvil</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/4882/4882524.png"
+                    alt="Icono Desarrollo Web"
+                  />
+                </div>
+                <p>Desarrollo Web</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn-icons-png.freepik.com/512/7017/7017550.png"
+                    alt="Icono desarrollo de software"
+                  />
+                </div>
+                <p>Ingeniería de Software</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://static-00.iconduck.com/assets.00/nestjs-icon-512x510-9nvpcyc3.png"
+                    alt="Icono NestJS"
+                  />
+                </div>
+                <p>NestJS</p>
+              </button>
+            </div>
+          </section>
+          <section class="courses-section">
+            <h2>Cursos recomendados para ti</h2>
+            <div class="courses-grid">
+              <div class="course-card">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/3_dwKqCsbis"
+                  title="Curso de desarrollo de Aplicaciones Moviles"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <h3>Curso de desarrollo de Aplicaciones Moviles</h3>
+                <p>
+                  En este curso aprenderás a programar y ver cómo se puede
+                  programar para dispositivos móviles...
+                </p>
+              </div>
+              <div class="course-card">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/5rl4HzQXLRA"
+                  title="Curso de Desarrollo Web"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <h3>Curso de Desarrollo Web</h3>
+                <p>Aprende a crear páginas web con HTML, CSS y JS</p>
+              </div>
+              <div class="course-card">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/wsqcg5ZtUMM"
+                  title="Curso NestJS"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <h3>Curso NestJS</h3>
+                <p>
+                  En este curso aprenderás todo sobre NestJS, sus herramientas y
+                  cómo te puede ayudar en tu día a día como desarrollador...
+                </p>
+              </div>
+              <div class="course-card">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/Kp4Mvapo5kc"
+                  title="Curso de Python"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <h3>Curso de Python</h3>
+                <p>
+                  Aprende a programar con Python, desde los fundamentos hasta
+                  los mas avanzados...
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="rutas" class="view">
+          <h2>Mis Rutas de Aprendizaje</h2>
+          <div class="routes-grid">
+            <div class="route-card">
+              <h3>Desarrollo Web Frontend</h3>
+              <p>Progreso: 60%</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 60%"></div>
+              </div>
+              <button class="continue-btn">Continuar</button>
+            </div>
+            <div class="route-card">
+              <h3>JavaScript Avanzado</h3>
+              <p>Progreso: 30%</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 30%"></div>
+              </div>
+              <button class="continue-btn">Continuar</button>
+            </div>
           </div>
-          <button class="sub-btn hollow-btn" onclick="location.href='/index.html'">Ver planes</button>
-        </section>
-        <section class="schools-section">
-          <h2>Descubre las escuelas</h2>
-          <div class="schools-grid">
-            <div class="school-item">
-              <div class="school-icon">🏫</div>
-              <p>Todo</p>
+        </div>
+
+        <div id="progreso" class="view">
+          <h2>Mi Progreso</h2>
+          <div class="progress-stats">
+            <div class="stat-card">
+              <h3>Cursos Completados</h3>
+              <p>5</p>
             </div>
-            <div class="school-item">
-              <div class="school-icon">💻</div>
-              <p>Desarrollo Web</p>
+            <div class="stat-card">
+              <h3>Horas de Estudio</h3>
+              <p>42</p>
             </div>
-            <div class="school-item">
-              <div class="school-icon">💼</div>
-              <p>Negocios</p>
-            </div>
-            <div class="school-item">
-              <div class="school-icon">📊</div>
-              <p>Data Science</p>
-            </div>
-            <div class="school-item">
-              <div class="school-icon">🚀</div>
-              <p>Transformación Digital</p>
-            </div>
-            <div class="school-item">
-              <div class="school-icon">🌎</div>
-              <p>English Academy</p>
+            <div class="stat-card">
+              <h3>Certificados Obtenidos</h3>
+              <p>3</p>
             </div>
           </div>
-        </section>
-        <section class="courses-section">
-          <h2>Cursos recomendados para ti</h2>
-          <div class="courses-grid">
-            <div class="course-card">
-              <img
-                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/placeholder-course.jpg"
-                alt="Curso 1"
-              />
-              <h3>Curso de ejemplo 1</h3>
-              <p>Descripción breve del curso...</p>
+          <h3>Actividad Reciente</h3>
+          <ul class="activity-list">
+            <li>Completaste el curso "Introducción a HTML y CSS"</li>
+            <li>Avanzaste un 20% en "JavaScript Avanzado"</li>
+            <li>
+              <a
+                href="/Client/pages/Home/congratulations.html"
+                style="text-decoration: underline; color: #fff"
+                >Obtuviste el certificado de "Fundamentos de Programación"</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div id="chat" class="view">
+          <div class="chat-container">
+            <div class="chat-sidebar">
+              <h3>Mensajes</h3>
+              <ul class="chat-list">
+                <li class="active">Admin</li>
+                <li>Soporte Técnico</li>
+              </ul>
             </div>
-            <div class="course-card">
-              <img
-                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/placeholder-course.jpg"
-                alt="Curso 2"
-              />
-              <h3>Curso de ejemplo 2</h3>
-              <p>Descripción breve del curso...</p>
-            </div>
-            <div class="course-card">
-              <img
-                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/placeholder-course.jpg"
-                alt="Curso 3"
-              />
-              <h3>Curso de ejemplo 3</h3>
-              <p>Descripción breve del curso...</p>
+            <div class="chat-main">
+              <div class="chat-header">
+                <h3>Chat con Admin</h3>
+              </div>
+              <div class="chat-messages" id="chatMessages">
+                <!-- Los mensajes se agregarán aquí dinámicamente -->
+              </div>
+              <div class="chat-input">
+                <input
+                  type="text"
+                  id="messageInput"
+                  placeholder="Escribe tu mensaje..."
+                />
+                <button id="sendMessage">Enviar</button>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
       </main>
     </div>
     <script src="/Client/Js/home.js"></script>
