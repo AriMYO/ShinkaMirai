@@ -1,98 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso de Fundamentos de JavaScript</title>
-    <link rel="stylesheet" href="/Client/Styles/view.css" />
-  </head>
-  <body>
-    <div class="container">
-      <header class="top-nav">
-        <div class="course-info">
-          <div class="logo"></div>
-          <span class="course-title">Curso de Fundamentos de JavaScript</span>
-          <div class="progress-bar">
-            <div class="progress" style="width: 100%"></div>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Platform</title>
+  <link rel="stylesheet" href="/Client/Styles/view.css">
+</head>
+
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <div class="video-container">
+        <h2>Curso de desarrolo Movil</h2>
+        <div class="video-player">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/3_dwKqCsbis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h3>Introduccion al desarrollo Movil</h3>
+      </div>
+    </main>
+    <aside class="comments">
+      <h3>Comments</h3>
+      <div class="comment-box">
+        <textarea placeholder="Write your comment here..."></textarea>
+        <button>Post</button>
+      </div>
+      <div class="comment-list">
+        <div class="comment">
+          <img src="/Client/Images/pikachu.png" alt="User avatar" class="avatar">
+          <div class="comment-content">
+            <h4>Cris CM</h4>
+            <p>Me gusto mucho el curso sobre desarrollo movil, Muchas gracias</p>
           </div>
         </div>
-        <div class="nav-buttons">
-          <button class="btn btn-active">1</button>
-          <button class="btn">2</button>
-          <button class="btn btn-dropdown">Ver clases ▼</button>
-        </div>
-      </header>
-      <main class="main-content">
-        <div class="video-container">
-          <h2>Curso de desarrollo de Aplicaciones Móviles</h2>
-          <p>
-            En este curso aprenderás a programar y ver cómo se puede programar
-            para dispositivos móviles...
-          </p>
-          <iframe
-            src="https://www.youtube.com/embed/3_dwKqCsbis"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <aside class="sidebar">
-          <div class="tabs">
-            <button class="tab-btn active">Todo</button>
-            <button class="tab-btn">Preguntas</button>
-            <button class="tab-btn">Aportes</button>
-            <button class="tab-btn">Más votados ▼</button>
-          </div>
-          <div class="comments-section">
-            <div class="comment-card">
-              <img
-                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/user-avatar-1.png"
-                alt="Oscar Barajas Tavares"
-                class="avatar"
-              />
-              <div class="comment-content">
-                <div class="comment-header">
-                  <h4>Oscar Barajas Tavares</h4>
-                  <span class="comment-meta">Profe Platzi • hace 3 meses</span>
-                </div>
-                <p>
-                  Comencé con PHP en 2002 y, cuando conocí JavaScript, admito
-                  que al principio no me gustaba. Sin embargo, le di una
-                  oportunidad y ahora no dejo de aprender y me encanta.
-                  Disfruten de este gran curso de JavaScript.
-                </p>
-                <div class="comment-actions">
-                  <button class="btn-text">💬 Responder</button>
-                  <button class="btn-text">👍 117</button>
-                </div>
-              </div>
-            </div>
-            <div class="comment-card">
-              <img
-                src="https://vwpkzjjlgxmjqbcqxgvz.supabase.co/storage/v1/object/public/assets/user-avatar-2.png"
-                alt="Camilo Carrillo Cubillos"
-                class="avatar"
-              />
-              <div class="comment-content">
-                <div class="comment-header">
-                  <h4>Camilo Carrillo Cubillos</h4>
-                  <span class="comment-meta">Estudiante • hace 12 días</span>
-                </div>
-                <p>Que tal va este curso? Esta totalmente remodelado</p>
-                <div class="comment-actions">
-                  <button class="btn-text">💬 Responder</button>
-                  <button class="btn-text">👍 1</button>
-                </div>
-              </div>
-            </div>
-            <!-- New comment form -->
-            <form id="commentForm" class="comment-form">
-              <textarea id="commentInput" placeholder="Escribe tu comentario aquí..." required></textarea>
-              <button type="submit" class="btn">Enviar</button>
-            </form>
-          </div>
-        </aside>
-      </main>
-    </div>
-    <script src="/Client/Js/view.js"></script>
-  </body>
+        <!-- More comments can be added here -->
+      </div>
+    </aside>
+  </div>
+  <script src="/Client/Js/view.js"></script>
+</body>
+
 </html>
