@@ -32,25 +32,3 @@ document.getElementById('edad').addEventListener('input', function (e) {
   e.target.value = value;
 });
 
- // seleccionar para la tarjeta de credito
-const selectPais = document.getElementById('pais');
-
-paises.forEach(pais => {
-  const option = document.createElement('option');
-  option.value = pais.codigo;
-  option.textContent = pais.nombre;
-  selectPais.appendChild(option);
-});
-
-function formatCardNumber(input) {
-  input.value = input.value
-    .replace(/\D/g, "")
-    .replace(/(\d{4})(?=\d)/g, "$1 ")
-    .trim();
-}
-
-function formatDate(input) {
-  input.value = input.value
-    .replace(/\D/g, "")
-    .replace(/(\d{2})(\d)/, "$1/$2");
-}

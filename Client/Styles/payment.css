@@ -1,133 +1,197 @@
 body,
 html {
   font-family: "Open Sans", sans-serif;
-  background: linear-gradient(135deg, #0f2027, black, #0e1b0e);
+  background-image: url("/Client/Images/luna_morada.jpeg");
+  background-size: cover;
+  background-position: center ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   color: white;
-  font-size: 24px;
-  margin: 18px;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  padding: 1rem;
 }
 
 .logo-container img {
-  height: 3rem;
+  height: clamp(2rem, 8vw, 3rem);
   width: auto;
   margin-right: 0.5rem;
   animation: bounce 1.5s infinite;
 }
 
-.container {
+.main-nav {
   display: flex;
-  justify-content: space-around;
-  margin: 50px 80px;
-  padding-bottom: 0;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.payment-form {
-  background-color: #0f2027;
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 600px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.nav-button {
+  background-color: #202122;
   color: white;
-  height: 100%;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  background-color: #98ca3f;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.view {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+}
+
+.view.active {
+  display: block;
+}
+
+.payment-form,
+.scholarship-form {
+  background-color: rgba(255, 255, 255, 0.85); /* Blanco más transparente */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra más definida */
+  color: black; /* Cambia el texto a negro para mejor legibilidad */
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
-  display: flex;
-  color: white;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-input {
+input,
+textarea,
+select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid black;
-  font-size: 18px;
+  padding: 0.5rem;
+  border: 1px solid #ccc; /* Bordes más suaves */
+  font-size: clamp(0.8rem, 2vw, 1rem);
   border-radius: 4px;
   box-sizing: border-box;
-  color: white; /* Color del texto en los inputs */
-  background-color: black; /* Fondo de los inputs */
+  color: black; /* Texto negro */
+  background-color: white; /* Fondo blanco */
 }
 
-input:focus {
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
   border-color: whitesmoke;
-  border-width: 1px;
   outline: none;
 }
 
 .card-input {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
   gap: 1rem;
 }
 
 .submit-button {
-  background-color: #202122;
-  color: white; /* Color del texto en el botón */
+  background-color: #98ca3f; /* Color de botón más claro */
+  color: white;
   border: none;
-  padding: 12px 20px; /* Aumentado el padding */
+  padding: 0.75rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
-  font-size: 16px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-  background-color: gray; /* Color al pasar el mouse */
-}
-
-.pricing-section {
-  padding: 50px 20px;
-  text-align: center;
-  background-color: #2a2a2a;
-  color: white;
-}
-
-.pricing-section h2 {
-  margin-bottom: 30px;
-  color: white;
-}
-
-.plan-card ul li {
-  text-align: left;
-  font-size: 1rem;
-  margin-top: 10px;
-  color: white; /* Color del texto en la lista */
-}
-
-.plan-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  background-color: #7aa32f; /* Color de hover más oscuro */
 }
 
 .plan-card {
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px; /* Ancho fijo para la tarjeta de plan */
-  border: 1px solid whitesmoke;
-  line-height: 1.5;
-  background-color: #0f2027; /* Fondo para que coincida con el formulario */
-  color: white; /* Color del texto */
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco suave con un poco más de opacidad */
+  border-radius: 15px; /* Bordes más redondeados */
+  padding: 2rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ddd; /* Bordes más suaves */
+  color: black;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones para hover */
 }
 
-.price {
-  font-size: 1.5rem;
+.plan-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.plan-card h3 {
+  font-size: clamp(1.4rem, 3vw, 1.7rem);
+  margin-bottom: 0.5rem;
+  color: #333; /* Color de texto más oscuro */
+}
+
+.plan-card .price {
+  font-size: clamp(1.4rem, 3vw, 1.7rem);
   font-weight: bold;
-  color: white;
+  color: #007bff; /* Color azul para destacar */
+}
+
+.plan-card ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.plan-card li {
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.5; /* Mejorar legibilidad */
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-input {
+    flex-direction: column;
+  }
 }
