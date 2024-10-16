@@ -53,4 +53,37 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
+
+    // Handle comment form submission
+    const commentForm = document.getElementById('commentForm');
+    const commentInput = document.getElementById('commentInput');
+
+    commentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            addComment(commentText);
+            commentInput.value = ''; // Clear the input
+        }
+    });
+
+    function addComment(text) {
+        const commentSection = document.querySelector('.comments-section');
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment-card');
+        newComment.innerHTML = `
+            <div class="comment-content">
+                <div class="comment-header">
+                    <h4>Nuevo Usuario</h4>
+                    <span class="comment-meta">Ahora mismo</span>
+                </div>
+                <p>${text}</p>
+                <div class="comment-actions">
+                    <button class="btn-text">💬 Responder</button>
+                    <button class="btn-text">👍 0</button>
+                </div>
+            </div>
+        `;
+        commentSection.insertBefore(newComment, commentForm);
+    }
 });
