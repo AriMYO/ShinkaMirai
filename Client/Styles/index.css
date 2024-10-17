@@ -25,8 +25,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
+  
 }
-
+/* 
 .container {
   background-image: url("/Client/Images/fondo_hollow\ knight.jpeg");
   background-size: cover;
@@ -40,7 +41,7 @@ body {
   background: linear-gradient(135deg, #1c3541, black, #050505);
   color: #ffffff;
   text-align: center;
-}
+} */
 
 /* Navbar Styles */
 .navbar {
@@ -207,7 +208,7 @@ nav ul li a {
   display: flex;
   align-items: center;
   justify-content: flex-start ;
-  padding: 2rem 1rem;
+  margin-left: 4rem;
 }
 
 .text-content {
@@ -266,7 +267,7 @@ nav ul li a {
 }
 
 .plan-card h3 {
-  font-size:  1.5rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -278,8 +279,8 @@ nav ul li a {
 }
 
 .plan-card ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: disc;
+  padding-left: 20px;
   margin: 1rem 0;
 }
 

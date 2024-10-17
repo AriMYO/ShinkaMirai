@@ -1,157 +1,137 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.sidebar nav a');
-    const sections = document.querySelectorAll('main section');
+    const plans = [
+        { name: 'Básico', price: 200, students: 1, color: 'rgb(255, 99, 132)' },
+        { name: 'Duo', price: 350, students: 2, color: 'rgb(54, 162, 235)' },
+        { name: 'Expert', price: 500, students: 4, color: 'rgb(255, 206, 86)' }
+    ];
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+    const initialStats = {
+        users: [500, 300, 200],
+        revenue: [100000, 105000, 100000],
+        retention: [85, 90, 95],
+        courses: [50, 75, 100]
+    };
 
-            sections.forEach(section => {
-                if (section.id === targetId) {
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
+    let selectedPlans = ['Básico', 'Duo', 'Expert'];
+    let currentTab = 'users';
+    let charts = {};
+
+    function initCharts() {
+        const ctx = {
+            users: document.getElementById('usersChart').getContext('2d'),
+            revenue: document.getElementById('revenueChart').getContext('2d'),
+            retention: document.getElementById('retentionChart').getContext('2d'),
+            courses: document.getElementById('coursesChart').getContext('2d')
+        };
+
+        Object.keys(ctx).forEach(key => {
+            charts[key] = new Chart(ctx[key], {
+                type: 'bar',
+                data: {
+                    labels: [''],
+                    datasets: plans.map((plan, index) => ({
+                        label: plan.name,
+                        data: [initialStats[key][index]],
+                        backgroundColor: plan.color
+                    }))
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
                 }
             });
         });
-    });
+    }
 
-    // Course registration form submission
-    const courseForm = document.getElementById('courseForm');
-    courseForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Curso registrado exitosamente!');
-        courseForm.reset();
-    });
-
-    // Video upload form submission
-    const videoForm = document.getElementById('videoForm');
-    videoForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Video subido exitosamente!');
-        videoForm.reset();
-    });
-
-    // User details button click event
-    const userDetailButtons = document.querySelectorAll('.user-table .btn');
-    userDetailButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            alert('Detalles del usuario: Esta funcionalidad está en desarrollo.');
+    function updateCharts() {
+        Object.keys(charts).forEach(key => {
+            charts[key].data.datasets = plans
+                .filter(plan => selectedPlans.includes(plan.name))
+                .map((plan, index) => ({
+                    label: plan.name,
+                    data: [initialStats[key][plans.findIndex(p => p.name === plan.name)]],
+                    backgroundColor: plan.color
+                }));
+            charts[key].update();
         });
-    });
+    }
 
-    // Inbox item click event
-    const inboxItems = document.querySelectorAll('.inbox-item');
-    inboxItems.forEach(item => {
-        item.addEventListener('click', () => {
-            alert('Funcionalidad de visualización de mensaje en desarrollo.');
+    function setupEventListeners() {
+        // Navegación del sidebar
+        document.querySelectorAll('.sidebar nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                
+                document.querySelectorAll('.sidebar nav a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                document.querySelectorAll('main section').forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
         });
-    });
 
-    // Messaging contact click event
-    const messagingContacts = document.querySelectorAll('.messaging-contact');
-    messagingContacts.forEach(contact => {
-        contact.addEventListener('click', () => {
-            messagingContacts.forEach(c => c.classList.remove('active'));
-            contact.classList.add('active');
-            alert('Cambio de conversación en desarrollo.');
+        // Filtros de planes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const planName = e.target.id.replace('filter-', '');
+                if (e.target.checked) {
+                    selectedPlans.push(planName);
+                } else {
+                    selectedPlans = selectedPlans.filter(name => name !== planName);
+                }
+                updateCharts();
+            });
         });
-    });
 
-    // Send message button click event
-    const sendMessageBtn = document.querySelector('.messaging-footer .btn');
-    sendMessageBtn.addEventListener('click', () => {
-        const messageInput = document.querySelector('.messaging-footer input');
-        if (messageInput.value.trim() !== '') {
-            alert('Envío de mensaje en desarrollo.');
-            messageInput.value = '';
-        }
-    });
+        // Tabs de estadísticas
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                document.getElementById(`${e.target.dataset.tab}-chart`).classList.add('active');
+                currentTab = e.target.dataset.tab;
+            });
+        });
 
-    // Charts
-    const accountsChart = new Chart(document.getElementById('accountsChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-            datasets: [
-                {
-                    label: 'Cuentas Creadas',
-                    data: [65, 59, 80, 81, 56, 55],
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                },
-                {
-                    label: 'Suscripciones Anuales',
-                    data: [28, 48, 40, 19, 86, 27],
-                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+        // Formulario de cursos
+        const courseForm = document.getElementById('courseForm');
+        if (courseForm) {
+            courseForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Curso registrado exitosamente!');
+                courseForm.reset();
+            });
         }
-    });
 
-    const userDistributionChart = new Chart(document.getElementById('userDistributionChart'), {
-        type: 'pie',
-        data: {
-            labels: ['Estudiantes', 'Docentes', 'Administradores'],
-            datasets: [{
-                data: [300, 50, 10],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-            }]
-        },
-        options: {
-            responsive: true,
+        // Formulario de videos
+        const videoForm = document.getElementById('videoForm');
+        if (videoForm) {
+            videoForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Video subido exitosamente!');
+                videoForm.reset()
+            });
         }
-    });
 
-    const incomeChart = new Chart(document.getElementById('incomeChart'), {
-        type: 'line',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-            datasets: [{
-                label: 'Ingresos ($)',
-                data: [12000, 19000, 3000, 5000, 2000, 3000],
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+        // Botones de detalles de usuario
+        document.querySelectorAll('.user-table .btn').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Detalles del usuario: Esta funcionalidad está en desarrollo.');
+            });
+        });
+    }
 
-    const scholarshipsChart = new Chart(document.getElementById('scholarshipsChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-            datasets: [{
-                label: 'Becas Otorgadas',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: 'rgba(153, 102, 255, 0.6)'
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    initCharts();
+    setupEventListeners();
 });

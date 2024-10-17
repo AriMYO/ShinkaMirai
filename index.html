@@ -1,171 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <link rel="stylesheet" href="/Client/Styles/index.css" />
-    <title>ShinkaMirai - Learning and Fun</title>
-  </head>
-  <body>
-    <div class="container-initial">
-      <header>
-        <div class="navbar">
-          <div class="logo-container">
-            <img src="/Client/Images/Guimarbot.png" alt="" />
-            <span class="logo">ShinkaMirai</span>
-          </div>
-          <nav>
-            <ul>
-              <li><a href="/Client/pages/Home/admin_page.html">Inicio</a></li>
-              <li><a href="/Client/pages/Courses/1Courses_page/Courses.html">Cursos</a></li>
-              <li><a href="#">Jugar</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </nav>
-          <div class="buttons">
-            <button onclick="window.location.href='/Client/pages/Auth/login.html'">Login</button>
-            <button onclick="window.location.href='/Client/pages/Auth/register.html'">Registrarse</button>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/Client/Styles/index.css" />
+  <title>ShinkaMirai - Learning and Fun</title>
+</head>
+
+<body>
+  <div class="container-initial">
+    <header>
+      <div class="navbar">
+        <div class="logo-container">
+          <img src="/Client/Images/Guimarbot.png" alt="" />
+          <span class="logo">ShinkaMirai</span>
         </div>
-      </header>
-
-      <section class="hero">
-        <h1>Guimarbot <br /><span>Impulsa tus conocimientos!</span></h1>
-        <p>
-          Somos una pequeña plataforma de aprendizaje en línea que se
-          especializa en ofrecer cursos de alta calidad y prácticos para todos
-          los niveles de aprendizaje. Nuestro objetivo es hacer que el
-          aprendizaje sea accesible y divertido para todos.
-        </p>
-        <h2>¿Quieres aprender jugando?</h2>
-        <button class="start-learning">COMENZAR A APRENDER</button>
-      </section>
-
-      <section class="learning-areas">
-        <h2>Áreas de Aprendizaje</h2>
-        <div class="area-cards">
-          <button class="area-card">
-            <span>APRENDE SOBRE</span>
-            <h3>Visual Studio Code</h3>
-          </button>
-          <button class="area-card">
-            <span>APRENDIZAJE EN</span>
-            <h3>Inteligencia Artificial</h3>
-          </button>
-          <button class="area-card">
-            <span>APRENDE SOBRE</span>
-            <h3>Desarrollo Móvil</h3>
-          </button>
-          <button class="area-card" onclick="window.location.href='/Client/pages/Courses/Web_development/curso_web.html'">
-            <span>DESARROLLATE EN</span>
-            <h3>Desarrollo Web</h3>
-          </button>
-          <button class="area-card">
-            <span>APRENDE SOBRE</span>
-            <h3>Desarrollo de Juegos</h3>
-          </button>
-          <button class="area-card">
-            <span>APRENDIZAJE EN</span>
-            <h3>Programación de Aplicaciones Móviles</h3>
-          </button>
-          <button class="area-card">
-            <span>APRENDE SOBRE</span>
-            <h3>Ingeniería de Software</h3>
-          </button>
-          <button class="area-card">
-            <span>APRENDIZAJE EN</span>
-            <h3>Backend con Node.js</h3>
-          </button>
-        </div>
-      </section>
-    </div>
-
-    <div class="container">
-      <section class="authority-section">
-        <div class="text-content">
-          <h2>
-            Tu y Guimarbotcito pueden tener un plan de aprendizaje personalizado
-            como:
-          </h2>
+        <nav>
           <ul>
-            <li>Aprende algo nuevo cada 5 minutos</li>
-            <li>Rutas profesionales te guían de principiante a profesional</li>
-            <li>Pon a prueba tu progreso de forma interactiva</li>
-            <li>Descarga las clases a tu teléfono y aprende sin Internet</li>
-            <li>Organiza el aprendizaje de tu equipo</li>
-            <li>Aprende a programar con las tecnologias mas demandadas</li>
-            <li>Aprende a programar jugando de la forma mas divertida</li>
+            <li><a href="/Client/pages/Home/admin_page.html">Inicio</a></li>
+            <li><a href="/Client/pages/Courses/1Courses_page/Courses.html">Cursos</a></li>
+            <li><a href="#">Jugar</a></li>
+            <li><a href="#">Contacto</a></li>
           </ul>
+        </nav>
+        <div class="buttons">
+          <button onclick="window.location.href='/Client/pages/Auth/login.html'">Login</button>
+          <button onclick="window.location.href='/Client/pages/Auth/register.html'">Registrarse</button>
         </div>
-      </section>
-    </div>
+      </div>
+    </header>
 
-    <div class="container-payment">
-      <section class="pricing-section">
-        <h2>Elige el plan ideal para ti</h2>
-        <div class="plan-options">
-          <div class="plan-card">
-            <h3>Basico</h3>
-            <p>Para 1 estudiante</p>
-            <p class="price">S/50 mes</p>
-            <p class="recurring">Cobro anual recurrente de S/600</p>
-            <ul>
-              <li>Contenido profesional actualizado</li>
-              <li>Certificados digitales</li>
-              <li>Descarga contenido en la app móvil</li>
-              <li>Acceso a sesiones de tutoría en vivo</li>
-              <li>Material adicional exclusivo</li>
-              <li>Un descuento del 30% para todos los participantes</li>
-            </ul>
-            <p class="installments">
-              Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o
-              crédito.
-            </p>
-            <button class="subscribe-button" onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscríbirse</button>
-          </div>
-          <div class="plan-card">
-            <h3>Expert</h3>
-            <p>Para 4 estudiantes</p>
-            <p class="price">S/170 mes</p>
-            <p class="recurring">Cobro anual recurrente de S/2,040</p>
-            <ul>
-              <li>Contenido profesional actualizado</li>
-              <li>Certificados digitales</li>
-              <li>Descarga contenido en la app móvil</li>
-              <li>Acceso a sesiones de tutoría en vivo</li>
-              <li>Material adicional exclusivo</li>
-              <li>Un descuento del 30% para todos los participantes</li>
-            </ul>
-            <p class="installments">
-              Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o
-              crédito.
-            </p>
-            <button class="subscribe-button" onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscríbirse</button>
-          </div>
-          <div class="plan-card">
-            <h3>Duo</h3>
-            <p>Para 2 estudiantes</p>
-            <p class="price">S/90 mes</p>
-            <p class="recurring">Cobro anual recurrente de S/1,080</p>
-            <ul>
-              <li>Contenido profesional actualizado</li>
-              <li>Certificados digitales</li>
-              <li>Descarga contenido en la app móvil</li>
-              <li>Acceso a sesiones de tutoría en vivo</li>
-              <li>Material adicional exclusivo</li>
-              <li>Un descuento del 30% para todos los participantes</li>
-            </ul>
-            <p class="installments">
-              Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o
-              crédito.
-            </p>
-            <button class="subscribe-button" onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscríbirse</button>
-          </div>
+    <section class="hero">
+      <h1>Guimarbot <br /><span>Impulsa tus conocimientos!</span></h1>
+      <p>
+        Somos una pequeña plataforma de aprendizaje en línea que se
+        especializa en ofrecer cursos de alta calidad y prácticos para todos
+        los niveles de aprendizaje. Nuestro objetivo es hacer que el
+        aprendizaje sea accesible y divertido para todos.
+      </p>
+      <h2>¿Quieres aprender jugando?</h2>
+      <button class="start-learning">COMENZAR A APRENDER</button>
+    </section>
+
+    <section class="learning-areas">
+      <h2>Áreas de Aprendizaje</h2>
+      <div class="area-cards">
+        <button class="area-card">
+          <span>APRENDE SOBRE</span>
+          <h3>Visual Studio Code</h3>
+        </button>
+        <button class="area-card">
+          <span>APRENDIZAJE EN</span>
+          <h3>Inteligencia Artificial</h3>
+        </button>
+        <button class="area-card">
+          <span>APRENDE SOBRE</span>
+          <h3>Desarrollo Móvil</h3>
+        </button>
+        <button class="area-card" onclick="window.location.href='/Client/pages/Courses/Web_development/curso_web.html'">
+          <span>DESARROLLATE EN</span>
+          <h3>Desarrollo Web</h3>
+        </button>
+        <button class="area-card">
+          <span>APRENDE SOBRE</span>
+          <h3>Desarrollo de Juegos</h3>
+        </button>
+        <button class="area-card">
+          <span>APRENDIZAJE EN</span>
+          <h3>Programación de Aplicaciones Móviles</h3>
+        </button>
+        <button class="area-card">
+          <span>APRENDE SOBRE</span>
+          <h3>Ingeniería de Software</h3>
+        </button>
+        <button class="area-card">
+          <span>APRENDIZAJE EN</span>
+          <h3>Backend con Node.js</h3>
+        </button><!--  -->
+      </div>
+    </section>
+
+    <!--     <div class="container">
+ -->
+    <section class="authority-section">
+      <div class="text-content">
+        <h2>
+          Tu y Guimarbotcito pueden tener un plan de aprendizaje personalizado
+          como:
+        </h2>
+        <ul>
+          <li>Aprende algo nuevo cada 5 minutos</li>
+          <li>Rutas profesionales te guían de principiante a profesional</li>
+          <li>Pon a prueba tu progreso de forma interactiva</li>
+          <li>Descarga las clases a tu teléfono y aprende sin Internet</li>
+          <li>Organiza el aprendizaje de tu equipo</li>
+          <li>Aprende a programar con las tecnologias mas demandadas</li>
+          <li>Aprende a programar jugando de la forma mas divertida</li>
+        </ul>
+      </div>
+    </section>
+    <!--     </div>
+ -->
+    <!--     <div class="container-payment">
+ -->
+    <section class="pricing-section">
+      <h2>Elige el plan ideal para ti</h2>
+      <div class="plan-options">
+        <div class="plan-card">
+          <h3>Básico</h3>
+          <p>Para 1 estudiante</p>
+          <p class="price">S/200 al año</p>
+          <p class="recurring">Cobro anual recurrente de S/600</p>
+          <ul>
+            <li>Contenido profesional actualizado.</li>
+            <li>Certificados digitales.</li>
+            <li>Descarga contenido en la app móvil.</li>
+            <li>Acceso a sesiones de tutoría en vivo.</li>
+            <li>Material adicional exclusivo.</li>
+            <li>Un descuento del 30% para todos los participantes.</li>
+          </ul>
+          <p class="installments">
+            Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o
+            crédito.
+          </p>
+          <button class="subscribe-button"
+            onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscribirse</button>
         </div>
-      </section>
-    </div>
-  </body>
+        <div class="plan-card">
+          <h3>Duo</h3>
+          <p>Para 2 estudiantes</p>
+          <p class="price">S/350 al año</p>
+          <p class="recurring">Cobro anual recurrente de S/1,080</p>
+          <ul>
+            <li>Contenido profesional actualizado.</li>
+            <li>Certificados digitales.</li>
+            <li>Descarga contenido en la app móvil.</li>
+            <li>Acceso a sesiones de tutoría en vivo.</li>
+            <li>Material adicional exclusivo.</li>
+            <li>Un descuento del 30% para todos los participantes.</li>
+          </ul>
+          <p class="installments">
+            Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o
+            crédito.
+          </p>
+          <button class="subscribe-button"
+            onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscribirse</button>
+        </div>
+        <div class="plan-card">
+          <h3>Expert</h3>
+          <p>Para 4 estudiantes</p>
+          <p class="price">S/500 al año</p>
+          <p class="recurring">Cobro anual recurrente de S/2,040</p>
+          <ul>
+            <li>Contenido profesional actualizado.</li>
+            <li>Certificados digitales.</li>
+            <li>Descarga contenido en la app móvil.</li>
+            <li>Acceso a sesiones de tutoría en vivo.</li>
+            <li>Material adicional exclusivo.</li>
+            <li>Un descuento del 30% para todos los participantes.</li>
+          </ul>
+          <p class="installments">
+            Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o
+            crédito.
+          </p>
+          <button class="subscribe-button"
+            onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscribirse</button>
+        </div>
+      </div>
+    </section>
+    <!--     </div>-->
+  </div>
+
+</body>
+
 </html>

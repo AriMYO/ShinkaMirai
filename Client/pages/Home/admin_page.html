@@ -1,309 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panel de Administrador - ShinkaMirai</title>
-    <link rel="stylesheet" href="/Client/Styles/admin_page.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - ShinkaMirai</title>
+    <link rel="stylesheet" href="/Client/Styles/admin_page.css">
+</head>
+<body>
     <div class="container">
-      <aside class="sidebar">
-        <div class="logo">
-          <h1>ShinkaMirai</h1>
-          <p>Panel de Administrador</p>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#dashboard" class="active">Dashboard</a></li>
-            <li><a href="#inbox">Bandeja de administradores</a></li>
-            <li><a href="#messaging">Mensajería</a></li>
-            <li><a href="#users">Gestión de Usuarios</a></li>
-            <li><a href="#courses">Gestión de Cursos</a></li>
-            <li><a href="#videos">Subir Videos</a></li>
-            <li><a href="#scholarships">Becas Aprobadas</a></li>
-            <li><a href="#statistics">Estadísticas</a></li>
-          </ul>
-        </nav>
-      </aside>
-      <main>
-        <header>
-          <h2>Bienvenido, Administrador</h2>
-          <div class="user-menu">
-            <img
-              src="/Client/Images/Guimarbot.png"
-              alt="Admin Avatar"
-              class="avatar"
-            />
-            <span>Admin</span>
-          </div>
-        </header>
-        <section id="dashboard" class="active">
-          <h3>Dashboard</h3>
-          <div class="dashboard-stats">
-            <div class="stat-card">
-              <h4>Total Usuarios</h4>
-              <p>1,234</p>
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>ShinkaMirai</h1>
+                <p>Panel de Administración</p>
             </div>
-            <div class="stat-card">
-              <h4>Cursos Activos</h4>
-              <p>42</p>
-            </div>
-            <div class="stat-card">
-              <h4>Becas Otorgadas</h4>
-              <p>87</p>
-            </div>
-            <div class="stat-card">
-              <h4>Ingresos Mensuales</h4>
-              <p>$12,345</p>
-            </div>
-          </div>
-        </section>
-        <section id="inbox">
-          <h3>Bandeja de entrada</h3>
-          <div class="inbox-container">
-            <div class="inbox-list">
-              <div class="inbox-item unread">
-                <div class="inbox-item-avatar">
-                  <img src="/Client/Images/pikachu.png" alt="Usuario 1" />
+            <nav>
+                <ul>
+                    <li><a href="#dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#users">Gestión de Usuarios</a></li>
+                    <li><a href="#courses">Gestión de Cursos</a></li>
+                    <li><a href="#videos">Subir Videos</a></li>
+                    <li><a href="#scholarships">Becas Aprobadas</a></li>
+                    <li><a href="#plans">Estadísticas</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <header>
+                <h2>Bienvenido, Administrador</h2>
+                <div class="user-menu">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Avatar del Administrador" class="avatar">
+                    <span>Admin</span>
                 </div>
-                <div class="inbox-item-content">
-                  <h4>Caballero Moscoso Cristhian</h4>
-                  <p>Consulta sobre el curso de JavaScript</p>
+            </header>
+            
+            <section id="dashboard" class="active">
+                <h3>Dashboard</h3>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h4>Total Usuarios</h4>
+                        <p>1,234</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Cursos Activos</h4>
+                        <p>42</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Becas Otorgadas</h4>
+                        <p>87</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Ingresos Mensuales</h4>
+                        <p>$12,345</p>
+                    </div>
                 </div>
-                <div class="inbox-item-date">
-                  <span>Hace 2 horas</span>
+            </section>
+
+            <section id="plans">
+                <h3>Planes de Suscripción</h3>
+                <div class="plans-container">
+                    <div class="plan-card" id="plan-basico">
+                        <h4>Básico</h4>
+                        <p class="price">S/200 al año</p>
+                        <p>Para 1 estudiante</p>
+                    </div>
+                    <div class="plan-card" id="plan-duo">
+                        <h4>Duo</h4>
+                        <p class="price">S/350 al año</p>
+                        <p>Para 2 estudiantes</p>
+                    </div>
+                    <div class="plan-card" id="plan-expert">
+                        <h4>Expert</h4>
+                        <p class="price">S/500 al año</p>
+                        <p>Para 4 estudiantes</p>
+                    </div>
                 </div>
-              </div>
-              <div class="inbox-item">
-                <div class="inbox-item-avatar">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGTYTl7uyIoTQ5o4TseVRN70sCpg0yawkZZQ&s"
-                    alt="Usuario 2"
-                  />
+                <div class="filters">
+                    <h4>Filtros</h4>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="filter-basico" checked>
+                        <label for="filter-basico">Básico</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="filter-duo" checked>
+                        <label for="filter-duo">Duo</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="filter-expert" checked>
+                        <label for="filter-expert">Expert</label>
+                    </div>
                 </div>
-                <div class="inbox-item-content">
-                  <h4>Iparraguirre Vilchez Andrea</h4>
-                  <p>Problema con la plataforma</p>
+                <div class="stats-container">
+                    <div class="tabs">
+                        <button class="tab-button active" data-tab="users">Usuarios</button>
+                        <button class="tab-button" data-tab="revenue">Ingresos</button>
+                        <button class="tab-button" data-tab="retention">Retención</button>
+                        <button class="tab-button" data-tab="courses">Cursos Comprados</button>
+                    </div>
+                    <div class="tab-content active" id="users-chart">
+                        <canvas id="usersChart"></canvas>
+                    </div>
+                    <div class="tab-content" id="revenue-chart">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                    <div class="tab-content" id="retention-chart">
+                        <canvas id="retentionChart"></canvas>
+                    </div>
+                    <div class="tab-content" id="courses-chart">
+                        <canvas id="coursesChart"></canvas>
+                    </div>
                 </div>
-                <div class="inbox-item-date">
-                  <span>Ayer</span>
-                </div>
-              </div>
-              <div class="inbox-item">
-                <div class="inbox-item-avatar">
-                  <img
-                    src="https://pm1.aminoapps.com/7933/780e7616157d238903727816597e4c1c36aa7b98r1-372-371v2_uhq.jpg"
-                    alt="Usuario 3"
-                  />
-                </div>
-                <div class="inbox-item-content">
-                  <h4>Ypanaque Osorio Ariana</h4>
-                  <p>Solicitud de información sobre becas</p>
-                </div>
-                <div class="inbox-item-date">
-                  <span>Hace 2 días</span>
-                </div>
-              </div>
-              <div class="inbox-item">
-                <div class="inbox-item-avatar">
-                  <img
-                    src="https://i.pinimg.com/236x/99/d0/e8/99d0e877877b849b910637dbb0b44bc7.jpg"
-                    alt="Usuario 3"
-                  />
-                </div>
-                <div class="inbox-item-content">
-                  <h4>Rosales Condori Renzo</h4>
-                  <p>Solicitud de información sobre becas</p>
-                </div>
-                <div class="inbox-item-date">
-                  <span>Hace 1 días</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="messaging">
-          <h3>Mensajería</h3>
-          <div class="messaging-container">
-            <div class="messaging-sidebar">
-              <div class="messaging-search">
-                <input type="text" placeholder="Buscar conversación..." />
-              </div>
-              <div class="messaging-contacts">
-                <div class="messaging-contact active">
-                  <img
-                    src="/Client/Images/pikachu.png"
-                    alt="Caballero Moscoso Cristhian"
-                  />
-                  <div class="messaging-contact-info">
-                    <h4>Caballero Moscoso Cristhian</h4>
-                    <p>Última actividad: Hace 5 min</p>
-                  </div>
-                </div>
-                <div class="messaging-contact">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGTYTl7uyIoTQ5o4TseVRN70sCpg0yawkZZQ&s"
-                    alt="Iparraguirre Vilchez Andrea"
-                  />
-                  <div class="messaging-contact-info">
-                    <h4>Iparraguirre Vilchez Andrea</h4>
-                    <p>Última actividad: Hace 1 hora</p>
-                  </div>
-                </div>
-                <div class="messaging-contact">
-                  <img
-                    src="https://pm1.aminoapps.com/7933/780e7616157d238903727816597e4c1c36aa7b98r1-372-371v2_uhq.jpg"
-                    alt="Ipanaque Osorio Ariana"
-                  />
-                  <div class="messaging-contact-info">
-                    <h4>Ypanaque Osorio Ariana</h4>
-                    <p>Última actividad: Ayer</p>
-                  </div>
-                </div>
-                <div class="messaging-contact">
-                  <img
-                    src="https://i.pinimg.com/236x/99/d0/e8/99d0e877877b849b910637dbb0b44bc7.jpg"
-                    alt="Rosales Condori Renzo"
-                  />
-                  <div class="messaging-contact-info">
-                    <h4>Rosales Condori Renzo</h4>
-                    <p>Última actividad: Ayer</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="messaging-main">
-              <div class="messaging-header">
-                <h4>Caballero Moscoso Cristhian</h4>
-                <p>En línea</p>
-              </div>
-              <div class="messaging-body">
-                <div class="message received">
-                  <p>Hola, tengo una pregunta sobre el curso de JavaScript.</p>
-                  <span class="message-time">10:30 AM</span>
-                </div>
-                <div class="message sent">
-                  <p>Claro, ¿en qué puedo ayudarte?</p>
-                  <span class="message-time">10:32 AM</span>
-                </div>
-                <div class="message received">
-                  <p>¿Cuándo comienza el próximo módulo?</p>
-                  <span class="message-time">10:33 AM</span>
-                </div>
-              </div>
-              <div class="messaging-footer">
-                <input type="text" placeholder="Escribe un mensaje..." />
-                <button class="btn btn-primary">Enviar</button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="users">
-          <h3>Gestión de Usuarios</h3>
-          <table class="user-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Fecha de Registro</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Caballero Moscoso Cristhian</td>
-                <td>Cris@example.com</td>
-                <td>2023-05-15</td>
-                <td><button class="btn btn-small">Detalles</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Iparraguirre Vilchez Andrea</td>
-                <td>Andrea@example.com</td>
-                <td>2023-06-20</td>
-                <td><button class="btn btn-small">Detalles</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section id="courses">
-          <h3>Gestión de Cursos</h3>
-          <form id="courseForm" class="form">
-            <input type="text" placeholder="Título del Curso" required />
-            <textarea placeholder="Descripción del Curso" required></textarea>
-            <input type="number" placeholder="Duración (horas)" required />
-            <button type="submit" class="btn btn-primary">
-              Registrar Curso
-            </button>
-          </form>
-        </section>
-        <section id="videos">
-          <h3>Subir Videos</h3>
-          <form id="videoForm" class="form">
-            <select required>
-              <option value="">Seleccionar Curso</option>
-              <option value="1">Curso de JavaScript</option>
-              <option value="2">Curso de React</option>
-            </select>
-            <input type="text" placeholder="Título del Video" required />
-            <input type="file" accept="video/*" required />
-            <button type="submit" class="btn btn-primary">Subir Video</button>
-          </form>
-        </section>
-        <section id="scholarships">
-          <h3>Becas Aprobadas</h3>
-          <table class="scholarship-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Estudiante</th>
-                <th>Curso</th>
-                <th>Fecha de Aprobación</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Ypanaque Osorio Ariana</td>
-                <td>JavaScript Avanzado</td>
-                <td>2023-07-01</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Rosales Condori Renzo</td>
-                <td>React para Principiantes</td>
-                <td>2023-07-15</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section id="statistics">
-          <h3>Estadísticas</h3>
-          <div class="chart-container">
-            <div class="chart-item">
-              <h4>Cuentas Creadas vs. Suscripciones Anuales</h4>
-              <canvas id="accountsChart"></canvas>
-            </div>
-            <div class="chart-item">
-              <h4>Distribución de Usuarios</h4>
-              <canvas id="userDistributionChart"></canvas>
-            </div>
-            <div class="chart-item">
-              <h4>Ingresos por Período</h4>
-              <canvas id="incomeChart"></canvas>
-            </div>
-            <div class="chart-item">
-              <h4>Becas Otorgadas por Mes</h4>
-              <canvas id="scholarshipsChart"></canvas>
-            </div>
-          </div>
-        </section>
-      </main>
+            </section>
+
+            <section id="users">
+                <h3>Gestión de Usuarios</h3>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Fecha de Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Caballero Moscoso Cristhian</td>
+                            <td>cris@example.com</td>
+                            <td>2023-05-15</td>
+                            <td><button class="btn btn-small">Detalles</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Iparraguirre Vilchez Andrea</td>
+                            <td>andrea@example.com</td>
+                            <td>2023-06-20</td>
+                            <td><button class="btn btn-small">Detalles</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="courses">
+                <h3>Gestión de Cursos</h3>
+                <form id="courseForm" class="form">
+                    <input type="text" placeholder="Título del Curso" required>
+                    <textarea placeholder="Descripción del Curso" required></textarea>
+                    <input type="number" placeholder="Duración (horas)" required>
+                    <button type="submit" class="btn btn-primary">Registrar Curso</button>
+                </form>
+            </section>
+
+            <section id="videos">
+                <h3>Subir Videos</h3>
+                <form id="videoForm" class="form">
+                    <select required>
+                        <option value="">Seleccionar Curso</option>
+                        <option value="1">Curso de JavaScript</option>
+                        <option value="2">Curso de React</option>
+                    </select>
+                    <input type="text" placeholder="Título del Video" required>
+                    <input type="file" accept="video/*" required>
+                    <button type="submit" class="btn btn-primary">Subir Video</button>
+                </form>
+            </section>
+
+            <section id="scholarships">
+                <h3>Becas Aprobadas</h3>
+                <table class="scholarship-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Estudiante</th>
+                            <th>Curso</th>
+                            <th>Fecha de Aprobación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ypanaque Osorio Ariana</td>
+                            <td>JavaScript Avanzado</td>
+                            <td>2023-07-01</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Rosales Condori Renzo</td>
+                            <td>React para Principiantes</td>
+                            <td>2023-07-15</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/Client/Js/admin_page.js"></script>
-  </body>
+</body>
 </html>
