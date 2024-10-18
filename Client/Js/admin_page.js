@@ -62,15 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupEventListeners() {
         // Navegación del sidebar
-        document.querySelectorAll('.sidebar nav a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').slice(1);
                 
-                document.querySelectorAll('.sidebar nav a').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
 
-                document.querySelectorAll('main section').forEach(section => {
+                document.querySelectorAll('.content-section').forEach(section => {
                     if (section.id === targetId) {
                         section.classList.add('active');
                     } else {
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             videoForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 alert('Video subido exitosamente!');
-                videoForm.reset()
+                videoForm.reset();
             });
         }
 
@@ -129,6 +129,35 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => {
                 alert('Detalles del usuario: Esta funcionalidad está en desarrollo.');
             });
+        });
+
+        // Messaging functionality
+        const messageItems = document.querySelectorAll('.message-item');
+        const messageView = document.querySelector('.message-view');
+        const messageHeader = messageView.querySelector('.message-header h4');
+        const messageBody = messageView.querySelector('.message-body');
+        const replyTextarea = messageView.querySelector('textarea');
+        const replyButton = messageView.querySelector('button');
+
+        messageItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const name = item.querySelector('h4').textContent;
+                const message = item.querySelector('p').textContent;
+                
+                messageHeader.textContent = name;
+                messageBody.innerHTML = `<p>${message}</p>`;
+                item.classList.remove('unread');
+            });
+        });
+
+        replyButton.addEventListener('click', () => {
+            const reply = replyTextarea.value.trim();
+            if (reply) {
+                messageBody.innerHTML += `
+                    <p><strong>You:</strong> ${reply}</p>
+                `;
+                replyTextarea.value = '';
+            }
         });
     }
 

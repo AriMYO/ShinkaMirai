@@ -264,6 +264,9 @@ nav ul li a {
   width: 100%;
   max-width: 300px;
   border: 1px solid whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .plan-card h3 {
@@ -299,6 +302,7 @@ nav ul li a {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
+  align-self: center;
 }
 
 .subscribe-button:hover {
