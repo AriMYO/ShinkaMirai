@@ -1,197 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario de Pago y Solicitud de Beca</title>
+    <title>ShinkaToMirai - Plataforma de Aprendizaje Profesional</title>
     <link rel="stylesheet" href="/Client/Styles/payment.css" />
-  </head>
-  <body>
-    <div class="logo-container">
-      <img src="/Client/Images/Guimarbot.png" alt="ShinkaMirai Logo" />
-      <span class="logo">ShinkaMirai</span>
-    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+                <span>ShinkaToMirai</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué quieres aprender?" />
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-button" data-view="courses">Cursos</a></li>
+                <li><a href="#" class="nav-button" data-view="plans">Planes</a></li>
+                <li><a href="#" class="nav-button" data-view="payment">Pagar</a></li> <!-- Nuevo botón para abrir la pestaña de pago -->
+                <li><a href="#">Contáctanos</a></li>
+            </ul>
+            <div class="cart">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="user-menu">
+                <img src="/Client/Images/pikachu.png" alt="Usuario" />
+                <div class="dropdown-menu">
+                    <p>Hola, <span>Usuario</span></p>
+                    <a href="#" class="nav-button" data-view="courses">Ver todos mis cursos</a>
+                    <a href="#">Ver mi perfil</a>
+                    <a href="#" class="nav-button" data-view="plans">Mis planes</a>
+                    <a href="#">Mi Suscripción</a>
+                    <a href="#">Contáctanos</a>
+                    <a href="#">Configuración</a>
+                    <a href="#" class="logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <nav class="main-nav">
-      <button class="nav-button active" data-view="payment">
-        Método de Pago
-      </button>
-      <button class="nav-button" data-view="scholarship">
-        Solicitud de Beca
-      </button>
-    </nav>
-
-    <div class="container">
-      <div id="paymentView" class="view active">
-        <div class="payment-form">
-          <h1>Información de pago</h1>
-          <p class="info-text">
-            Todas las transacciones son seguras y encriptadas
-          </p>
-          <form>
-            <div class="form-group">
-              <input
-                type="text"
-                id="documento"
-                placeholder="Número de documento de identidad"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="nombre"
-                placeholder="Nombre titular de la tarjeta"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="tarjeta"
-                placeholder="Número de tarjeta"
-                maxlength="19"
-                required
-                oninput="formatCardNumber(this)"
-              />
-            </div>
-            <div class="card-input">
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="fecha"
-                  placeholder="MM / AA"
-                  maxlength="7"
-                  required
-                  oninput="formatDate(this)"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="cvc"
-                  placeholder="CVC"
-                  maxlength="4"
-                  required
-                  pattern="\d{4}"
-                />
-              </div>
-            </div>
-            <button type="submit" class="submit-button">
-              Pagar S/ 799 PEN
-            </button>
-          </form>
+    <main class="container">
+        <div id="coursesView" class="view">
+            <h1>Cursos de Desarrollo Profesional</h1>
+            <div class="course-grid" id="courseGrid"></div>
         </div>
-      </div>
 
-      <div id="scholarshipView" class="view">
-        <div class="scholarship-form">
-          <h1>Solicitud de Beca</h1>
-          <p class="info-text">
-            Por favor, completa el formulario para solicitar una beca
-          </p>
-          <form>
-            <div class="form-group">
-              <input
-                type="text"
-                id="nombre-beca"
-                placeholder="Nombre completo"
-                required
-              />
+        <div id="paymentView" class="view">
+            <div class="payment-container">
+                <div class="payment-form">
+                    <h1>Información de pago</h1>
+                    <p class="info-text">Todas las transacciones son seguras y encriptadas</p>
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <input type="text" id="documento" placeholder="Número de documento de identidad" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="nombre" placeholder="Nombre titular de la tarjeta" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="tarjeta" placeholder="Número de tarjeta" maxlength="19" required oninput="formatCardNumber(this)" />
+                        </div>
+                        <div class="card-input">
+                            <div class="form-group">
+                                <input type="text" id="fecha" placeholder="MM / AA" maxlength="7" required oninput="formatDate(this)" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="cvc" placeholder="CVC" maxlength="4" required pattern="\d{3,4}" />
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-button">Pagar S/ <span id="paymentAmount">0</span> PEN</button>
+                    </form>
+                </div>
+                <div class="cart-summary">
+                    <h2>Resumen de compra</h2>
+                    <ul id="cartItems"></ul>
+                    <p>Total: S/ <span id="cartTotal">0.00</span></p>
+                </div>
             </div>
-            <div class="form-group">
-              <input
-                type="date"
-                id="fecha-nacimiento"
-                placeholder="Fecha de nacimiento"
-                max="2024-12-31"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="lugar-residencia"
-                placeholder="Lugar de residencia"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="escuela-actual"
-                placeholder="Escuela actual"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <select id="grado-academico" required>
-                <option value="" disabled selected>Grado académico</option>
-                <option value="inicial">Inicial</option>
-                <option value="primaria">Primaria</option>
-                <option value="secundaria">Secundaria</option>
-                <option value="pregrado">Pregrado</option>
-                <option value="postgrado">Postgrado</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="nombre-apoderado"
-                placeholder="Nombre completo del apoderado"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="contacto"
-                placeholder="Información de contacto (teléfono, correo electrónico)"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="ocupacion-apoderado"
-                placeholder="Ocupación del apoderado(a)"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="ingresos-hogar"
-                placeholder="Nivel de ingresos del hogar"
-                required
-              />
-            </div>
-            <button type="submit" class="submit-button">
-              Enviar Solicitud
-            </button>
-          </form>
         </div>
-      </div>
 
-      <div class="plan-card">
-        <h3>Expert</h3>
-        <p>Para 4 estudiantes</p>
-        <p class="price">S/170 mes</p>
-        <p class="recurring">Cobro anual recurrente de S/1,099</p>
-        <ul>
-          <li>Contenido profesional actualizado</li>
-          <li>Certificados digitales</li>
-          <li>Descarga contenido en la app móvil</li>
-          <li>Acceso a sesiones de tutoría en vivo</li>
-          <li>Material adicional exclusivo</li>
-          <li>Un descuento del 30% para todos los participantes</li>
-        </ul>
-        <p class="installments">
-          Paga a 4 cuotas sin intereses de S/200 con tarjeta débito o crédito.
-        </p>
-      </div>
-    </div>
+        <div id="plansView" class="view">
+            <h1>Nuestros Planes</h1>
+            <div class="plans-container">
+                <div class="plan-card">
+                    <h3>Básico</h3>
+                    <p>Para 1 estudiante</p>
+                    <p class="price">S/50 mes</p>
+                    <p class="recurring">Cobro anual recurrente de S/600</p>
+                    <ul>
+                        <li>Acceso a todos los cursos</li>
+                        <li>Certificados digitales</li>
+                        <li>Soporte por correo electrónico</li>
+                    </ul>
+                    <button class="select-plan" data-plan="basico">Seleccionar Plan</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Pro</h3>
+                    <p>Para 2 estudiantes</p>
+                    <p class="price">S/80 mes</p>
+                    <p class="recurring">Cobro anual recurrente de S/960</p>
+                    <ul>
+                        <li>Todo lo del plan Básico</li>
+                        <li>Acceso a contenido exclusivo</li>
+                        <li>Soporte prioritario</li>
+                    </ul>
+                    <button class="select-plan" data-plan="pro">Seleccionar Plan</button>
+                </div>
+                <div class="plan-card featured">
+                    <h3>Expert</h3>
+                    <p>Para 4 estudiantes</p>
+                    <p class="price">S/170 mes</p>
+                    <p class="recurring">Cobro anual recurrente de S/2,040</p>
+                    <ul>
+                        <li>Todo lo del plan Pro</li>
+                        <li>Sesiones de tutoría en vivo</li>
+                        <li>Acceso anticipado a nuevos cursos</li>
+                        <li>30% de descuento en cursos adicionales</li>
+                    </ul>
+                    <button class="select-plan" data-plan="expert">Seleccionar Plan</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="/Client/Js/payment.js"></script>
-  </body>
+</body>
 </html>
