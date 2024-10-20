@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShinkaToMirai - Plataforma de Aprendizaje Profesional</title>
     <link rel="stylesheet" href="/Client/Styles/payment.css" />
+    
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -20,10 +21,9 @@
             <ul class="nav-links">
                 <li><a href="#" class="nav-button" data-view="courses">Cursos</a></li>
                 <li><a href="#" class="nav-button" data-view="plans">Planes</a></li>
-                <li><a href="#" class="nav-button" data-view="payment">Pagar</a></li> <!-- Nuevo botón para abrir la pestaña de pago -->
                 <li><a href="#">Contáctanos</a></li>
             </ul>
-            <div class="cart">
+            <div class="cart" id="cartToggle">
                 <span class="cart-icon">🛒</span>
                 <span class="cart-count">0</span>
             </div>
@@ -44,9 +44,70 @@
     </header>
 
     <main class="container">
+        <div id="cartSidebar" class="cart-sidebar">
+            <h2>Carrito de Compras</h2>
+            <ul id="cartItems"></ul>
+            <p>Total: S/ <span id="cartTotal">0.00</span></p>
+            <button id="checkoutButton" class="checkout-button">Ir a Pagar</button>
+        </div>
+
         <div id="coursesView" class="view">
             <h1>Cursos de Desarrollo Profesional</h1>
             <div class="course-grid" id="courseGrid"></div>
+        </div>
+
+        <div id="plansView" class="view">
+            <h1>Nuestros Planes</h1>
+            <div class="plans-container">
+                <div class="plan-card">
+                    <h3>Básico</h3>
+                    <p>Para 1 estudiante</p>
+                    <p class="price">S/200 al año</p>
+                    <p class="recurring">Cobro anual recurrente de S/600</p>
+                    <ul>
+                        <li>Contenido profesional actualizado.</li>
+                        <li>Certificados digitales.</li>
+                        <li>Descarga contenido en la app móvil.</li>
+                        <li>Acceso a sesiones de tutoría en vivo.</li>
+                        <li>Material adicional exclusivo.</li>
+                        <li>Un descuento del 30% para todos los participantes.</li>
+                    </ul>
+                    <p class="installments">Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o crédito.</p>
+                    <button class="select-plan" data-plan="basico">Suscribirse</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Duo</h3>
+                    <p>Para 2 estudiantes</p>
+                    <p class="price">S/350 al año</p>
+                    <p class="recurring">Cobro anual recurrente de S/1,080</p>
+                    <ul>
+                        <li>Contenido profesional actualizado.</li>
+                        <li>Certificados digitales.</li>
+                        <li>Descarga contenido en la app móvil.</li>
+                        <li>Acceso a sesiones de tutoría en vivo.</li>
+                        <li>Material adicional exclusivo.</li>
+                        <li>Un descuento del 30% para todos los participantes.</li>
+                    </ul>
+                    <p class="installments">Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o crédito.</p>
+                    <button class="select-plan" data-plan="duo">Suscribirse</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Expert</h3>
+                    <p>Para 4 estudiantes</p>
+                    <p class="price">S/500 al año</p>
+                    <p class="recurring">Cobro anual recurrente de S/2,040</p>
+                    <ul>
+                        <li>Contenido profesional actualizado.</li>
+                        <li>Certificados digitales.</li>
+                        <li>Descarga contenido en la app móvil.</li>
+                        <li>Acceso a sesiones de tutoría en vivo.</li>
+                        <li>Material adicional exclusivo.</li>
+                        <li>Un descuento del 30% para todos los participantes.</li>
+                    </ul>
+                    <p class="installments">Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o crédito.</p>
+                    <button class="select-plan" data-plan="expert">Suscribirse</button>
+                </div>
+            </div>
         </div>
 
         <div id="paymentView" class="view">
@@ -56,7 +117,7 @@
                     <p class="info-text">Todas las transacciones son seguras y encriptadas</p>
                     <form id="paymentForm">
                         <div class="form-group">
-                            <input type="text" id="documento" placeholder="Número de documento de identidad" required />
+                            <input type="text" id="documento" placeholder="Número de documento de identidad" required inputmode="numeric" />
                         </div>
                         <div class="form-group">
                             <input type="text" id="nombre" placeholder="Nombre titular de la tarjeta" required />
@@ -75,53 +136,10 @@
                         <button type="submit" class="submit-button">Pagar S/ <span id="paymentAmount">0</span> PEN</button>
                     </form>
                 </div>
-                <div class="cart-summary">
+                <div class="purchase-summary">
                     <h2>Resumen de compra</h2>
-                    <ul id="cartItems"></ul>
-                    <p>Total: S/ <span id="cartTotal">0.00</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div id="plansView" class="view">
-            <h1>Nuestros Planes</h1>
-            <div class="plans-container">
-                <div class="plan-card">
-                    <h3>Básico</h3>
-                    <p>Para 1 estudiante</p>
-                    <p class="price">S/50 mes</p>
-                    <p class="recurring">Cobro anual recurrente de S/600</p>
-                    <ul>
-                        <li>Acceso a todos los cursos</li>
-                        <li>Certificados digitales</li>
-                        <li>Soporte por correo electrónico</li>
-                    </ul>
-                    <button class="select-plan" data-plan="basico">Seleccionar Plan</button>
-                </div>
-                <div class="plan-card">
-                    <h3>Pro</h3>
-                    <p>Para 2 estudiantes</p>
-                    <p class="price">S/80 mes</p>
-                    <p class="recurring">Cobro anual recurrente de S/960</p>
-                    <ul>
-                        <li>Todo lo del plan Básico</li>
-                        <li>Acceso a contenido exclusivo</li>
-                        <li>Soporte prioritario</li>
-                    </ul>
-                    <button class="select-plan" data-plan="pro">Seleccionar Plan</button>
-                </div>
-                <div class="plan-card featured">
-                    <h3>Expert</h3>
-                    <p>Para 4 estudiantes</p>
-                    <p class="price">S/170 mes</p>
-                    <p class="recurring">Cobro anual recurrente de S/2,040</p>
-                    <ul>
-                        <li>Todo lo del plan Pro</li>
-                        <li>Sesiones de tutoría en vivo</li>
-                        <li>Acceso anticipado a nuevos cursos</li>
-                        <li>30% de descuento en cursos adicionales</li>
-                    </ul>
-                    <button class="select-plan" data-plan="expert">Seleccionar Plan</button>
+                    <ul id="purchaseItems"></ul>
+                    <p>Total: S/ <span id="purchaseTotal">0.00</span></p>
                 </div>
             </div>
         </div>
