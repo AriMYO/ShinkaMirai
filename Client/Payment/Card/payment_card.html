@@ -5,42 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShinkaToMirai - Plataforma de Aprendizaje Profesional</title>
     <link rel="stylesheet" href="/Client/Styles/payment.css" />
-
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
     <header>
-      <nav>
-        <div class="logo">
-          <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
-          <span>ShinkaToMirai</span>
-        </div>
-        <div class="search-bar">
-          <input type="text" placeholder="¿Qué quieres aprender?" />
+      <nav class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+            <span>ShinkaToMirai</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+          </div>
         </div>
         <ul class="nav-links">
           <li><a href="#" class="nav-button" data-view="plans">Planes</a></li>
-
           <li><a href="#" class="nav-button" data-view="courses">Cursos</a></li>
           <li><a href="#">Contáctanos</a></li>
         </ul>
-        <div class="cart" id="cartToggle">
-          <span class="cart-icon">🛒</span>
-          <span class="cart-count">0</span>
-        </div>
-        <div class="user-menu">
-          <img src="/Client/Images/pikachu.png" alt="Usuario" />
-          <div class="dropdown-menu">
-            <p>Hola, <span>Usuario</span></p>
-            <a href="#" class="nav-button" data-view="courses"
-              >Ver todos mis cursos</a
-            >
-            <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
-            <a href="#" class="nav-button" data-view="plans">Mis planes</a>
-            <a href="#">Mi Suscripción</a>
-            <a href="#">Contáctanos</a>
-            <a href="#">Configuración</a>
-            <a href="#" class="logout">Cerrar sesión</a>
+        <div class="user-actions">
+          <div class="cart" id="cartToggle">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+          </div>
+          <div class="user-menu">
+            <img src="/Client/Images/pikachu.png" alt="Usuario" />
+            <div class="dropdown-menu">
+              <p>Hola, <span>Usuario</span></p>
+              <a href="#" class="nav-button" data-view="courses">Ver todos mis cursos</a>
+              <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
+              <a href="#" class="nav-button" data-view="plans">Mis planes</a>
+              <a href="#">Mi Suscripción</a>
+              <a href="#">Contáctanos</a>
+              <a href="#">Configuración</a>
+              <a href="#" class="logout">Cerrar sesión</a>
+            </div>
           </div>
         </div>
       </nav>
@@ -76,8 +76,7 @@
               <li>Un descuento del 30% para todos los participantes.</li>
             </ul>
             <p class="installments">
-              Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o
-              crédito.
+              Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o crédito.
             </p>
             <button class="select-plan" data-plan="basico">Suscribirse</button>
           </div>
@@ -95,8 +94,7 @@
               <li>Un descuento del 30% para todos los participantes.</li>
             </ul>
             <p class="installments">
-              Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o
-              crédito.
+              Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o crédito.
             </p>
             <button class="select-plan" data-plan="duo">Suscribirse</button>
           </div>
@@ -114,8 +112,7 @@
               <li>Un descuento del 30% para todos los participantes.</li>
             </ul>
             <p class="installments">
-              Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o
-              crédito.
+              Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o crédito.
             </p>
             <button class="select-plan" data-plan="expert">Suscribirse</button>
           </div>
@@ -131,52 +128,20 @@
             </p>
             <form id="paymentForm">
               <div class="form-group">
-                <input
-                  type="text"
-                  id="documento"
-                  placeholder="Número de documento de identidad"
-                  required
-                  inputmode="numeric"
-                />
+                <input type="text" id="documento" placeholder="Número de documento de identidad" required inputmode="numeric" />
               </div>
               <div class="form-group">
-                <input
-                  type="text"
-                  id="nombre"
-                  placeholder="Nombre titular de la tarjeta"
-                  required
-                />
+                <input type="text" id="nombre" placeholder="Nombre titular de la tarjeta" required />
               </div>
               <div class="form-group">
-                <input
-                  type="text"
-                  id="tarjeta"
-                  placeholder="Número de tarjeta"
-                  maxlength="19"
-                  required
-                  oninput="formatCardNumber(this)"
-                />
+                <input type="text" id="tarjeta" placeholder="Número de tarjeta" maxlength="19" required oninput="formatCardNumber(this)" />
               </div>
               <div class="card-input">
                 <div class="form-group">
-                  <input
-                    type="text"
-                    id="fecha"
-                    placeholder="MM / AA"
-                    maxlength="7"
-                    required
-                    oninput="formatDate(this)"
-                  />
+                  <input type="text" id="fecha" placeholder="MM / AA" maxlength="7" required oninput="formatDate(this)" />
                 </div>
                 <div class="form-group">
-                  <input
-                    type="text"
-                    id="cvc"
-                    placeholder="CVC"
-                    maxlength="4"
-                    required
-                    pattern="\d{3,4}"
-                  />
+                  <input type="text" id="cvc" placeholder="CVC" maxlength="4" required pattern="\d{3,4}" />
                 </div>
               </div>
               <button type="submit" class="submit-button">

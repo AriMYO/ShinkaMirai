@@ -3,44 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil</title>
+    <title>ShinkaToMirai-Perfil</title>
     <link rel="stylesheet" href="/Client/Styles/profile.css" />
   </head>
   <body>
     <header>
-      <nav>
-        <div class="logo">
-          <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
-          <span>ShinkaToMirai</span>
-        </div>
-        <div class="search-bar">
-          <input type="text" placeholder="¿Qué quieres aprender?" />
+      <nav class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+            <span>ShinkaToMirai</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+          </div>
         </div>
         <ul class="nav-links">
-          <li><a href="#">Cursos</a></li>
-          <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+          <li><a href="/Client/Payment/Card/payment_card.html">Cursos</a></li>
+          <li><a href="/Client/Payment/Card/payment_card.html">Planes</a></li>
           <li><a href="">Contáctanos</a></li>
         </ul>
         <div class="user-menu">
           <img src="/Client/Images/pikachu.png" alt="Usuario" />
           <div class="dropdown-menu">
             <p>Hola, <span>Usuario</span></p>
-
-            <a
-              href="#"
-              onclick="window.location.href='/Client/pages/Courses/Courses.html'"
-              >Ver todos mis cursos</a
-            >
-            <a
-              href="#"
-              onclick="window.location.href='/Client/pages/Auth/profile.html'"
-              >Ver mi perfil</a
-            >
-            <a
-              href="#"
-              onclick="window.location.href='/Client/pages/Plans/plans.html'"
-              >Mis planes</a
-            >
+            <a href="/Client/pages/Courses/Courses.html">Ver todos mis cursos</a>
+            <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
+            <a href="/Client/pages/Plans/plans.html">Mis planes</a>
             <a href="#">Mi Suscripción</a>
             <a href="#">Contáctanos</a>
             <a href="#">Configuración</a>
@@ -49,8 +38,8 @@
         </div>
       </nav>
     </header>
-    <div class="container">
-      <header class="profile-header">
+    <main class="container">
+      <div class="profile-header">
         <img src="/Client/Images/pikachu.png" alt="Avatar" class="avatar" />
         <div class="profile-info">
           <h1>Usuario</h1>
@@ -62,9 +51,9 @@
             <span class="stat-label">Cursos Completados</span>
           </div>
         </div>
-      </header>
+      </div>
 
-      <main class="content">
+      <div class="content">
         <section class="main-content">
           <section class="user-courses">
             <h2>Tus cursos</h2>
@@ -128,7 +117,8 @@
             </p>
           </section>
         </aside>
-      </main>
-    </div>
+      </div>
+    </main>
+    <script src="/Client/Js/profile.js"></script>
   </body>
 </html>
