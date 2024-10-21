@@ -300,5 +300,23 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCourses();
     updateCart();
     showView("plans");
-  });
   
+    // Mostrar u ocultar el menú desplegable de opciones 
+    const pikachu = document.querySelector(".pikachu");
+    const optionsMenu = document.getElementById("optionsMenu");
+
+    pikachu.addEventListener("mouseover", () => {
+        optionsMenu.style.display = 'block';
+    });
+
+    pikachu.addEventListener("mouseout", () => {
+        optionsMenu.style.display = 'none';
+    });
+
+    // Cerrar menú de opciones si se hace clic fuera
+    document.addEventListener("click", (e) => {
+        if (!pikachu.contains(e.target) && optionsMenu.style.display === 'block') {
+            optionsMenu.style.display = 'none';
+        }
+    });
+});

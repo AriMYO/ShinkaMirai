@@ -22,14 +22,15 @@ body {
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 header {
   background-color: #0f3460;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -37,77 +38,54 @@ header {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  gap: 1rem;
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
 }
 
 .logo {
   display: flex;
   align-items: center;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: bold;
 }
 
 .logo img {
-  width: 40px;
+  width: clamp(30px, 8vw, 40px);
   margin-right: 10px;
 }
 
+.search-bar {
+  flex: 1;
+  min-width: 200px;
+}
+
 .search-bar input {
+  width: 100%;
   padding: 0.5rem;
-  width: 300px;
   border: none;
   border-radius: 20px;
   background-color: #2c3e50;
   color: var(--text-color);
-  outline: none; /* Remove the default focus outline */
+  outline: none;
   padding-left: 15px;
-}
-
-.search-bar input:focus {
-  outline: none; /* Ensure no outline on focus */
-  box-shadow: none; /* Remove any box-shadow */
-}
-
-.search-bar {
-  position: relative;
-}
-
-.search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: var(--background-color);
-  border: 1px solid var(--card-background);
-  border-top: none;
-  max-height: 300px;
-  overflow-y: auto;
-  display: none;
-  z-index: 1000;
-}
-
-.search-result-item {
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.search-result-item:hover {
-  background-color: var(--card-background);
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-}
-
-.nav-links li {
-  margin-left: 20px;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -119,6 +97,12 @@ nav {
 
 .nav-links a:hover {
   color: var(--primary-color);
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .cart,
@@ -144,7 +128,7 @@ nav {
 }
 
 .user-menu img {
-  width: 40px;
+  width: clamp(30px, 8vw, 40px);
   border-radius: 50%;
 }
 
@@ -152,16 +136,13 @@ nav {
   display: none;
   position: absolute;
   right: 0;
+  top: 100%;
   background-color: #16213e;
   min-width: 200px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  z-index: 1001;
   border-radius: 4px;
   padding: 1rem;
-}
-
-.dropdown-menu.show {
-  display: block;
 }
 
 .dropdown-menu a {
@@ -176,12 +157,16 @@ nav {
 }
 
 .dropdown-menu a.logout {
-    color: var(--accent-color); /* Use the accent color for red */
-    font-weight: bold;
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 .dropdown-menu a.logout:hover {
-    color: #c0392b; /* Darker red on hover */
+  color: #c0392b;
+}
+
+.user-menu:hover .dropdown-menu {
+  display: block;
 }
 
 .view {
@@ -252,12 +237,13 @@ h3 {
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -300px;
-  width: 300px;
+  right: -100%;
+  width: 100%;
+  max-width: 300px;
   height: 100vh;
   background-color: #16213e;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-  transition: right 0.3s ease;
+  transition: right  0.3s ease;
   z-index: 1001;
   padding: 2rem;
   overflow-y: auto;
@@ -303,26 +289,26 @@ h3 {
   background-color: #27ae60;
 }
 
-
 #plansView h1 {
   text-align: center;
   color: #fff;
-  font-size: 2rem; /* Reduce the font size */
-  margin-bottom: 2rem; /* Reduce the margin */
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 2rem;
 }
 
 .plans-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .plan-card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 1.5rem; /* Reduce padding */
-  width: 280px; /* Reduce width */
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 280px;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
@@ -330,33 +316,33 @@ h3 {
 }
 
 .plan-card h3 {
-  font-size: 1.5rem; /* Reduce font size */
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   margin-bottom: 0.5rem;
   color: #fff;
 }
 
 .plan-card > p:first-of-type {
   color: #bbb;
-  margin-bottom: 0.5rem; /* Reduce margin */
+  margin-bottom: 0.5rem;
 }
 
 .plan-card .price {
-  font-size: 2rem; /* Reduce font size */
+  font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: bold;
   color: #4caf50;
   margin-bottom: 0.5rem;
 }
 
 .plan-card .recurring {
-  font-size: 0.8rem; /* Reduce font size */
+  font-size: clamp(0.8rem, 2vw, 1rem);
   color: #bbb;
-  margin-bottom: 1rem; /* Reduce margin */
+  margin-bottom: 1rem;
 }
 
 .plan-card ul {
-  list-style-type: disc; /* Add bullet points */
+  list-style-type: disc;
   margin-bottom: 1rem;
-  padding-left: 1.5rem; /* Add padding to align bullets */
+  padding-left: 1.5rem;
 }
 
 .plan-card li {
@@ -365,20 +351,20 @@ h3 {
 }
 
 .plan-card .installments {
-  font-size: 0.8rem; /* Reduce font size */
+  font-size: clamp(0.8rem, 2vw, 1rem);
   color: #bbb;
-  margin-bottom: 1rem; /* Reduce margin */
+  margin-bottom: 1rem;
 }
 
 .select-plan {
   background-color: #4caf50;
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem; /* Reduce padding */
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: 0.9rem; /* Reduce font size */
+  font-size: clamp(0.9rem, 2vw, 1rem);
   font-weight: bold;
   margin-top: auto;
 }
@@ -400,8 +386,9 @@ h3 {
   align-items: flex-start;
 }
 
-.payment-form {
-  flex: 1 1 400px;
+.payment-form,
+.purchase-summary {
+  flex: 1 1 300px;
   background-color: var(--card-background);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -410,7 +397,7 @@ h3 {
 
 .payment-form h1 {
   color: var(--text-color);
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   margin-bottom: 1rem;
 }
 
@@ -460,17 +447,9 @@ h3 {
   background-color: #3a7bd5;
 }
 
-.purchase-summary {
-  flex: 1 1 300px;
-  background-color: var(--card-background);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-}
-
 .purchase-summary h2 {
   color: var(--text-color);
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
   margin-bottom: 1rem;
 }
 
@@ -505,50 +484,21 @@ h3 {
   background-color: #c0392b;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .search-bar {
-    display: none;
-  }
-
-  .cart-sidebar {
-    width: 100%;
-    right: -100%;
-  }
-
-  .plan-card {
-    width: 100%;
-  }
-
-  .payment-container {
-    flex-direction: column;
-  }
-}
-
 .course-details-container {
-  display: none;
   background-color: var(--card-background);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-
-}
-
-.course-details-container.active {
-  display: block;
 }
 
 .course-details-container h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
 .course-details-container p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   margin-bottom: 1.5rem;
   color: var(--text-color);
 }
@@ -561,12 +511,12 @@ h3 {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   font-weight: bold;
 }
 
 .course-details-container button:hover {
-  background-color: var(--primary-color);
+  background-color: #3a7bd5;
 }
 
 .course-details-container button:disabled {
