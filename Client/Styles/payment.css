@@ -2,9 +2,9 @@
   --primary-color: #4a90e2;
   --secondary-color: #2c3e50;
   --accent-color: #e74c3c;
-  --background-color: #f4f7f9;
-  --text-color: #333;
-  --card-background: #ffffff;
+  --background-color: #1a1a2e;
+  --text-color: #e0e0e0;
+  --card-background: #16213e;
   --success-color: #2ecc71;
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 header {
-  background-color: var(--secondary-color);
+  background-color: #0f3460;
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -62,6 +62,43 @@ nav {
   width: 300px;
   border: none;
   border-radius: 20px;
+  background-color: #2c3e50;
+  color: var(--text-color);
+  outline: none; /* Remove the default focus outline */
+  padding-left: 15px;
+}
+
+.search-bar input:focus {
+  outline: none; /* Ensure no outline on focus */
+  box-shadow: none; /* Remove any box-shadow */
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  border: 1px solid var(--card-background);
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+}
+
+.search-result-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-result-item:hover {
+  background-color: var(--card-background);
 }
 
 .nav-links {
@@ -115,9 +152,9 @@ nav {
   display: none;
   position: absolute;
   right: 0;
-  background-color: #fff;
+  background-color: #16213e;
   min-width: 200px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   z-index: 1;
   border-radius: 4px;
   padding: 1rem;
@@ -138,6 +175,15 @@ nav {
   color: var(--primary-color);
 }
 
+.dropdown-menu a.logout {
+    color: var(--accent-color); /* Use the accent color for red */
+    font-weight: bold;
+}
+
+.dropdown-menu a.logout:hover {
+    color: #c0392b; /* Darker red on hover */
+}
+
 .view {
   display: none;
 }
@@ -149,7 +195,7 @@ nav {
 h1,
 h2,
 h3 {
-  color: var(--secondary-color);
+  color: var(--text-color);
   margin-bottom: 1rem;
 }
 
@@ -162,7 +208,7 @@ h3 {
 .course-card {
   background-color: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -171,7 +217,7 @@ h3 {
 
 .course-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .course-card h2 {
@@ -199,7 +245,7 @@ h3 {
 }
 
 .course-card button:disabled {
-  background-color: #ccc;
+  background-color: #4a4a4a;
   cursor: not-allowed;
 }
 
@@ -209,8 +255,8 @@ h3 {
   right: -300px;
   width: 300px;
   height: 100vh;
-  background-color: #fff;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #16213e;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transition: right 0.3s ease;
   z-index: 1001;
   padding: 2rem;
@@ -236,7 +282,7 @@ h3 {
   align-items: center;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
-  background-color: #f0f0f0;
+  background-color: #2c3e50;
   border-radius: 4px;
 }
 
@@ -257,33 +303,26 @@ h3 {
   background-color: #27ae60;
 }
 
-/* Add these styles to your existing CSS file */
-
-#plansView {
-  background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
-  padding: 4rem 2rem;
-  color: #fff;
-}
 
 #plansView h1 {
   text-align: center;
   color: #fff;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2rem; /* Reduce the font size */
+  margin-bottom: 2rem; /* Reduce the margin */
 }
 
 .plans-container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .plan-card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 2rem;
-  width: 300px;
+  padding: 1.5rem; /* Reduce padding */
+  width: 280px; /* Reduce width */
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
@@ -291,62 +330,55 @@ h3 {
 }
 
 .plan-card h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Reduce font size */
   margin-bottom: 0.5rem;
   color: #fff;
 }
 
 .plan-card > p:first-of-type {
   color: #bbb;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Reduce margin */
 }
 
 .plan-card .price {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Reduce font size */
   font-weight: bold;
   color: #4caf50;
   margin-bottom: 0.5rem;
 }
 
 .plan-card .recurring {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Reduce font size */
   color: #bbb;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Reduce margin */
 }
 
 .plan-card ul {
-  list-style-type: none;
-  margin-bottom: 1.5rem;
+  list-style-type: disc; /* Add bullet points */
+  margin-bottom: 1rem;
+  padding-left: 1.5rem; /* Add padding to align bullets */
 }
 
 .plan-card li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   position: relative;
-  padding-left: 1.5rem;
-}
-
-.plan-card li::before {
-  content: "✓";
-  color: #4caf50;
-  position: absolute;
-  left: 0;
 }
 
 .plan-card .installments {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Reduce font size */
   color: #bbb;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Reduce margin */
 }
 
 .select-plan {
   background-color: #4caf50;
   color: #fff;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem; /* Reduce padding */
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Reduce font size */
   font-weight: bold;
   margin-top: auto;
 }
@@ -372,12 +404,12 @@ h3 {
   flex: 1 1 400px;
   background-color: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 2rem;
 }
 
 .payment-form h1 {
-  color: var(--secondary-color);
+  color: var(--text-color);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -395,9 +427,11 @@ h3 {
 .payment-form input {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid #4a4a4a;
   border-radius: 5px;
   font-size: 1rem;
+  background-color: #2c3e50;
+  color: var(--text-color);
 }
 
 .card-input {
@@ -430,12 +464,12 @@ h3 {
   flex: 1 1 300px;
   background-color: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 2rem;
 }
 
 .purchase-summary h2 {
-  color: var(--secondary-color);
+  color: var(--text-color);
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
@@ -451,9 +485,10 @@ h3 {
   align-items: center;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
-  background-color: #f0f0f0;
+  background-color: #2c3e50;
   border-radius: 4px;
 }
+
 .remove-item {
   background-color: #e74c3c;
   color: #fff;
@@ -469,6 +504,7 @@ h3 {
 .remove-item:hover {
   background-color: #c0392b;
 }
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -490,4 +526,50 @@ h3 {
   .payment-container {
     flex-direction: column;
   }
+}
+
+.course-details-container {
+  display: none;
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+}
+
+.course-details-container.active {
+  display: block;
+}
+
+.course-details-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.course-details-container p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.course-details-container button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.course-details-container button:hover {
+  background-color: var(--primary-color);
+}
+
+.course-details-container button:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
 }
