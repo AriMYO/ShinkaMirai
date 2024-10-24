@@ -9,7 +9,6 @@
   </head>
   <body>
     <div class="login-container">
-      <!-- Parte izquierda: Imagen y nombre -->
       <div class="image-section">
         <img
           src="/Client/Images/Guimarbot.png"
@@ -19,12 +18,9 @@
         <h2>Guimarbot</h2>
       </div>
 
-      <!-- Parte derecha: Formulario de inicio de sesión -->
       <div class="login-section">
         <h1>Iniciar Sesión</h1>
-        <form method="post">
-          <!-- Elimina el atributo action -->
-
+        <form id="login-form">
           <label for="email">Correo Electrónico</label>
           <input
             type="email"
@@ -45,11 +41,9 @@
 
           <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
 
-          <button type="submit" class="btn-login" onclick="location.href='/Client/pages/Home/home.html'">
-            Iniciar Sesión
-          </button>
+          <button type="submit" class="btn-login">Iniciar Sesión</button>
           <button
-            type="submit"
+            type="button"
             class="btn-login"
             style="background-color: cadetblue"
             onclick="location.href='/Client/pages/Auth/register.html'"
@@ -61,11 +55,15 @@
         <p>Inicia sesión con:</p>
 
         <div class="social-login">
-          <button class="btn-google">Iniciar con Google</button>
+          <button
+            class="btn-google"
+            onclick="window.location.href='http://localhost:3000/auth/google'"
+          >
+            Iniciar con Google
+          </button>
         </div>
       </div>
     </div>
-    <script src="/Client/Js/server_login.js"></script>
-    <script src="/Client/Js/initial.js"></script>
+    <script src="/Server/conexiones/server_login.js"></script>
   </body>
 </html>
