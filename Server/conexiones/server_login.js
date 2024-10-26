@@ -1,3 +1,7 @@
+// Define la URL base de la API al inicio del archivo
+const API_BASE_URL = "http://192.168.1.12:3000";
+
+// Formulario de inicio de sesión
 document
   .getElementById("login-form")
   .addEventListener("submit", async (event) => {
@@ -7,7 +11,7 @@ document
     const password = document.getElementById("password").value;
 
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

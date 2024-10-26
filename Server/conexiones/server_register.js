@@ -1,3 +1,7 @@
+// Define la URL base de la API al inicio del archivo
+const API_BASE_URL = 'http://192.168.1.12:3000';
+
+// Formulario de registro
 document
   .getElementById("registration-form")
   .addEventListener("submit", async (event) => {
@@ -9,7 +13,7 @@ document
     const fechaNacimiento = document.getElementById("fecha-nacimiento").value;
 
     try {
-      const response = await fetch("http://localhost:3000/auth/register", {
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
