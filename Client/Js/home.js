@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Configuración de socket.io
+  const socket = io("http://localhost:3000");
+  let userId = localStorage.getItem("userId") || Date.now().toString();
+
+  // Funciones de navegación
   const navLinks = document.querySelectorAll(".nav-link");
   const views = document.querySelectorAll(".view");
 
@@ -20,49 +25,86 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Mostrar el nombre del usuario
+  // Configuración del nombre de usuario
   const userName = localStorage.getItem("userName");
   if (userName) {
     const userNameElement = document.querySelector(".home-dropdown-menu span");
     userNameElement.textContent = userName;
   }
 
-  // Funcionalidad del chat
-  const chatMessages = document.getElementById("chatMessages");
-  const messageInput = document.getElementById("messageInput");
-  const sendButton = document.getElementById("sendMessage");
+  // Funciones de chat
+  function initializeUserChat() {
+    // Guardar el ID de usuario si no existe
+    if (!localStorage.getItem("userId")) {
+      localStorage.setItem("userId", userId);
+    }
 
-  function addMessage(message, sender) {
+    // Cargar historial de mensajes
+    socket.emit("getMessageHistory", userId);
+
+    // Escuchar nuevos mensajes
+    socket.on(`message:${userId}`, (message) => {
+      appendMessage(message);
+    });
+
+    // Configurar envío de mensajes
+    document
+      .getElementById("sendMessage")
+      .addEventListener("click", sendUserMessage);
+    document
+      .getElementById("messageInput")
+      .addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          sendUserMessage();
+        }
+      });
+
+    // Cargar mensajes anteriores
+    socket.on("messageHistory", (messages) => {
+      const chatMessages = document.getElementById("chatMessages");
+      chatMessages.innerHTML = "";
+      messages.forEach((message) => appendMessage(message));
+    });
+  }
+
+  function appendMessage(message) {
+    const chatMessages = document.getElementById("chatMessages");
     const messageElement = document.createElement("div");
-    messageElement.classList.add("message", sender);
-    messageElement.textContent = message;
+    messageElement.classList.add(
+      "message",
+      message.from === userId ? "sent" : "received"
+    );
+
+    messageElement.innerHTML = `
+      <div class="message-content">
+        <p>${message.content}</p>
+        <span class="message-time">${new Date(
+          message.timestamp
+        ).toLocaleTimeString()}</span>
+      </div>
+    `;
+
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  sendButton.addEventListener("click", function () {
-    const message = messageInput.value.trim();
-    if (message) {
-      addMessage(message, "user");
-      messageInput.value = "";
+  function sendUserMessage() {
+    const input = document.getElementById("messageInput");
+    const content = input.value.trim();
 
-      // Simular respuesta del administrador
-      setTimeout(() => {
-        addMessage(
-          "Gracias por tu mensaje. Un administrador te responderá pronto.",
-          "admin"
-        );
-      }, 1000);
+    if (content) {
+      const message = {
+        from: userId,
+        to: "admin",
+        content: content,
+      };
+
+      socket.emit("sendMessage", message);
+      input.value = "";
     }
-  });
+  }
 
-  messageInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      sendButton.click();
-    }
-  });
-
-  // Ejemplo de cómo actualizar la barra de racha
+  // Configuración de la racha
   const streakCount = 11; // Número de semanas en racha
   const streakWeeks = document.querySelectorAll(".streak-week");
 
@@ -72,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Agregar evento de clic al logo de racha
+  // Eventos de racha
   document
     .getElementById("streakLogo")
     .addEventListener("click", function (event) {
@@ -80,12 +122,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const streakDays = document.getElementById("streakDays");
       const streakFire = document.getElementById("streakFire");
 
-      // Lógica de ejemplo para actualizar los días de racha y la intensidad del fuego
       let days = parseInt(streakDays.textContent, 10);
-      days += 1; // Incrementar días de racha para demostración
+      days += 1;
       streakDays.textContent = days;
 
-      // Actualizar intensidad del fuego según los días de racha
       if (days < 5) {
         streakFire.textContent = "🔥";
       } else if (days < 10) {
@@ -94,11 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
         streakFire.textContent = "🔥🔥🔥";
       }
 
-      // Alternar visibilidad de la información de racha
       streakInfo.style.display =
         streakInfo.style.display === "none" ? "block" : "none";
 
-      // Detener la propagación del evento al documento
       event.stopPropagation();
     });
 
@@ -114,4 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
       streakInfo.style.display = "none";
     }
   });
+
+  // Inicializar todas las funcionalidades
+  initializeUserChat();
 });

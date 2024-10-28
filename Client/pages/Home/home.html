@@ -282,9 +282,11 @@
           <div class="chat-container">
             <div class="chat-main">
               <div class="chat-header">
-                <h3>Chat con Admin</h3>
+                <h3>Chat con Soporte</h3>
               </div>
-              <div class="chat-messages" id="chatMessages"></div>
+              <div id="chatMessages" class="chat-messages">
+                <!-- Los mensajes se cargarán aquí dinámicamente -->
+              </div>
               <div class="chat-input">
                 <input
                   type="text"
@@ -298,6 +300,9 @@
         </div>
       </main>
     </div>
+    <!-- Agregar antes de tus scripts -->
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/Client/Js/home.js"></script>
   </body>
 </html>
