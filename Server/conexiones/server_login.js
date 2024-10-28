@@ -22,8 +22,11 @@ document
       const contentType = response.headers.get("content-type");
       if (!response.ok) {
         if (contentType && contentType.includes("application/json")) {
-          const errorData = await response.json();
-          throw new Error(`Error: ${errorData.message || "Error desconocido"}`);
+          const data = await response.json();
+          localStorage.setItem("userName", data.userName);
+          localStorage.setItem("userId", data.userId); // Asegúrate que el backend envíe el userId
+          alert(data.message);
+          window.location.href = "/Client/pages/Home/home.html";
         } else {
           const errorText = await response.text();
           throw new Error(`Error: ${errorText}`);

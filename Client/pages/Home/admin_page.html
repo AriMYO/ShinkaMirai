@@ -235,27 +235,21 @@
         <section id="messaging" class="content-section">
           <h3>Mensajería</h3>
           <div class="messaging-container">
-            <!-- Lista de chats -->
-            <div class="chat-list">
-              <div id="chatsList">
-                <!-- Los chats se cargarán aquí dinámicamente -->
-              </div>
+            <div id="chatsList" class="chat-list">
+              <!-- Los chats se insertarán aquí -->
             </div>
-
-            <!-- Área principal del chat -->
             <div class="chat-area">
               <div class="chat-header">
-                <h4>Chat con Usuario</h4>
+                <h4>Selecciona un chat</h4>
               </div>
               <div id="messageHistory" class="message-history">
-                <!-- Los mensajes se cargarán aquí dinámicamente -->
+                <!-- Los mensajes se insertarán aquí -->
               </div>
               <div class="message-input">
-                <input
-                  type="text"
+                <textarea
                   id="messageInput"
                   placeholder="Escribe un mensaje..."
-                />
+                ></textarea>
                 <button id="sendButton">Enviar</button>
               </div>
             </div>
