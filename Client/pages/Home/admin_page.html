@@ -1,239 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de Administración - ShinkaMirai</title>
-    <link rel="stylesheet" href="/Client/Styles/admin_page.css  ">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="/Client/Styles/admin_page.css  " />
+    <script
+      src="https://kit.fontawesome.com/your-fontawesome-kit.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="container">
-        <aside class="sidebar">
-            <div class="logo">
-                <h1>ShinkaMirai</h1>
-                <p>Panel de Administración</p>
+      <aside class="sidebar">
+        <div class="logo">
+          <h1>ShinkaMirai</h1>
+          <p>Panel de Administración</p>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#dashboard" class="nav-link active"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="#users" class="nav-link"
+                ><i class="fas fa-users"></i> Gestión de Usuarios</a
+              >
+            </li>
+            <li>
+              <a href="#courses" class="nav-link"
+                ><i class="fas fa-book"></i> Gestión de Cursos</a
+              >
+            </li>
+            <li>
+              <a href="#videos" class="nav-link"
+                ><i class="fas fa-video"></i> Subir Videos</a
+              >
+            </li>
+            <li>
+              <a href="#scholarships" class="nav-link"
+                ><i class="fas fa-graduation-cap"></i> Becas Aprobadas</a
+              >
+            </li>
+            <li>
+              <a href="#plans" class="nav-link"
+                ><i class="fas fa-chart-line"></i> Estadísticas</a
+              >
+            </li>
+            <li>
+              <a href="#messaging" class="nav-link"
+                ><i class="fas fa-envelope"></i> Mensajería</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <header>
+          <h2>Bienvenido, Administrador</h2>
+          <div class="user-menu">
+            <img
+              src="/Client/Images/Guimarbot.png"
+              alt="Avatar del Administrador"
+              class="avatar"
+            />
+            <span>Admin</span>
+          </div>
+        </header>
+
+        <section id="dashboard" class="content-section active">
+          <h3>Dashboard</h3>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <h4>Total Usuarios</h4>
+              <p>1,234</p>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#dashboard" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="#users" class="nav-link"><i class="fas fa-users"></i> Gestión de Usuarios</a></li>
-                    <li><a href="#courses" class="nav-link"><i class="fas fa-book"></i> Gestión de Cursos</a></li>
-                    <li><a href="#videos" class="nav-link"><i class="fas fa-video"></i> Subir Videos</a></li>
-                    <li><a href="#scholarships" class="nav-link"><i class="fas fa-graduation-cap"></i> Becas Aprobadas</a></li>
-                    <li><a href="#plans" class="nav-link"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
-                    <li><a href="#messaging" class="nav-link"><i class="fas fa-envelope"></i> Mensajería</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main>
-            <header>
-                <h2>Bienvenido, Administrador</h2>
-                <div class="user-menu">
-                    <img src="/Client/Images/Guimarbot.png" alt="Avatar del Administrador" class="avatar">
-                    <span>Admin</span>
-                </div>
-            </header>
-            
-            <section id="dashboard" class="content-section active">
-                <h3>Dashboard</h3>
-                <div class="dashboard-stats">
-                    <div class="stat-card">
-                        <h4>Total Usuarios</h4>
-                        <p>1,234</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>Cursos Activos</h4>
-                        <p>42</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>Becas Otorgadas</h4>
-                        <p>87</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>Ingresos Mensuales</h4>
-                        <p>$12,345</p>
-                    </div>
-                </div>
-            </section>
+            <div class="stat-card">
+              <h4>Cursos Activos</h4>
+              <p>42</p>
+            </div>
+            <div class="stat-card">
+              <h4>Becas Otorgadas</h4>
+              <p>87</p>
+            </div>
+            <div class="stat-card">
+              <h4>Ingresos Mensuales</h4>
+              <p>$12,345</p>
+            </div>
+          </div>
+        </section>
 
-            <section id="users" class="content-section">
-                <h3>Gestión de Usuarios</h3>
-                <table class="user-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Fecha de Registro</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Caballero Moscoso Cristhian</td>
-                            <td>cris@example.com</td>
-                            <td>2023-05-15</td>
-                            <td><button class="btn btn-small">Detalles</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Iparraguirre Vilchez Andrea</td>
-                            <td>andrea@example.com</td>
-                            <td>2023-06-20</td>
-                            <td><button class="btn btn-small">Detalles</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+        <section id="users" class="content-section">
+          <h3>Gestión de Usuarios</h3>
+          <table class="user-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Fecha de Registro</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Caballero Moscoso Cristhian</td>
+                <td>cris@example.com</td>
+                <td>2023-05-15</td>
+                <td><button class="btn btn-small">Detalles</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Iparraguirre Vilchez Andrea</td>
+                <td>andrea@example.com</td>
+                <td>2023-06-20</td>
+                <td><button class="btn btn-small">Detalles</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-            <section id="courses" class="content-section">
-                <h3>Gestión de Cursos</h3>
-                <form id="courseForm" class="form">
-                    <input type="text" placeholder="Título del Curso" required>
-                    <textarea placeholder="Descripción del Curso" required></textarea>
-                    <input type="number" placeholder="Duración (horas)" required>
-                    <button type="submit" class="btn btn-primary">Registrar Curso</button>
-                </form>
-            </section>
+        <section id="courses" class="content-section">
+          <h3>Gestión de Cursos</h3>
+          <form id="courseForm" class="form">
+            <input type="text" placeholder="Título del Curso" required />
+            <textarea placeholder="Descripción del Curso" required></textarea>
+            <input type="number" placeholder="Duración (horas)" required />
+            <button type="submit" class="btn btn-primary">
+              Registrar Curso
+            </button>
+          </form>
+        </section>
 
-            <section id="videos" class="content-section">
-                <h3>Subir Videos</h3>
-                <form id="videoForm" class="form">
-                    <select required>
-                        <option value="">Seleccionar Curso</option>
-                        <option value="1">Curso de JavaScript</option>
-                        <option value="2">Curso de React</option>
-                    </select>
-                    <input type="text" placeholder="Título del Video" required>
-                    <input type="file" accept="video/*" required>
-                    <button type="submit" class="btn btn-primary">Subir Video</button>
-                </form>
-            </section>
+        <section id="videos" class="content-section">
+          <h3>Subir Videos</h3>
+          <form id="videoForm" class="form">
+            <select required>
+              <option value="">Seleccionar Curso</option>
+              <option value="1">Curso de JavaScript</option>
+              <option value="2">Curso de React</option>
+            </select>
+            <input type="text" placeholder="Título del Video" required />
+            <input type="file" accept="video/*" required />
+            <button type="submit" class="btn btn-primary">Subir Video</button>
+          </form>
+        </section>
 
-            <section id="scholarships" class="content-section">
-                <h3>Becas Aprobadas</h3>
-                <table class="scholarship-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Estudiante</th>
-                            <th>Curso</th>
-                            <th>Fecha de Aprobación</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ypanaque Osorio Ariana</td>
-                            <td>JavaScript Avanzado</td>
-                            <td>2023-07-01</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Rosales Condori Renzo</td>
-                            <td>React para Principiantes</td>
-                            <td>2023-07-15</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+        <section id="scholarships" class="content-section">
+          <h3>Becas Aprobadas</h3>
+          <table class="scholarship-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Estudiante</th>
+                <th>Curso</th>
+                <th>Fecha de Aprobación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ypanaque Osorio Ariana</td>
+                <td>JavaScript Avanzado</td>
+                <td>2023-07-01</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Rosales Condori Renzo</td>
+                <td>React para Principiantes</td>
+                <td>2023-07-15</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-            <section id="plans" class="content-section">
-                <h3>Planes de Suscripción</h3>
-                <div class="plans-container">
-                    <div class="plan-card" id="plan-basico">
-                        <h4>Básico</h4>
-                        <p class="price">S/200 al año</p>
-                        <p>Para 1 estudiante</p>
-                    </div>
-                    <div class="plan-card" id="plan-duo">
-                        <h4>Duo</h4>
-                        <p class="price">S/350 al año</p>
-                        <p>Para 2 estudiantes</p>
-                    </div>
-                    <div class="plan-card" id="plan-expert">
-                        <h4>Expert</h4>
-                        <p class="price">S/500 al año</p>
-                        <p>Para 4 estudiantes</p>
-                    </div>
-                </div>
-                <div class="filters">
-                    <h4>Filtros</h4>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="filter-basico" checked>
-                        <label for="filter-basico">Básico</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="filter-duo" checked>
-                        <label for="filter-duo">Duo</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="filter-expert" checked>
-                        <label for="filter-expert">Expert</label>
-                    </div>
-                </div>
-                <div class="stats-container">
-                    <div class="tabs">
-                        <button class="tab-button active" data-tab="users">Usuarios</button>
-                        <button class="tab-button" data-tab="revenue">Ingresos</button>
-                        <button class="tab-button" data-tab="retention">Retención</button>
-                        <button class="tab-button" data-tab="courses">Cursos Comprados</button>
-                    </div>
-                    <div class="tab-content active" id="users-chart">
-                        <canvas id="usersChart"></canvas>
-                    </div>
-                    <div class="tab-content" id="revenue-chart">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                    <div class="tab-content" id="retention-chart">
-                        <canvas id="retentionChart"></canvas>
-                    </div>
-                    <div class="tab-content" id="courses-chart">
-                        <canvas id="coursesChart"></canvas>
-                    </div>
-                </div>
-            </section>
+        <section id="plans" class="content-section">
+          <h3>Planes de Suscripción</h3>
+          <div class="plans-container">
+            <div class="plan-card" id="plan-basico">
+              <h4>Básico</h4>
+              <p class="price">S/200 al año</p>
+              <p>Para 1 estudiante</p>
+            </div>
+            <div class="plan-card" id="plan-duo">
+              <h4>Duo</h4>
+              <p class="price">S/350 al año</p>
+              <p>Para 2 estudiantes</p>
+            </div>
+            <div class="plan-card" id="plan-expert">
+              <h4>Expert</h4>
+              <p class="price">S/500 al año</p>
+              <p>Para 4 estudiantes</p>
+            </div>
+          </div>
+          <div class="filters">
+            <h4>Filtros</h4>
+            <div class="checkbox-group">
+              <input type="checkbox" id="filter-basico" checked />
+              <label for="filter-basico">Básico</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="filter-duo" checked />
+              <label for="filter-duo">Duo</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="filter-expert" checked />
+              <label for="filter-expert">Expert</label>
+            </div>
+          </div>
+          <div class="stats-container">
+            <div class="tabs">
+              <button class="tab-button active" data-tab="users">
+                Usuarios
+              </button>
+              <button class="tab-button" data-tab="revenue">Ingresos</button>
+              <button class="tab-button" data-tab="retention">Retención</button>
+              <button class="tab-button" data-tab="courses">
+                Cursos Comprados
+              </button>
+            </div>
+            <div class="tab-content active" id="users-chart">
+              <canvas id="usersChart"></canvas>
+            </div>
+            <div class="tab-content" id="revenue-chart">
+              <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="tab-content" id="retention-chart">
+              <canvas id="retentionChart"></canvas>
+            </div>
+            <div class="tab-content" id="courses-chart">
+              <canvas id="coursesChart"></canvas>
+            </div>
+          </div>
+        </section>
 
-            <section id="messaging" class="content-section">
-                <h3>Mensajería</h3>
-                <div class="messaging-container">
-                    <div class="message-list">
-                        <div class="message-item unread">
-                            <img src="/placeholder.svg?height=40&width=40" alt="Usuario" class="avatar">
-                            <div class="message-content">
-                                <h4>Juan Pérez</h4>
-                                <p>Consulta sobre el curso de JavaScript...</p>
-                            </div>
-                            <span class="message-time">10:30 AM</span>
-                        </div>
-                        <div class="message-item">
-                            <img src="/placeholder.svg?height=40&width=40" alt="Usuario" class="avatar">
-                            <div class="message-content">
-                                <h4>María García</h4>
-                                <p>Gracias por la información sobre las becas...</p>
-                            </div>
-                            <span class="message-time">Ayer</span>
-                        </div>
-                    </div>
-                    <div class="message-view">
-                        <div class="message-header">
-                            <h4>Juan Pérez</h4>
-                        </div>
-                        <div class="message-body">
-                            <p>Hola, tengo una consulta sobre el curso de JavaScript avanzado. ¿Podrías proporcionarme más detalles sobre los temas que se cubrirán?</p>
-                        </div>
-                        <div class="message-reply">
-                            <textarea placeholder="Escribe tu respuesta aquí..."></textarea>
-                            <button class="btn btn-primary">Enviar</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <section id="messaging" class="content-section">
+          <h3>Mensajería</h3>
+          <div class="messaging-container">
+            <div class="message-view">
+              <div class="message-reply">
+                <textarea placeholder="Escribe tu respuesta aquí..."></textarea>
+                <button class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/Client/Js/admin_page.js"></script>
-</body>
+  </body>
 </html>
