@@ -1,10 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Configuración inicial de socket.io y variables globales
-  const socket = io("http://localhost:3000");
-  let userId = localStorage.getItem("userId") || Date.now().toString();
+  // ==========================================
+  // Configuración inicial y constantes
+  // ==========================================
+  const API_BASE_URL = "http://192.168.1.12:3000";
+  const socket = io("http://localhost:3000", {
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
+  });
+
+  const userId = localStorage.getItem("userId") || Date.now().toString();
   const userName = localStorage.getItem("userName");
 
+  // Verificar autenticación
+  if (!userId || !userName) {
+    console.warn("Datos de usuario no encontrados");
+    window.location.href = "/Client/pages/login.html";
+    return;
+  }
+
+  // ==========================================
   // Funciones de Navegación
+  // ==========================================
   function setupNavigation() {
     const navLinks = document.querySelectorAll(".nav-link");
     const views = document.querySelectorAll(".view");
@@ -14,11 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const viewId = this.getAttribute("data-view");
 
-        // Actualizar clases activas
         navLinks.forEach((link) => link.classList.remove("active"));
         this.classList.add("active");
 
-        // Mostrar/ocultar vistas
         views.forEach((view) => {
           view.classList.toggle("active", view.id === viewId);
         });
@@ -26,62 +41,95 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ==========================================
   // Configuración del Perfil de Usuario
+  // ==========================================
   function setupUserProfile() {
-    if (userName) {
-      const userNameElement = document.querySelector(
-        ".home-dropdown-menu span"
-      );
-      if (userNameElement) {
-        userNameElement.textContent = userName;
-      }
+    const userNameElement = document.querySelector(".home-dropdown-menu span");
+    if (userNameElement) {
+      userNameElement.textContent = userName || "Usuario";
+    }
+
+    // Configurar botón de logout
+    const logoutButton = document.getElementById("logoutButton");
+    if (logoutButton) {
+      logoutButton.addEventListener("click", logout);
     }
   }
 
-  // Funciones del Chat
+  function logout() {
+    localStorage.clear();
+    window.location.href = "/Client/pages/login.html";
+  }
+
+  // ==========================================
+  // Sistema de Chat
+  // ==========================================
   function initializeUserChat() {
-    // Inicialización del ID de usuario
     if (!localStorage.getItem("userId")) {
       localStorage.setItem("userId", userId);
     }
 
-    // Verificación del nombre de usuario
-    if (!userName) {
-      console.warn("Nombre de usuario no encontrado en localStorage");
-    }
-
-    // Configurar eventos del socket
     setupSocketEvents();
-
-    // Configurar eventos de la interfaz del chat
     setupChatInterface();
-
-    // Cargar historial inicial
     socket.emit("getMessageHistory", userId);
+
+    // Verificar conexión periódicamente
+    setInterval(checkConnection, 30000);
+  }
+
+  function checkConnection() {
+    if (!socket.connected) {
+      console.log("Intentando reconectar...");
+      socket.connect();
+    }
   }
 
   function setupSocketEvents() {
-    // Escuchar mensajes nuevos específicos para este usuario
-    socket.on(`message:${userId}`, (message) => {
-      appendMessage(message);
+    socket.on("connect", () => {
+      console.log("Conectado al servidor de chat");
+      updateConnectionStatus(true);
     });
 
-    // Escuchar historial de mensajes
+    socket.on("disconnect", () => {
+      console.log("Desconectado del servidor de chat");
+      updateConnectionStatus(false);
+    });
+
+    socket.on("connect_error", (error) => {
+      console.error("Error de conexión:", error);
+      updateConnectionStatus(false);
+      alert("Error de conexión con el servidor");
+    });
+
+    socket.on(`message:${userId}`, (message) => {
+      try {
+        appendMessage(message);
+        playNotificationSound();
+      } catch (error) {
+        console.error("Error al procesar mensaje:", error);
+      }
+    });
+
     socket.on("messageHistory", (messages) => {
-      const chatMessages = document.getElementById("chatMessages");
-      chatMessages.innerHTML = "";
-      messages.forEach((message) => appendMessage(message));
+      try {
+        const chatMessages = document.getElementById("chatMessages");
+        if (!chatMessages) return;
+
+        chatMessages.innerHTML = "";
+        messages.forEach((message) => appendMessage(message));
+      } catch (error) {
+        console.error("Error al cargar historial:", error);
+      }
     });
   }
 
   function setupChatInterface() {
-    // Configurar botón de envío
     const sendButton = document.getElementById("sendMessage");
     if (sendButton) {
       sendButton.addEventListener("click", sendUserMessage);
     }
 
-    // Configurar entrada de texto
     const messageInput = document.getElementById("messageInput");
     if (messageInput) {
       messageInput.addEventListener("keypress", (e) => {
@@ -99,6 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const messageElement = document.createElement("div");
     const isUser = message.from === userId;
+    const displayName = isUser
+      ? message.userName || localStorage.getItem("userName") || "Usuario"
+      : "Admin";
 
     messageElement.classList.add("message", isUser ? "sent" : "received");
 
@@ -108,8 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   <p>${message.content}</p>
               </div>
               <span class="message-time">
-                  ${isUser ? userName : "Admin"} - 
-                  ${new Date(message.timestamp).toLocaleTimeString()}
+                  ${displayName} - ${new Date(
+      message.timestamp
+    ).toLocaleTimeString()}
               </span>
           </div>
       `;
@@ -123,27 +175,57 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!input) return;
 
     const content = input.value.trim();
+    if (!content) return;
 
-    if (content) {
-      const message = {
-        from: userId,
-        to: "admin",
-        content: content,
-        userName: userName, // Incluir nombre del usuario en cada mensaje
-        timestamp: new Date(),
-      };
+    const currentUserName = localStorage.getItem("userName");
+    if (!currentUserName) {
+      console.error("Nombre de usuario no encontrado");
+      return;
+    }
 
-      socket.emit("sendMessage", message);
-      input.value = "";
+    const message = {
+      from: userId,
+      to: "admin",
+      content: content,
+      userName: currentUserName,
+      timestamp: new Date(),
+    };
+
+    console.log("Enviando mensaje:", message);
+
+    socket.emit("sendMessage", message);
+    input.value = "";
+
+    appendMessage({
+      ...message,
+      fromSelf: true,
+    });
+  }
+
+  function updateConnectionStatus(isConnected) {
+    const statusElement = document.getElementById("connectionStatus");
+    if (statusElement) {
+      statusElement.textContent = isConnected ? "Conectado" : "Desconectado";
+      statusElement.className = isConnected
+        ? "status-connected"
+        : "status-disconnected";
     }
   }
 
-  // Funciones de Racha (Streak)
+  function playNotificationSound() {
+    const audio = new Audio("/assets/notification.mp3");
+    audio
+      .play()
+      .catch((err) => console.log("Error al reproducir sonido:", err));
+  }
+
+  // ==========================================
+  // Sistema de Racha (Streak)
+  // ==========================================
   function setupStreak() {
-    const streakCount = 11; // Configurable: número de semanas en racha
+    const streakCount = 11;
     const streakWeeks = document.querySelectorAll(".streak-week");
 
-    // Marcar semanas completadas
     streakWeeks.forEach((week, index) => {
       if (index < streakCount) {
         week.classList.add("completed");
@@ -155,13 +237,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setupStreakEvents() {
     const streakLogo = document.getElementById("streakLogo");
-
-    // Evento de clic en el logo de racha
     if (streakLogo) {
       streakLogo.addEventListener("click", handleStreakClick);
     }
 
-    // Cerrar información de racha al hacer clic fuera
     document.addEventListener("click", handleOutsideClick);
   }
 
@@ -175,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function () {
       days += 1;
       streakDays.textContent = days;
 
-      // Actualizar indicador de fuego según los días
       streakFire.textContent = days < 5 ? "🔥" : days < 10 ? "🔥🔥" : "🔥🔥🔥";
 
       streakInfo.style.display =
@@ -199,7 +277,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // ==========================================
   // Inicialización de la Aplicación
+  // ==========================================
   function initializeApp() {
     setupNavigation();
     setupUserProfile();
