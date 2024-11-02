@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==========================================
   // Configuración inicial y constantes
   // ==========================================
-  const API_BASE_URL = "http://192.168.1.12:3000";
+  const API_BASE_URL = "http://localhost:3000";
   const socket = io("http://localhost:3000", {
     reconnection: true,
     reconnectionAttempts: 5,
@@ -45,13 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Configuración del Perfil de Usuario
   // ==========================================
   function setupUserProfile() {
-    const userNameElement = document.querySelector(".home-dropdown-menu span");
-    if (userNameElement) {
-      userNameElement.textContent = userName || "Usuario";
+    const userNameElement = document.getElementById("userNameDisplay");
+    const storedName = localStorage.getItem("userName");
+    
+    if (userNameElement && storedName) {
+      userNameElement.textContent = storedName;
+    } else {
+      console.warn("Nombre de usuario no encontrado");
+      // Opcional: redirigir al login si no hay nombre de usuario
+      // window.location.href = "/Client/pages/Auth/login.html";
     }
 
     // Configurar botón de logout
-    const logoutButton = document.getElementById("logoutButton");
+    const logoutButton = document.querySelector(".home-logout");
     if (logoutButton) {
       logoutButton.addEventListener("click", logout);
     }

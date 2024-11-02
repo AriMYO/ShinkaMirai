@@ -1,22 +1,9 @@
-const API_BASE_URL = "http://192.168.1.12:3000";
+const API_BASE_URL = "http://localhost:3000";
 
 // Función para extraer el nombre del email
 function getNameFromEmail(email) {
   return email.split("@")[0];
 }
-
-// Función para verificar si hay datos de usuario guardados
-function checkExistingSession() {
-  const userId = localStorage.getItem("userId");
-  const userName = localStorage.getItem("userName");
-
-  if (userId && userName) {
-    window.location.href = "/Client/pages/Home/home.html";
-  }
-}
-
-// Verificar sesión al cargar la página
-document.addEventListener("DOMContentLoaded", checkExistingSession);
 
 // Manejar el formulario de login
 document
@@ -50,24 +37,20 @@ document
       const data = await response.json();
       console.log("Datos recibidos:", data); // Debug
 
-      // Guardar datos del usuario
-      const userName = data.nombre || getNameFromEmail(email);
-      const userId = data.id || Date.now().toString();
+      // Usar el nombre del servidor si está disponible, si no usar el que se guardó en el registro
+      const userName = data.nombre || localStorage.getItem("userName") || getNameFromEmail(email);
 
       localStorage.setItem("userName", userName);
-      localStorage.setItem("userId", userId);
       localStorage.setItem("userEmail", email);
       localStorage.setItem("userRole", data.role || "user");
 
       console.log("Datos guardados en localStorage:", {
         userName,
-        userId,
         email,
       }); // Debug
 
-      // Verificar que los datos se guardaron correctamente
-      const savedUserName = localStorage.getItem("userName");
-      if (!savedUserName) {
+      // Simplificar la verificación
+      if (!localStorage.getItem("userEmail")) {
         throw new Error("Error al guardar los datos del usuario");
       }
 

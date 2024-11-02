@@ -1,5 +1,4 @@
-// Define la URL base de la API al inicio del archivo
-const API_BASE_URL = 'http://192.168.1.12:3000';
+const API_BASE_URL = "http://localhost:3000";
 
 // Formulario de registro
 document
@@ -34,7 +33,12 @@ document
 
       if (contentType && contentType.includes("application/json")) {
         const data = await response.json();
+        
+        // Guardar el nombre en localStorage antes de redirigir
+        localStorage.setItem("userName", nombre);
+        
         alert(data.message);
+        window.location.href = "/Client/pages/Auth/login.html";
       } else {
         const textData = await response.text();
         alert(`Respuesta no JSON: ${textData}`);
