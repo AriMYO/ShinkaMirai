@@ -5,25 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShinkaMirai</title>
     <link rel="stylesheet" href="/Client/Styles/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
-      <aside class="sidebar">
-        <div class="logo">
-          <h1>ShinkaMirai</h1>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h1 class="logo">ShinkaMirai</h1>
+          <button
+            id="sidebarClose"
+            class="sidebar-close"
+            aria-label="Close sidebar"
+          >
+            <i class="fas fa-times"></i>
+          </button>
         </div>
-        <nav>
+        <nav class="sidebar-nav">
           <ul>
             <li>
-              <a href="#" class="nav-link active" data-view="inicio">Inicio</a>
+              <a href="#" class="nav-link active" data-view="inicio"
+                ><i class="fas fa-home"></i> Inicio</a
+              >
             </li>
             <li>
-              <a href="#" class="nav-link" data-view="rutas">Mis Rutas</a>
+              <a href="#" class="nav-link" data-view="rutas"
+                ><i class="fas fa-route"></i> Mis Rutas</a
+              >
             </li>
             <li>
-              <a href="#" class="nav-link" data-view="progreso">Mi progreso</a>
+              <a href="#" class="nav-link" data-view="progreso"
+                ><i class="fas fa-chart-line"></i> Mi progreso</a
+              >
             </li>
-            <li><a href="#" class="nav-link" data-view="chat">Chat ADA</a></li>
+            <li>
+              <a href="#" class="nav-link" data-view="chat"
+                ><i class="fas fa-comments"></i> Chat ADA</a
+              >
+            </li>
           </ul>
         </nav>
         <div class="sidebar-footer">
@@ -34,11 +55,21 @@
           />
         </div>
       </aside>
-      <main>
-        <header>
+      <main id="main-content">
+        <header class="main-header">
+          <button
+            id="sidebarToggle"
+            class="sidebar-toggle"
+            aria-label="Toggle sidebar"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
           <nav class="home-nav">
             <div class="home-search-bar">
               <input type="text" placeholder="¿Qué quieres aprender?" />
+              <button class="search-button">
+                <i class="fas fa-search"></i>
+              </button>
             </div>
             <ul class="home-nav-links">
               <li>
@@ -47,7 +78,7 @@
                 >
               </li>
               <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
-              <li><a href="">Contáctanos</a></li>
+              <li><a href="#">Contáctanos</a></li>
               <li class="streak-container">
                 <img
                   src="https://i.pinimg.com/originals/c3/00/82/c300823a2fae8c38ea95b5124466ed85.png"
@@ -55,26 +86,31 @@
                   class="streak-logo"
                   id="streakLogo"
                 />
-                <div class="streak-info" id="streakInfo" style="display: none">
+                <div class="streak-info" id="streakInfo">
                   <p>Días de racha: <span id="streakDays">0</span></p>
                   <p id="streakFire">🔥</p>
                 </div>
               </li>
             </ul>
-
             <div class="home-user-menu">
               <img src="/Client/Images/pikachu.png" alt="Usuario" />
               <div class="home-dropdown-menu">
                 <p>Hola, <span id="userNameDisplay"></span></p>
                 <a href="/Client/pages/Courses/Courses.html"
-                  >Ver todos mis cursos</a
+                  ><i class="fas fa-book"></i> Ver todos mis cursos</a
                 >
-                <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
-                <a href="/Client/pages/Plans/plans.html">Mis planes</a>
-                <a href="#">Mi Suscripción</a>
-                <a href="#">Contáctanos</a>
-                <a href="#">Configuración</a>
-                <a href="#" class="home-logout">Cerrar sesión</a>
+                <a href="/Client/pages/Auth/profile.html"
+                  ><i class="fas fa-user"></i> Ver mi perfil</a
+                >
+                <a href="/Client/pages/Plans/plans.html"
+                  ><i class="fas fa-clipboard-list"></i> Mis planes</a
+                >
+                <a href="#"><i class="fas fa-crown"></i> Mi Suscripción</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contáctanos</a>
+                <a href="#"><i class="fas fa-cog"></i> Configuración</a>
+                <a href="#" class="home-logout"
+                  ><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a
+                >
               </div>
             </div>
           </nav>
@@ -101,24 +137,6 @@
                   />
                 </div>
                 <p>Inteligencia Artificial</p>
-              </button>
-              <button class="school-button">
-                <div class="school-icon">
-                  <img
-                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
-                    alt="Icono flutter"
-                  />
-                </div>
-                <p>Desarrollo Móvil</p>
-              </button>
-              <button class="school-button">
-                <div class="school-icon">
-                  <img
-                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
-                    alt="Icono flutter"
-                  />
-                </div>
-                <p>Desarrollo Móvil</p>
               </button>
               <button class="school-button">
                 <div class="school-icon">
@@ -269,9 +287,7 @@
             <li>Completaste el curso "Introducción a HTML y CSS"</li>
             <li>Avanzaste un 20% en "JavaScript Avanzado"</li>
             <li>
-              <a
-                href="/Client/pages/Home/congratulations.html"
-                style="text-decoration: underline; color: #fff"
+              <a href="/Client/pages/Home/congratulations.html"
                 >Obtuviste el certificado de "Fundamentos de Programación"</a
               >
             </li>
@@ -280,25 +296,27 @@
 
         <div id="chat" class="view">
           <div class="chat-container">
-            <div class="chat-main">
+            <div class="chat-header">
               <h3>Chat con Soporte</h3>
+              <span id="connectionStatus" class="connection-status"
+                >Desconectado</span
+              >
             </div>
-            <div id="chatMessages" class="chat-messages">
-              <!-- Los mensajes se insertarán aquí -->
-            </div>
+            <div id="chatMessages" class="chat-messages"></div>
             <div class="chat-input">
               <input
                 type="text"
                 id="messageInput"
                 placeholder="Escribe un mensaje..."
               />
-              <button id="sendMessage">Enviar</button>
+              <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+              </button>
             </div>
           </div>
         </div>
       </main>
     </div>
-    <!-- Agregar antes de tus scripts -->
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/Client/Js/home.js"></script>
