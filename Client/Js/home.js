@@ -59,9 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function logout() {
-    localStorage.clear();
-    window.location.href = "/Client/pages/login.html";
+    if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+        localStorage.clear();
+        window.location.href = '/Client/pages/Auth/login.html';
+    }
   }
+
+  window.logout = logout;
 
   // Sistema de Chat
   function initializeUserChat() {

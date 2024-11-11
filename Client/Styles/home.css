@@ -557,3 +557,65 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
+
+/* Tema Luffy (5-12 años) */
+.theme-kids {
+  --primary-color: #FF0000; /* Rojo característico de Luffy */
+  --primary-light: #FFD700; /* Dorado del sombrero */
+  --secondary-color: #4169E1; /* Azul del chaleco */
+  --background-dark: #87CEEB; /* Azul cielo claro */
+  --surface-dark: #FFFFFF; /* Blanco para superficies */
+  --text-primary: #000000; /* Texto negro para mejor contraste */
+  --text-secondary: #696969; /* Gris oscuro */
+  --accent-color: #FFD700; /* Dorado para acentos */
+
+  /* Sobrescribir algunos estilos específicos para este tema */
+  .sidebar {
+    background-color: #FF0000;
+    background-image: linear-gradient(45deg, #FF0000, #FF6B6B);
+  }
+
+  .message-content {
+    background-color: #FFE4E1;
+  }
+
+  .course-card, .route-card, .stat-card {
+    background-color: #FFF0F5;
+    border: 2px solid #FFD700;
+  }
+
+  .button, .continue-btn {
+    background-color: #FF0000;
+    border: 2px solid #FFD700;
+  }
+}
+
+/* Tema Adolescente (13-17 años) */
+.theme-teen {
+  --primary-color: #3498db; /* Azul principal */
+  --primary-light: #e74c3c; /* Rojo complementario */
+  --secondary-color: #9b59b6; /* Púrpura para variedad */
+  --background-dark: #2c3e50; /* Azul oscuro */
+  --surface-dark: #34495e; /* Azul grisáceo */
+  --text-primary: #ecf0f1; /* Blanco hueso */
+  --text-secondary: #bdc3c7; /* Gris claro */
+  --accent-color: #e74c3c; /* Rojo para acentos */
+
+  /* Sobrescribir algunos estilos específicos para este tema */
+  .sidebar {
+    background-image: linear-gradient(to bottom, #3498db, #2c3e50);
+  }
+
+  .message-content {
+    background-color: #34495e;
+  }
+
+  .course-card, .route-card, .stat-card {
+    background-color: #34495e;
+    border: 1px solid #3498db;
+  }
+
+  .button, .continue-btn {
+    background-image: linear-gradient(45deg, #3498db, #e74c3c);
+  }
+}

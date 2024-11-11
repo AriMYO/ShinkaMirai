@@ -54,6 +54,17 @@ document
         throw new Error("Error al guardar los datos del usuario");
       }
 
+      // Si el servidor envía la fecha de nacimiento y el tema
+      if (data.fechaNacimiento) {
+        setUserTheme(data.fechaNacimiento);
+      }
+
+      // Aplicar el tema inmediatamente si estamos en la página correcta
+      const userTheme = localStorage.getItem('userTheme');
+      if (userTheme) {
+        document.body.className = userTheme;
+      }
+
       // Redirigir al home
       window.location.href = "/Client/pages/Home/home.html";
     } catch (error) {

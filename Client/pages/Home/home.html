@@ -9,6 +9,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const userTheme = localStorage.getItem('userTheme');
+        if (userTheme) {
+            document.body.className = userTheme;
+        }
+    });
+    </script>
   </head>
   <body>
     <div class="container">
@@ -77,7 +85,7 @@
                   >Cursos</a
                 >
               </li>
-              <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+              <li><a href="/Client/Payment/Card/payment_card.html">Planes</a></li>
               <li><a href="#">Contáctanos</a></li>
               <li class="streak-container">
                 <img
@@ -108,9 +116,9 @@
                 <a href="#"><i class="fas fa-crown"></i> Mi Suscripción</a>
                 <a href="#"><i class="fas fa-envelope"></i> Contáctanos</a>
                 <a href="#"><i class="fas fa-cog"></i> Configuración</a>
-                <a href="#" class="home-logout"
-                  ><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a
-                >
+                <a href="#" class="home-logout" onclick="logout()">
+                  <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
               </div>
             </div>
           </nav>
