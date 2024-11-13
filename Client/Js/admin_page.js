@@ -352,4 +352,26 @@ document.addEventListener("DOMContentLoaded", () => {
   initCharts();
   setupEventListeners();
   initializeChat();
+
+  document.getElementById('learningPathForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('learningPathTitle').value;
+    const description = document.getElementById('learningPathDescription').value;
+    const imageFile = document.getElementById('learningPathImage').files[0];
+
+    // Aquí puedes enviar los datos al servidor para crear la nueva ruta
+    // Por ejemplo, usando fetch o XMLHttpRequest
+
+    // Simulación de creación de una nueva vista
+    createLearningPathView(title, description, imageFile);
+  });
+
+  function createLearningPathView(title, description, imageFile) {
+    // Lógica para crear una nueva vista de ruta de aprendizaje
+    // Esto podría incluir la creación de un nuevo archivo HTML
+    // y la actualización de la base de datos o el servidor
+
+    console.log('Nueva ruta de aprendizaje creada:', title, description, imageFile);
+  }
 });
