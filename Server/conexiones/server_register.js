@@ -18,7 +18,7 @@ function setUserTheme(birthDate) {
   const age = calculateAge(birthDate);
   let theme = 'theme-default';
   
-  if (age >= 5 && age <= 12) {
+  if (age >= 0 && age <= 12) {
     theme = 'theme-kids';
   } else if (age >= 13 && age <= 17) {
     theme = 'theme-teen';

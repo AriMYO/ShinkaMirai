@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #FFFFFF;
-  --primary-light: #9b59b6;
+  --primary-color: #3498db;
+  --primary-light: #5dade2;
   --secondary-color: #2ecc71;
   --background-dark: #121212;
   --surface-dark: #1e1e1e;
@@ -33,7 +33,8 @@ body {
 /* Sidebar Styles */
 .sidebar {
   width: var(--sidebar-width);
-  background-color: var(--surface-dark);
+  background: linear-gradient(135deg, var(--background-dark) 0%, var(--primary-color) 100%);
+  box-shadow: 0 0 25px rgba(52, 152, 219, 0.4);
   height: 100vh;
   position: fixed;
   left: 0;
@@ -82,13 +83,15 @@ body {
   padding: 10px 20px;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .sidebar-nav ul li a:hover,
 .sidebar-nav ul li a.active {
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-nav ul li a i {
@@ -163,6 +166,7 @@ body {
   width: 300px;
   transition: border-color 0.2s;
 }
+
 .search-button {
   position: absolute;
   right: 10px;
@@ -293,11 +297,12 @@ body {
   background-color: var(--surface-dark);
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .course-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(52, 152, 219, 0.2);
 }
 
 .course-card iframe {
@@ -326,6 +331,12 @@ body {
   background-color: var(--surface-dark);
   border-radius: 10px;
   padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(52, 152, 219, 0.2);
 }
 
 .progress-bar {
@@ -337,23 +348,29 @@ body {
 }
 
 .progress {
-  background-color: var(--primary-light);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
   height: 100%;
   transition: width 0.3s ease-in-out;
 }
 
 .continue-btn {
-  background-color: var(--primary-light);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   color: var(--text-primary);
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+  font-weight: bold;
 }
 
 .continue-btn:hover {
-  background-color: var(--primary-light);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
 }
 
 /* Progress Section */
@@ -369,6 +386,12 @@ body {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(52, 152, 219, 0.2);
 }
 
 .stat-card h3 {
@@ -404,7 +427,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--surface-dark);
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
@@ -450,8 +474,8 @@ body {
 .message-content {
   padding: 10px 15px;
   border-radius: 15px;
-  background-color: var(--surface-dark);
-  border: 1px solid var(--text-secondary);
+  background-color: rgba(52, 152, 219, 0.1);
+  border: none;
   color: var(--text-primary);
 }
 
@@ -493,8 +517,6 @@ body {
   transition: background-color 0.2s;
 }
 
-
-
 /* Streak Styles */
 .streak-container {
   position: relative;
@@ -504,6 +526,7 @@ body {
   width: 40px;
   height: 40px;
   cursor: pointer;
+  filter: drop-shadow(0 0 5px rgba(52, 152, 219, 0.5));
 }
 
 .streak-info {
@@ -511,10 +534,11 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: var(--surface-dark);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--text-primary);
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   min-width: 150px;
 }
 
@@ -558,64 +582,353 @@ body {
   }
 }
 
-/* Tema Luffy (5-12 años) */
+/* Theme Kids (Dragon Ball Z Inspired) */
 .theme-kids {
-  --primary-color: #FF0000; /* Rojo característico de Luffy */
-  --primary-light: #FFD700; /* Dorado del sombrero */
-  --secondary-color: #4169E1; /* Azul del chaleco */
-  --background-dark: #87CEEB; /* Azul cielo claro */
-  --surface-dark: #FFFFFF; /* Blanco para superficies */
-  --text-primary: #000000; /* Texto negro para mejor contraste */
-  --text-secondary: #696969; /* Gris oscuro */
-  --accent-color: #FFD700; /* Dorado para acentos */
+  --primary-color: #FF5722;
+  --primary-light: #FFC107;
+  --secondary-color: #2196F3;
+  --background-dark: #FFF9C4;
+  --surface-dark: #FFFFFF;
+  --text-primary: #212121;
+  --text-secondary: #424242;
+  --accent-color: #4CAF50;
 
-  /* Sobrescribir algunos estilos específicos para este tema */
+  /* Theme-specific overrides */
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+
   .sidebar {
-    background-color: #FF0000;
-    background-image: linear-gradient(45deg, #FF0000, #FF6B6B);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.4);
   }
 
-  .message-content {
-    background-color: #FFE4E1;
+  .logo {
+    color: var(--surface-dark);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .logo-img {
+    content: url('https://lh3.googleusercontent.com/proxy/JoS1V7Mlor7JZmJiPUZXiuC3KzAdsx1V1pZ5ea-ONp5HsQ3Is_qiuBunpwTUkjdYadvwp6O_P1g3DZdsG2fCEPrmceOY75FHnnM2ZfW_trWOHTjOqbDpiDc');
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+  }
+
+  .sidebar-nav ul li a {
+    color: var(--surface-dark);
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-nav ul li a:hover,
+  .sidebar-nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-nav ul li a i {
+    color: var(--surface-dark);
+  }
+
+  .home-user-menu img {
+    content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdEUoJljmQcr_s8BKBZ1QckXUT5Q6VBHsoNA&s');
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .home-user-menu img:hover {
+    transform: scale(1.1);
   }
 
   .course-card, .route-card, .stat-card {
-    background-color: #FFF0F5;
-    border: 2px solid #FFD700;
+    background-color: var(--surface-dark);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .button, .continue-btn {
-    background-color: #FF0000;
-    border: 2px solid #FFD700;
+  .course-card:hover, .route-card:hover, .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(255, 107, 43, 0.2);
+  }
+
+  .school-button {
+    transition: transform 0.3s ease;
+  }
+
+  .school-icon {
+    background: radial-gradient(circle, var(--surface-dark) 0%, #FFF9C4 100%);
+    border: 3px solid var(--primary-light);
+    padding: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+  }
+
+  .school-button:hover .school-icon {
+    transform: rotate(360deg);
+    border-color: var(--primary-color);
+  }
+
+  .progress-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+
+  .continue-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    border: none;
+    color: var(--surface-dark);
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
+  }
+
+  .continue-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 107, 43, 0.4);
+  }
+
+  .chat-container {
+    background-color: var(--surface-dark);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .message-content {
+    background-color: rgba(255, 107, 43, 0.1);
+    border: none;
+    border-radius: 15px;
+  }
+
+  .message.sent .message-content {
+    background-color: var(--primary-color);
+    color: var(--surface-dark);
+  }
+
+  .streak-logo {
+    content: url('https://i.pinimg.com/originals/7a/7f/76/7a7f76ea01702078582a1ae8b7344fb3.png');
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  }
+
+  .streak-info {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: var(--surface-dark);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  h2, h3 {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  input {
+    border-radius: 25px !important;
+    border: 2px solid var(--primary-light) !important;
+    background-color: var(--surface-dark) !important;
+    padding: 12px 20px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  input:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3) !important;
   }
 }
 
-/* Tema Adolescente (13-17 años) */
+/* Theme Teen (Gojo Inspired) */
 .theme-teen {
-  --primary-color: #3498db; /* Azul principal */
-  --primary-light: #e74c3c; /* Rojo complementario */
-  --secondary-color: #9b59b6; /* Púrpura para variedad */
-  --background-dark: #2c3e50; /* Azul oscuro */
-  --surface-dark: #34495e; /* Azul grisáceo */
-  --text-primary: #ecf0f1; /* Blanco hueso */
-  --text-secondary: #bdc3c7; /* Gris claro */
-  --accent-color: #e74c3c; /* Rojo para acentos */
+  --primary-color: #5A4A94;
+  --primary-light: #9B8AB4;
+  --secondary-color: #45B0D2;
+  --background-dark: #27254C;
+  --surface-dark: #1F232F;
+  --text-primary: #F2ECF8;
+  --text-secondary: #9B8AB4;
+  --accent-color: #45B0D2;
 
-  /* Sobrescribir algunos estilos específicos para este tema */
+  /* Theme-specific overrides */
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+
   .sidebar {
-    background-image: linear-gradient(to bottom, #3498db, #2c3e50);
+    background: linear-gradient(135deg, var(--background-dark) 0%, var(--primary-color) 100%);
+    box-shadow: 0 0 25px rgba(90, 74, 148, 0.4);
   }
 
-  .message-content {
-    background-color: #34495e;
+  .logo {
+    color: var(--text-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .logo-img {
+    content: url('https://static.wixstatic.com/media/300650_64ecceb0e6814b74afe73dba67845ca4~mv2.png/v1/fill/w_568,h_666,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/300650_64ecceb0e6814b74afe73dba67845ca4~mv2.png');
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(69, 176, 210, 0.3));
+  }
+
+  .sidebar-nav ul li a {
+    color: var(--text-primary);
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-nav ul li a:hover,
+  .sidebar-nav ul li a.active {
+    background-color: rgba(69, 176, 210, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar-nav ul li a i {
+    color: var(--accent-color);
+  }
+
+  .home-user-menu img {
+    content: url('https://i.pinimg.com/originals/c3/00/82/c300823a2fae8c38ea95b5124466ed85.png');
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 15px rgba(69, 176, 210, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .home-user-menu img:hover {
+    transform: scale(1.1);
   }
 
   .course-card, .route-card, .stat-card {
-    background-color: #34495e;
-    border: 1px solid #3498db;
+    background-color: var(--surface-dark);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .button, .continue-btn {
-    background-image: linear-gradient(45deg, #3498db, #e74c3c);
+  .course-card:hover, .route-card:hover, .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(69, 176, 210, 0.2);
+  }
+
+  .school-button {
+    transition: transform 0.3s ease;
+  }
+
+  .school-icon {
+    background: radial-gradient(circle, var(--surface-dark) 0%, var(--background-dark) 100%);
+    border: 3px solid var(--accent-color);
+    padding: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(69, 176, 210, 0.3);
+  }
+
+  .school-button:hover .school-icon {
+    transform: rotate(360deg);
+    border-color: var(--primary-light);
+  }
+
+  .progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    box-shadow: 0 0 10px rgba(69, 176, 210, 0.3);
+  }
+
+  .continue-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border: none;
+    color: var(--text-primary);
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(69, 176, 210, 0.3);
+  }
+
+  .continue-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(69, 176, 210, 0.4);
+  }
+
+  .chat-container {
+    background-color: var(--surface-dark);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .message-content {
+    background-color: rgba(69, 176, 210, 0.1);
+    border: none;
+    border-radius: 15px;
+  }
+
+  .message.sent .message-content {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+  }
+
+  .streak-logo {
+    content: url('https://i.pinimg.com/originals/26/3f/81/263f81e23b7f6ead6fd55f46620e14fe.png');
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 5px rgba(69, 176, 210, 0.5));
+  }
+
+  .streak-info {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--text-primary);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  h2, h3 {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  input {
+    border-radius: 25px !important;
+    border: 2px solid var(--accent-color) !important;
+    background-color: var(--surface-dark) !important;
+    color: var(--text-primary) !important;
+    padding: 12px 20px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  input:focus {
+    border-color: var(--primary-light) !important;
+    box-shadow: 0 0 10px rgba(69, 176, 210, 0.3) !important;
   }
 }
