@@ -477,10 +477,12 @@ body {
   background-color: rgba(52, 152, 219, 0.1);
   border: none;
   color: var(--text-primary);
+  border-color: #2ecc71;
 }
 
+
 .message.received .message-content {
-  background-color: var(--surface-dark);
+  background-color: rgba(52, 152, 219, 0.1);
 }
 
 .message-time {
