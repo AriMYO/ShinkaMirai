@@ -1,5 +1,8 @@
 const API_BASE_URL = "http://localhost:3000";
 
+// Importar la función de registro de Firebase
+import { registerUser } from '../FIrebase/firebae_confing.js';
+
 // Función para calcular la edad
 function calculateAge(birthDate) {
   const today = new Date();
@@ -44,6 +47,17 @@ document
     const theme = setUserTheme(fechaNacimiento);
 
     try {
+      // Llamar a la función de registro de Firebase
+      const result = await registerUser(email, password, nombre, fechaNacimiento);
+
+      if (!result.success) {
+        throw new Error(result.message);
+      }
+
+      // Guardar el nombre en localStorage antes de redirigir
+      localStorage.setItem("userName", nombre);
+
+      // Enviar datos al servidor Nest.js
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
         headers: {
@@ -72,9 +86,6 @@ document
       if (contentType && contentType.includes("application/json")) {
         const data = await response.json();
         
-        // Guardar el nombre en localStorage antes de redirigir
-        localStorage.setItem("userName", nombre);
-        
         alert(data.message);
         window.location.href = "/Client/pages/Auth/login.html";
       } else {
@@ -83,6 +94,10 @@ document
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Hubo un problema con la solicitud: " + error.message);
+      if (error.message.includes("auth/email-already-in-use")) {
+        alert("El correo electrónico ya está en uso. Por favor, utiliza otro correo.");
+      } else {
+        alert("Hubo un problema con la solicitud: " + error.message);
+      }
     }
   });
