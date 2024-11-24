@@ -1,177 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="/Client/Styles/index.css" />
-  <title>ShinkaMirai - Learning and Fun</title>
-</head>
-
-<body>
-  <div class="container-initial">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>LogicCraft - Aprende a Programar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/Client/Styles/index.css" />
+  </head>
+  <body>
     <header>
-      <div class="navbar">
+      <nav class="navbar">
         <div class="logo-container">
-          <img src="/Client/Images/Guimarbot.png" alt="" />
-          <span class="logo">ShinkaMirai</span>
+          <img
+            src="/placeholder.svg?height=48&width=48"
+            alt="LogicCraft Logo"
+            class="logo"
+          />
+          <span class="logo-text">LogicCraft</span>
         </div>
-        <nav>
-          <ul>
-            <li><a href="/Client/pages/Home/admin_page.html">Inicio</a></li>
-            <li><a href="/Client/pages/Courses/1Courses_page/Courses.html">Cursos</a></li>
-            <li><a href="#">Jugar</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
-        </nav>
-        <div class="buttons">
-          <button onclick="window.location.href='/Client/pages/Auth/login.html'">Login</button>
-          <button onclick="window.location.href='/Client/pages/Auth/register.html'">Registrarse</button>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <button class="btn btn-login" onclick="location.href='/Client/pages/Auth/login.html'">Iniciar Sesión</button>
+          <button class="btn btn-register" onclick="location.href='/Client/pages/Auth/register.html'">Registrarse</button>
         </div>
-      </div>
+      </nav>
     </header>
 
-    <section class="hero">
-      <h1>Guimarbot <br /><span>Impulsa tus conocimientos!</span></h1>
-      <p>
-        Somos una pequeña plataforma de aprendizaje en línea que se
-        especializa en ofrecer cursos de alta calidad y prácticos para todos
-        los niveles de aprendizaje. Nuestro objetivo es hacer que el
-        aprendizaje sea accesible y divertido para todos.
-      </p>
-      <h2>¿Quieres aprender jugando?</h2>
-      <button class="start-learning">COMENZAR A APRENDER</button>
-    </section>
-
-    <section class="learning-areas">
-      <h2>Áreas de Aprendizaje</h2>
-      <div class="area-cards">
-        <button class="area-card">
-          <span>APRENDE SOBRE</span>
-          <h3>Visual Studio Code</h3>
-        </button>
-        <button class="area-card">
-          <span>APRENDIZAJE EN</span>
-          <h3>Inteligencia Artificial</h3>
-        </button>
-        <button class="area-card">
-          <span>APRENDE SOBRE</span>
-          <h3>Desarrollo Móvil</h3>
-        </button>
-        <button class="area-card" onclick="window.location.href='/Client/pages/Courses/Web_development/curso_web.html'">
-          <span>DESARROLLATE EN</span>
-          <h3>Desarrollo Web</h3>
-        </button>
-        <button class="area-card">
-          <span>APRENDE SOBRE</span>
-          <h3>Desarrollo de Juegos</h3>
-        </button>
-        <button class="area-card">
-          <span>APRENDIZAJE EN</span>
-          <h3>Programación de Aplicaciones Móviles</h3>
-        </button>
-        <button class="area-card">
-          <span>APRENDE SOBRE</span>
-          <h3>Ingeniería de Software</h3>
-        </button>
-        <button class="area-card">
-          <span>APRENDIZAJE EN</span>
-          <h3>Backend con Node.js</h3>
-        </button><!--  -->
-      </div>
-    </section>
-
-    <!--     <div class="container">
- -->
-    <section class="authority-section">
-      <div class="text-content">
-        <h2>
-          Tu y Guimarbotcito pueden tener un plan de aprendizaje personalizado
-          como:
-        </h2>
-        <ul>
-          <li>Aprende algo nuevo cada 5 minutos</li>
-          <li>Rutas profesionales te guían de principiante a profesional</li>
-          <li>Pon a prueba tu progreso de forma interactiva</li>
-          <li>Descarga las clases a tu teléfono y aprende sin Internet</li>
-          <li>Organiza el aprendizaje de tu equipo</li>
-          <li>Aprende a programar con las tecnologias mas demandadas</li>
-          <li>Aprende a programar jugando de la forma mas divertida</li>
-        </ul>
-      </div>
-    </section>
-    <!--     </div>
- -->
-    <!--     <div class="container-payment">
- -->
-    <section class="pricing-section">
-      <h2>Elige el plan ideal para ti</h2>
-      <div class="plan-options">
-        <div class="plan-card">
-          <h3>Básico</h3>
-          <p>Para 1 estudiante</p>
-          <p class="price">S/200 al año</p>
-          <p class="recurring">Cobro anual recurrente de S/600</p>
-          <ul>
-            <li>Contenido profesional actualizado.</li>
-            <li>Certificados digitales.</li>
-            <li>Descarga contenido en la app móvil.</li>
-            <li>Acceso a sesiones de tutoría en vivo.</li>
-            <li>Material adicional exclusivo.</li>
-            <li>Un descuento del 30% para todos los participantes.</li>
-          </ul>
-          <p class="installments">
-            Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o
-            crédito.
-          </p>
-          <button class="subscribe-button"
-            onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscribirse</button>
+    <main class="slider-container">
+      <div class="slider">
+        <div class="slide" id="inicio">
+          <div class="content">
+            <h1>LogicCraft</h1>
+            <p>
+              ¡Bienvenido a LogicCraft! Aquí te guiaremos desde lo más básico
+              hasta lo avanzado, ayudándote a dominar el arte de la programación
+              desde cero. No necesitas experiencia previa, solo la curiosidad de
+              explorar el mundo del código.
+            </p>
+            <button class="btn btn-cta">Comienza tu viaje</button>
+          </div>
         </div>
-        <div class="plan-card">
-          <h3>Duo</h3>
-          <p>Para 2 estudiantes</p>
-          <p class="price">S/350 al año</p>
-          <p class="recurring">Cobro anual recurrente de S/1,080</p>
-          <ul>
-            <li>Contenido profesional actualizado.</li>
-            <li>Certificados digitales.</li>
-            <li>Descarga contenido en la app móvil.</li>
-            <li>Acceso a sesiones de tutoría en vivo.</li>
-            <li>Material adicional exclusivo.</li>
-            <li>Un descuento del 30% para todos los participantes.</li>
-          </ul>
-          <p class="installments">
-            Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o
-            crédito.
-          </p>
-          <button class="subscribe-button"
-            onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscribirse</button>
+        <div class="slide" id="cursos">
+          <div class="content">
+            <h1>Crea aplicaciones impactantes</h1>
+            <p>
+              En LogicCraft, no solo aprenderás a programar, aprenderás a
+              construir. Te damos las herramientas para que crees aplicaciones
+              que marquen la diferencia, capaces de resolver problemas reales y
+              transformar la forma en que interactuamos con la tecnología.
+            </p>
+          </div>
         </div>
-        <div class="plan-card">
-          <h3>Expert</h3>
-          <p>Para 4 estudiantes</p>
-          <p class="price">S/500 al año</p>
-          <p class="recurring">Cobro anual recurrente de S/2,040</p>
-          <ul>
-            <li>Contenido profesional actualizado.</li>
-            <li>Certificados digitales.</li>
-            <li>Descarga contenido en la app móvil.</li>
-            <li>Acceso a sesiones de tutoría en vivo.</li>
-            <li>Material adicional exclusivo.</li>
-            <li>Un descuento del 30% para todos los participantes.</li>
-          </ul>
-          <p class="installments">
-            Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o
-            crédito.
-          </p>
-          <button class="subscribe-button"
-            onclick="window.location.href='/Client/Payment/Card/payment_card.html'">Suscribirse</button>
+        <div class="slide">
+          <div class="content">
+            <h1>Conviértete en un experto</h1>
+            <p>
+              A través de ejercicios y proyectos reales, te ayudaremos a
+              convertirte en un desarrollador experto, con habilidades que te
+              permitirán sobresalir en la industria. Nuestro enfoque es
+              práctico, para que lo que aprendas hoy lo puedas aplicar mañana.
+            </p>
+          </div>
+        </div>
+        <div class="slide" id="planes">
+          <div class="content">
+            <h1>Planes de Suscripción</h1>
+            <div class="plan-container">
+              <div class="plan">
+                <h2>Plan Básico</h2>
+                <p class="price">S/200 <span>al año</span></p>
+                <ul>
+                  <li>Para 1 estudiante</li>
+                  <li>Acceso a todos los cursos</li>
+                  <li>Certificados digitales</li>
+                  <li>Soporte por correo</li>
+                </ul>
+                <button class="btn btn-plan">Suscribirse</button>
+              </div>
+              <div class="plan featured">
+                <h2>Plan Duo</h2>
+                <p class="price">S/350 <span>al año</span></p>
+                <ul>
+                  <li>Para 2 estudiantes</li>
+                  <li>Acceso a todos los cursos</li>
+                  <li>Certificados digitales</li>
+                  <li>Soporte prioritario</li>
+                  <li>Sesiones de tutoría en vivo</li>
+                </ul>
+                <button class="btn btn-plan">Suscribirse</button>
+              </div>
+              <div class="plan">
+                <h2>Plan Experto</h2>
+                <p class="price">S/500 <span>al año</span></p>
+                <ul>
+                  <li>Para 4 estudiantes</li>
+                  <li>Acceso a todos los cursos</li>
+                  <li>Certificados digitales</li>
+                  <li>Soporte 24/7</li>
+                  <li>Sesiones de tutoría personalizadas</li>
+                  <li>Acceso anticipado a nuevos cursos</li>
+                </ul>
+                <button class="btn btn-plan">Suscribirse</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-    <!--     </div>-->
-  </div>
+      <div class="slider-nav">
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+      </div>
+    </main>
 
-</body>
+    <footer class="footer">
+      <div class="feature">
+        <i class="fas fa-home"></i>
+        <div>
+          <p>Estudia desde casa</p>
+          <small>Tú eliges cuándo y dónde aprender</small>
+        </div>
+      </div>
+      <div class="feature">
+        <i class="fas fa-headset"></i>
+        <div>
+          <p>Soporte personalizado</p>
+          <small>Profesores dispuestos a resolver tus dudas</small>
+        </div>
+      </div>
+      <div class="feature">
+        <i class="fas fa-users"></i>
+        <div>
+          <p>Comunidad activa</p>
+          <small>+5000 estudiantes satisfechos</small>
+        </div>
+      </div>
+    </footer>
 
+    <script src="/Client/Js/index.js"></script>
+  </body>
 </html>

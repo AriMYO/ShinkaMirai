@@ -601,6 +601,138 @@ body {
   min-width: 150px;
 }
 
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.course-card {
+  position: relative;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: center;
+    background-color: var(--card-bg-color);
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.course-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.course-btn {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.course-btn-primary {
+  background-color: var(--card-bg-color);
+  color: white;
+}
+
+.course-btn-secondary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Theme-specific styles */
+.theme-kids {
+    --card-bg-color: #FF6F00; /* Naranja */
+}
+
+.theme-teen {
+    --card-bg-color: #1E88E5; /* Azul */
+}
+
+.theme-adult {
+    --card-bg-color: #43A047; /* Verde */
+}
+
+/* ... (existing styles) ... */
+
+.filter-section {
+  background-color: var(--surface-dark);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 16px rgba(0, 255, 0, 0.2);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+}
+
+/* Theme-specific styles */
+.theme-kids .filter-btn {
+  background-color: var(--primary-color);
+  color: var(--surface-dark);
+}
+
+.theme-kids .filter-btn:hover, .theme-kids .filter-btn.active {
+  background-color: var(--primary-light);
+}
+
+.theme-teen .filter-btn {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+}
+
+.theme-teen .filter-btn:hover, .theme-teen .filter-btn.active {
+  background-color: var(--accent-color);
+}
+
+/* ... (other existing styles) ... */
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .sidebar {

@@ -10,12 +10,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const userTheme = localStorage.getItem('userTheme');
+      document.addEventListener("DOMContentLoaded", () => {
+        const userTheme = localStorage.getItem("userTheme");
         if (userTheme) {
-            document.body.className = userTheme;
+          document.body.className = userTheme;
         }
-    });
+      });
     </script>
     <script src="/Server/FIrebase/firebae_confing.js"></script>
   </head>
@@ -75,8 +75,12 @@
           </button>
           <nav class="home-nav">
             <div class="home-search-bar">
-              <input type="text" placeholder="¿Qué quieres aprender?" />
-              <button class="search-button">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="¿Qué quieres aprender?"
+              />
+              <button class="search-button" id="searchButton">
                 <i class="fas fa-search"></i>
               </button>
             </div>
@@ -86,8 +90,11 @@
                   >Cursos</a
                 >
               </li>
-              <li><a href="/Client/Payment/Card/payment_card.html">Planes</a></li>
+              <li>
+                <a href="/Client/Payment/Card/payment_card.html">Planes</a>
+              </li>
               <li><a href="#">Contáctanos</a></li>
+              <li><a href="#" id="requestScholarship">Pedir beca</a></li>
               <li class="streak-container">
                 <img
                   src="https://i.pinimg.com/originals/c3/00/82/c300823a2fae8c38ea95b5124466ed85.png"
@@ -185,70 +192,20 @@
               </button>
             </div>
           </section>
+
+          <section class="filter-section">
+            <h2>Filtrar contenido por edad</h2>
+            <div class="filter-buttons">
+              <button class="filter-btn" data-age="kids">Niños</button>
+              <button class="filter-btn" data-age="teens">Adolescentes</button>
+              <button class="filter-btn" data-age="adults">Adultos</button>
+            </div>
+          </section>
+
           <section class="courses-section">
             <h2>Cursos recomendados para ti</h2>
-            <div class="courses-grid">
-              <div class="course-card">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/3_dwKqCsbis"
-                  title="Curso de desarrollo de Aplicaciones Moviles"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-                <h3>Curso de desarrollo de Aplicaciones Moviles</h3>
-                <p>
-                  En este curso aprenderás a programar y ver cómo se puede
-                  programar para dispositivos móviles...
-                </p>
-              </div>
-              <div class="course-card">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/5rl4HzQXLRA"
-                  title="Curso de Desarrollo Web"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-                <h3>Curso de Desarrollo Web</h3>
-                <p>Aprende a crear páginas web con HTML, CSS y JS</p>
-              </div>
-              <div class="course-card">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/wsqcg5ZtUMM"
-                  title="Curso NestJS"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-                <h3>Curso NestJS</h3>
-                <p>
-                  En este curso aprenderás todo sobre NestJS, sus herramientas y
-                  cómo te puede ayudar en tu día a día como desarrollador...
-                </p>
-              </div>
-              <div class="course-card">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/Kp4Mvapo5kc"
-                  title="Curso de Python"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-                <h3>Curso de Python</h3>
-                <p>
-                  Aprende a programar con Python, desde los fundamentos hasta
-                  los mas avanzados...
-                </p>
-              </div>
+            <div class="courses-grid" id="coursesGrid">
+              <!-- Los cursos se generarán dinámicamente aquí -->
             </div>
           </section>
         </div>

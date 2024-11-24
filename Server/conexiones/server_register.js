@@ -25,6 +25,8 @@ function setUserTheme(birthDate) {
     theme = 'theme-kids';
   } else if (age >= 13 && age <= 17) {
     theme = 'theme-teen';
+  } else {
+    theme = 'theme-adult';
   }
   
   localStorage.setItem('userTheme', theme);

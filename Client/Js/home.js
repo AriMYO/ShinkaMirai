@@ -329,4 +329,110 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Iniciar la aplicación
   initializeApp();
+
+  // New code for course filtering and searching
+  const searchInput = document.getElementById('searchInput');
+  const coursesGrid = document.getElementById('coursesGrid');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const requestScholarshipButton = document.getElementById('requestScholarship');
+
+  const courses = [
+      {
+          title: 'Introducción a la Robótica',
+          description: 'Enfocado en introducir a los estudiantes en el mundo de la robótica y programación básica',
+          image: '/path/to/robotics-image.jpg',
+          age: 'kids',
+          tags: ['robótica', 'programación', 'básico']
+      },
+      { title: 'Desarrollo Web para Adolescentes', age: 'teens', tags: ['web', 'html', 'css'] },
+      { title: 'JavaScript Avanzado', age: 'adults', tags: ['javascript', 'avanzado'] },
+      { title: 'Diseño de Videojuegos para Niños', age: 'kids', tags: ['videojuegos', 'diseño'] },
+      { title: 'Redes Sociales y Seguridad Online', age: 'teens', tags: ['seguridad', 'redes sociales'] },
+      { title: 'Machine Learning y IA', age: 'adults', tags: ['ia', 'machine learning'] }
+  ];
+
+  function renderCourses(filteredCourses) {
+      coursesGrid.innerHTML = '';
+      filteredCourses.forEach(course => {
+          const courseElement = document.createElement('div');
+          courseElement.classList.add('course-card');
+          
+          courseElement.innerHTML = `
+              <img src="${course.image || '/Client/Images/fondo_hollow knight.jpeg'}" 
+                   alt="${course.title}" 
+                   class="course-image">
+              <div class="course-content">
+                  <h3 class="course-title">${course.title}</h3>
+                  <p class="course-description">${course.description || 'Enfocado en introducir a los estudiantes en esta área de conocimiento.'}</p>
+                  <div class="course-buttons">
+                      <button class="course-btn course-btn-primary">Ver sesiones</button>
+                      <button class="course-btn course-btn-secondary">Ir a Evaluación</button>
+                  </div>
+              </div>
+          `;
+          
+          // Add click handlers for buttons
+          const buttons = courseElement.querySelectorAll('.course-btn');
+          buttons.forEach(button => {
+              button.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  const action = button.textContent;
+                  if (action === 'Ver sesiones') {
+                      // Handle view sessions
+                      console.log('Ver sesiones para:', course.title);
+                  } else {
+                      // Handle evaluation
+                      console.log('Ir a evaluación para:', course.title);
+                  }
+              });
+          });
+          
+          coursesGrid.appendChild(courseElement);
+      });
+  }
+
+  function filterCourses(age) {
+      return courses.filter(course => course.age === age);
+  }
+
+  function searchCourses(query) {
+      return courses.filter(course => 
+          course.title.toLowerCase().includes(query.toLowerCase()) ||
+          course.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+      );
+  }
+
+  // Add a reset button
+  const resetButton = document.createElement('button');
+  resetButton.textContent = 'Restablecer';
+  resetButton.classList.add('filter-btn');
+  resetButton.addEventListener('click', function() {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      renderCourses(courses);
+  });
+  document.querySelector('.filter-buttons').appendChild(resetButton);
+
+  filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          const age = this.dataset.age;
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          const filteredCourses = filterCourses(age);
+          renderCourses(filteredCourses);
+      });
+  });
+
+  searchInput.addEventListener('input', function() {
+      const query = this.value;
+      const searchResults = searchCourses(query);
+      renderCourses(searchResults);
+  });
+
+  requestScholarshipButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Funcionalidad de solicitud de beca en desarrollo. Pronto estará disponible.');
+  });
+
+  // Initialize with all courses
+  renderCourses(courses);
 });
