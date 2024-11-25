@@ -3,16 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/Client/Styles/usuario.css" />
+    <link rel="stylesheet" href="/Client/Styles/register.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Registrarse</title>
   </head>
 
   <body>
     <div class="login-container">
-      <div class="image-section">
-        <img src="/Client/Images/Guimarbot.png" alt="Imagen de Perfil" class="profile-image" />
-        <h2>Guimarbot</h2>
+      <div class="robot-container">
+        <div class="robot">
+          <div class="head">
+            <div class="antenna left"></div>
+            <div class="antenna right"></div>
+            <div class="visor">
+              <div class="eyes">
+                <div class="eye left">
+                  <div class="pupil"></div>
+                  <div class="eyelid"></div>
+                </div>
+                <div class="eye right">
+                  <div class="pupil"></div>
+                  <div class="eyelid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="emblem"></div>
+            </div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+          </div>
+        </div>
       </div>
 
       <div class="login-section">
@@ -42,6 +63,7 @@
         </div>
       </div>
     </div>
+    <script src="/Client/Js/register.js"></script>
     <script type="module" src="/Server/conexiones/server_register.js"></script>
   </body>
 </html>

@@ -3,21 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/Client/Styles/usuario.css" />
+    <link rel="stylesheet" href="/Client/Styles/login.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Iniciar Sesión</title>
   </head>
   <body>
     <div class="login-container">
-      <div class="image-section">
-        <img
-          src="/Client/Images/Guimarbot.png"
-          alt="Imagen de Perfil"
-          class="profile-image"
-        />
-        <h2>Guimarbot</h2>
+      <div class="robot-container">
+        <div class="robot">
+          <div class="glow"></div>
+          <div class="antenna"></div>
+          <div class="head">
+            <div class="eyes">
+              <div class="eye left">
+                <div class="pupil"></div>
+                <div class="eyelid"></div>
+              </div>
+              <div class="eye right">
+                <div class="pupil"></div>
+                <div class="eyelid"></div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="chest-light"></div>
+          </div>
+          <div class="hands">
+            <div class="hand left"></div>
+            <div class="hand right"></div>
+          </div>
+        </div>
       </div>
-
       <div class="login-section">
         <h1>Iniciar Sesión</h1>
         <form id="login-form">
@@ -37,8 +53,6 @@
             name="password"
             placeholder="Ingresa tu contraseña"
             required
-          />
-
           />
 
           <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
@@ -67,5 +81,6 @@
       </div>
     </div>
     <script src="/Server/conexiones/server_login.js"></script>
+    <script src="/Client/Js/login.js"></script>
   </body>
 </html>
