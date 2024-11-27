@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plataforma de Aprendizaje - ShinkaToMirai</title>
+    <link rel="stylesheet" href="/ShinkaMirai/Client/Styles/courses_development.css" />
     <link rel="stylesheet" href="/Client/Styles/courses_development.css" />
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
-          <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+          <img src="/ShinkaMirai/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
           <span>ShinkaToMirai</span>
         </div>
         <div class="search-bar">
@@ -29,22 +30,9 @@
           <img src="/Client/Images/pikachu.png" alt="Usuario" />
           <div class="dropdown-menu">
             <p>Hola, <span class="user-name">Usuario</span></p>
-
-            <a
-              href="#"
-              onclick="window.location.href='/Client/pages/Courses/Courses.html'"
-              >Ver todos mis cursos</a
-            >
-            <a
-              href="#"
-              onclick="window.location.href='/Client/pages/Auth/profile.html'"
-              >Ver mi perfil</a
-            >
-            <a
-              href="#"
-              onclick="window.location.href='/Client/pages/Plans/plans.html'"
-              >Mis planes</a
-            >
+            <a href="#" onclick="window.location.href='/Client/pages/Courses/Courses.html'">Ver todos mis cursos</a>
+            <a href="#" onclick="window.location.href='/Client/pages/Auth/profile.html'">Ver mi perfil</a>
+            <a href="#" onclick="window.location.href='/Client/pages/Plans/plans.html'">Mis planes</a>
             <a href="#">Mi Suscripción</a>
             <a href="#">Contáctanos</a>
             <a href="#">Configuración</a>
@@ -76,7 +64,7 @@
             modernas. ¡Prepárate para convertirte en un creador de experiencias
             en línea!
           </p>
-          <button class="cta-button">Comenzar ahora</button>
+          <button class="cta-button" id="openModal">Comenzar ahora</button>
         </div>
         <div class="instructor-image">
           <img
@@ -214,6 +202,32 @@
         </div>
       </section>
     </main>
+
+    <div id="courseModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Curso de Desarrollo Web</h2>
+        <div class="course-container">
+          <div class="sidebar">
+            <button class="session-btn active" data-session="1">Sesión 1</button>
+            <button class="session-btn" data-session="2">Sesión 2</button>
+            <button class="session-btn" data-session="3">Sesión 3</button>
+            <button class="session-btn" data-session="4">Sesión 4</button>
+          </div>
+          <div class="main-content">
+            <div class="video-container">
+              <iframe id="videoPlayer" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="comment-section">
+              <textarea id="commentInput" placeholder="Escribe tu comentario..."></textarea>
+              <button id="submitComment">Enviar comentario</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/Client/Js/common.js"></script>
+    <script src="/Client/Js/courses_development.js"></script>
   </body>
-  <script src="/Client/Js/common.js"></script>
 </html>
