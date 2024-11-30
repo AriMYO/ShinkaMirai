@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Simulación de carga de datos del usuario
   const userData = {
-    // name: localStorage.getItem("userName") || "Nombre no disponible",
-    // email: localStorage.getItem("userEmail") || "Correo no disponible",
+    name: localStorage.getItem("userName") || "Nombre no disponible",
+    email: localStorage.getItem("userEmail") || "Correo no disponible",
     // no tocar parte donde saldra el nombre y el correo con el cual se registrara
     birthDate: localStorage.getItem("userBirthDate") || "2000-01-01",
     courses: [
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         name: "Logro: Completar 3 Cursos",
         image:
-          "https://img.wattpad.com/861d6e8845d47d6781e1ee09f1a1cea98a1ca97b/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f79795f7742545a62625f657342673d3d2d313338313137393031322e313739363161353361626438643762653134353631393139383331342e706e67",
+          "https://img.wattpad.com/861d6e8845d47d6781e1ee09f1a1cea98a1ca97b/68747470733a2f2f73332   e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f79795f7742545a62625f657342673d3d2d313338313137393031322e313739363161353361626438643762653134353631393139383331342e706e67",
       },
     ],
   };
@@ -73,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
       courseList.appendChild(li);
     });
+  }
+
   function loadCertificates() {
     const certificateGrid = document.getElementById("certificateGrid");
     certificateGrid.innerHTML = "";
@@ -211,5 +213,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // Simulación de carga de datos adicionales (podría ser una llamada a API en un caso real)
   setTimeout(() => {
     console.log("Datos adicionales cargados");
-  }, 2000);
+    }, 2000);
 });
