@@ -56,8 +56,9 @@ document
         throw new Error(result.message);
       }
 
-      // Guardar el nombre en localStorage antes de redirigir
+      // Guardar el nombre y el email en localStorage antes de redirigir
       localStorage.setItem("userName", nombre);
+      localStorage.setItem("userEmail", email);
 
       // Enviar datos al servidor Nest.js
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
@@ -88,7 +89,12 @@ document
       if (contentType && contentType.includes("application/json")) {
         const data = await response.json();
         
+        // Guardar el nombre y el email en localStorage
+        localStorage.setItem("userName", nombre);
+        localStorage.setItem("userEmail", email);
+
         alert(data.message);
+        // Redirigir a la página de inicio
         window.location.href = "/Client/pages/Auth/login.html";
       } else {
         const textData = await response.text();
